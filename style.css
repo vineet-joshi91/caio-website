@@ -1,0 +1,85 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f9fc;
+  color: #23272f;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 820px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 32px 28px 20px 28px;
+  box-shadow: 0 0 16px rgba(26,50,71,0.09);
+  border-radius: 12px;
+}
+h1, h2 {
+  color: #134383;
+  margin-bottom: 16px;
+  text-align: center;
+}
+ul, ol {
+  margin-left: 24px;
+  line-height: 1.6;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0 14px 0;
+  background: #fcfcfc;
+}
+th, td {
+  border: 1px solid #e0e6ed;
+  padding: 13px;
+  text-align: left;
+}
+th {
+  background: #f1f5fa;
+  color: #134383;
+  font-weight: 600;
+}
+tr:nth-child(even) {
+  background: #f8fafb;
+}
+.cta {
+  margin: 32px 0;
+  text-align: center;
+}
+.cta a {
+  background: #134383;
+  color: #fff;
+  text-decoration: none;
+  padding: 13px 32px;
+  border-radius: 7px;
+  font-weight: 600;
+  transition: background 0.2s;
+  font-size: 1.13em;
+}
+.cta a:hover {
+  background: #316ac9;
+}
+footer {
+  margin-top: 36px;
+  padding: 22px 0 10px 0;
+  background: #f1f5fa;
+  text-align: center;
+  font-size: 1.02em;
+  border-top: 1px solid #e5e5e5;
+}
+footer a {
+  color: #134383;
+  margin: 0 7px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.logo {
+  width: 140px;
+  margin: 30px auto 14px auto;
+  display: block;
+}
+@media (max-width: 700px) {
+  .container { padding: 12px 1vw 12px 1vw; }
+  h1 { font-size: 1.1em; }
+  th, td { padding: 7px 4px; }
+  .logo { width: 95px; }
+}
