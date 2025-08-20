@@ -2,177 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>CAIO – Welcome</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CAIO — Your AI-Powered Chief Intelligence Officer</title>
-  <meta name="description" content="CAIO helps founders and operators get CXO-grade insights in minutes. Start free, upgrade when ready." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="CAIO — Your Chief Artificial Intelligence Officer">
-  <meta property="og:description" content="Have brilliant CXO insights and recommendations within seconds!">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://caioai.netlify.app/">
-
-  <!-- JSON-LD Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Joshi Enterprises",
-    "url": "https://caioai.netlify.app/",
-    "telephone": "+918451049570",
-    "email": "vineetpjoshi.71@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Happy Valley Towers, Manpada",
-      "addressLocality": "Thane (West)",
-      "addressRegion": "Maharashtra",
-      "postalCode": "400610",
-      "addressCountry": "IN"
-    }
-  }
-  </script>
-
   <style>
-    :root{
-      --ink:#0f172a;   /* very dark text for contrast */
-      --sub:#334155;
-      --muted:#64748b;
-      --brand:#154272; /* CAIO blue */
-      --bg:#ffffff;
-      --panel:#f8fafc;
-      --border:#e5e7eb;
-      --white:#fff;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid var(--border);z-index:50}
-    .wrap{max-width:1100px;margin:0 auto;padding:14px 20px}
-    .nav{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:800;color:var(--brand);letter-spacing:.4px}
-    .nav a{color:var(--ink);text-decoration:none;margin:0 10px}
-    .btn{display:inline-block;background:var(--brand);color:var(--white);padding:10px 16px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid #0f3a66}
-    .btn.secondary{background:#0f4a8a}
-    .hero{background:linear-gradient(135deg,#eef3fb,#ffffff);padding:72px 20px;border-bottom:1px solid var(--border)}
-    .hero h1{font-size:42px;line-height:1.1;margin:0 0 12px}
-    .hero p{color:var(--sub);font-size:18px;margin:0 0 22px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--panel);padding:18px;border-radius:14px;border:1px solid var(--border)}
-    h2{font-size:28px;margin:12px 0 8px}
-    h3{margin:0 0 6px}
-    .muted{color:var(--muted);font-size:14px}
-    .section{padding:36px 20px}
-    .pricing .plan{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px}
-    .pricing .price{font-size:30px;font-weight:800}
-    footer{padding:24px 20px;border-top:1px solid var(--border);background:#fff}
-    footer a{color:#475569;text-decoration:none;margin-right:14px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-
-    /* Simple form styles */
-    input,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:15px}
-    form{display:grid;gap:12px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media (max-width:700px){.row{grid-template-columns:1fr}}
+    :root { color-scheme: dark; }
+    body { margin:0; min-height:100dvh; display:grid; place-items:center; background:#0a0a0a; color:#e5e7eb; font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+    .card { width:min(680px,90vw); background:rgba(24,24,27,.8); border:1px solid #27272a; border-radius:16px; padding:28px; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+    h1{margin:0 0 8px; font-size:28px;} p{margin:0 0 18px; opacity:.85;} .row{display:flex; gap:12px; flex-wrap:wrap;}
+    button, a.btn{appearance:none; border:0; cursor:pointer; padding:12px 18px; border-radius:10px; font-weight:600; background:#2563eb; color:#fff; text-decoration:none; display:inline-flex; align-items:center; gap:8px;}
+    button:hover, a.btn:hover{background:#3b82f6;} .subtle{background:#27272a; color:#e5e7eb;} .subtle:hover{background:#3f3f46;}
+    .note{font-size:12px; opacity:.7; margin-top:8px;}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="logo">CAIO</div>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-        <!-- Login goes to the app root (same tab) -->
-        <a class="btn" href="https://caio-frontend.vercel.app">Login</a>
-      </nav>
+  <main class="card">
+    <h1>Welcome to CAIO</h1>
+    <p>Click the button below to go to the secure login on our app.</p>
+    <div class="row">
+      <a class="btn" id="go-login" href="https://caio-frontend.vercel.app/logout-bridge">Go to Login</a>
+      <button class="subtle" id="clear-local">Clear local session (this site only)</button>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <h1>Your AI-Powered Chief Intelligence Officer</h1>
-        <p>Drop in your docs and get CFO/COO/CMO/CHRO-grade insights in minutes. Start free, upgrade when you’re ready.</p>
-        <div>
-          <a class="btn" href="https://caio-frontend.vercel.app">Login</a>
-          <a class="btn secondary" href="https://caio-frontend.vercel.app/signup" style="margin-left:10px">Sign up</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="section">
-      <div class="wrap">
-        <h2>Four executive brains. One place.</h2>
-        <div class="grid" style="margin-top:14px">
-          <div class="card"><h3>🧮 CFO</h3><p class="muted">Cash runway, unit economics, cost-cutting levers.</p></div>
-          <div class="card"><h3>⚙️ COO</h3><p class="muted">Bottleneck detection, process suggestions, throughput.</p></div>
-          <div class="card"><h3>📣 CMO</h3><p class="muted">Audience insights, messaging, quick GTM experiments.</p></div>
-          <div class="card"><h3>👥 CHRO</h3><p class="muted">Org gaps, JD drafts, performance frameworks.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section pricing">
-      <div class="wrap">
-        <h2>Pricing</h2>
-        <div class="grid" style="margin-top:14px">
-          <div class="plan">
-            <h3>Starter</h3>
-            <div class="price">$0</div>
-            <p class="muted">Limited runs, basic insights. Great for trials.</p>
-          </div>
-          <div class="plan">
-            <h3>Pro</h3>
-            <div class="price">$19/mo</div>
-            <p class="muted">Higher limits, all brains, priority support.</p>
-          </div>
-          <div class="plan">
-            <h3>Business</h3>
-            <div class="price">Custom</div>
-            <p class="muted">Team seats, SSO, custom models. Talk to us.</p>
-          </div>
-        </div>
-        <p class="muted" style="margin-top:8px">Payments are processed securely via Razorpay. See <a href="/refund.html">Refunds</a> and <a href="/terms.html">Terms</a>.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="wrap">
-        <h2>Contact</h2>
-        <p><strong>Address:</strong> Happy Valley Towers, Manpada, Thane (West), Maharashtra, 400610, India</p>
-        <p><strong>Phone:</strong> <a href="tel:+918451049570">+91 84510 49570</a></p>
-        <p><strong>Email:</strong> <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a></p>
-
-        <!-- Netlify lead capture -->
-        <form name="caio-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thankyou.html" style="margin-top:14px">
-          <input type="hidden" name="form-name" value="caio-leads">
-          <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-          <div class="row">
-            <p><label>Name<br><input name="name" required></label></p>
-            <p><label>Email<br><input type="email" name="email" required></label></p>
-          </div>
-          <p><label>What can we help with?<br><textarea name="message" rows="4"></textarea></label></p>
-          <button class="btn" type="submit">Send</button>
-        </form>
-
-        <p style="margin-top:14px">
-          <a class="btn" href="https://maps.google.com/?q=Happy%20Valley%20Towers%2C%20Manpada%2C%20Thane%20(West)%2C%20Maharashtra%20400610%2C%20India">Open in Maps</a>
-        </p>
-      </div>
-    </section>
+    <p class="note">
+      The login button first visits a small “logout bridge” on our app that clears the app cookie, then forwards to the sign‑in screen.
+    </p>
   </main>
-
-  <footer>
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
-      <div class="muted">© <span id="y"></span> CAIO</div>
-      <div>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/refund.html">Refunds</a>
-        <a href="https://caio-frontend.vercel.app" class="btn" style="padding:6px 10px">Login</a>
-      </div>
-    </div>
-    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-  </footer>
+  <script>
+    document.getElementById('clear-local').addEventListener('click', () => {
+      try { localStorage.removeItem('token'); } catch {}
+      document.cookie = "token=; path=/; max-age=0; SameSite=Lax";
+      alert('Local session cleared for this site.');
+    });
+  </script>
 </body>
 </html>
