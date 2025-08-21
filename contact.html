@@ -79,7 +79,7 @@
       try {
         const r = await fetch(`${BACKEND_BASE}/api/contact`, { method: "POST", body: fd });
         if (!r.ok) throw new Error("bad status "+r.status);
-        const j = await r.json();
+        await r.json();
         OK.style.display = "block";
         FORM.reset();
       } catch (e) {
