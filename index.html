@@ -1,100 +1,72 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- META -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CAIO — Chief Artificial Intelligence Officer</title>
-  <meta name="description" content="CAIO is your Chief Artificial Intelligence Officer — a compact, powerful operator that turns messy inputs into crisp outcomes." />
-  <meta property="og:title" content="CAIO — Chief Artificial Intelligence Officer" />
-  <meta property="og:description" content="From messy inputs to crisp outcomes. Start free, upgrade when ready." />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="CAIO is your Chief Artificial Intelligence Officer — upload a doc and get CFO/COO/CHRO/CMO/CPO-grade insights." />
   <meta name="theme-color" content="#0A0B10" />
   <style>
-    :root{
-      color-scheme: dark light;
-      --bg:#0A0B10;--panel:#10131B;--glass:rgba(255,255,255,.06);--border:#1E2230;
-      --muted:#A4A9B6;--fg:#E9EBF2;--acc1:#8B5CF6;--acc2:#22D3EE;--acc3:#22C55E;
-      --btn:#1A1E2A;--btn-hover:#22283A;--primary-grad: linear-gradient(90deg,#8B5CF6 0%,#22D3EE 50%,#22C55E 100%);
-    }
+    :root{--bg:#0A0B10;--panel:#10131B;--glass:rgba(255,255,255,.06);--border:#1E2230;--muted:#A4A9B6;--fg:#E9EBF2;--acc2:#22D3EE;--btn:#1A1E2A;--btn-hover:#22283A;}
     *{box-sizing:border-box} html,body{margin:0;padding:0}
-    body{
-      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Ubuntu,Cantarell;
-      background:
-        radial-gradient(1200px 600px at 15% -10%, rgba(139,92,246,.14) 0, transparent 60%),
-        radial-gradient(1000px 600px at 85% -20%, rgba(34,211,238,.12) 0, transparent 60%),
-        var(--bg);
-      color:var(--fg); letter-spacing:.01em;
-    }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu;background:radial-gradient(1200px 600px at 15% -10%, rgba(139,92,246,.14) 0, transparent 60%),radial-gradient(1000px 600px at 85% -20%, rgba(34,211,238,.12) 0, transparent 60%),var(--bg);color:var(--fg)}
     .wrap{max-width:1120px;margin:0 auto;padding:24px}
     header{display:flex;align-items:center;justify-content:space-between;padding:8px 0 2px}
     .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
-    .logo{width:38px;height:38px;border-radius:12px;background:
-      conic-gradient(from 140deg,#8B5CF6 0 33%,#22D3EE 33% 66%,#22C55E 66% 100%);
-      box-shadow:0 10px 28px rgba(34,211,238,.28), 0 6px 18px rgba(139,92,246,.22);
-    }
-    .badge{padding:4px 8px;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-size:12px}
+    .logo{width:38px;height:38px;border-radius:12px;background:conic-gradient(from 140deg,#8B5CF6 0 33%,#22D3EE 33% 66%,#22C55E 66% 100%)}
     nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:700}
     nav a:hover{color:var(--fg)}
     .btn{appearance:none;border:1px solid var(--border);background:var(--btn);color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:800}
     .btn:hover{background:var(--btn-hover)}
-    .btn.primary{border:none;background:var(--primary-grad)}
-    .btn.ghost{background:transparent}
+    .btn.primary{border:none;background:linear-gradient(90deg,#8B5CF6,#22D3EE,#22C55E)}
     .hero{padding:56px 0 16px;display:grid;grid-template-columns: 1.1fr .9fr;gap:28px}
     .kicker{color:var(--acc2);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
-    h1{font-size: clamp(34px, 4vw, 58px); line-height:1.04; margin:8px 0 12px; letter-spacing:-.01em}
+    h1{font-size: clamp(34px, 4vw, 58px); line-height:1.04; margin:8px 0 12px}
     .sub{color:var(--muted);font-size: clamp(15px, 1.6vw, 18px); margin:12px 0 22px}
     .callouts{display:flex;gap:12px;flex-wrap:wrap}
-    .hero .panel{min-height:220px;background:linear-gradient(180deg, var(--panel) 0, #0D1018 100%); border:1px solid var(--border); border-radius:16px; padding:18px}
+    .panel{min-height:220px;background:linear-gradient(180deg, var(--panel) 0, #0D1018 100%); border:1px solid var(--border); border-radius:16px; padding:18px}
     .card{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:16px}
     .muted{color:var(--muted);font-size:14px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
-    .features{display:grid;grid-template-columns: repeat(3,minmax(0,1fr)); gap:16px; margin:42px 0 14px}
-    .feat{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--glass)}
-    .feat h3{margin:0 0 6px;font-size:16px}
-    .stripe{border-top:1px solid var(--border); margin: 28px 0 0; padding-top:18px}
-    .pricing{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .pricing{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
     .plan{border:1px solid var(--border);border-radius:16px;padding:18px;background:var(--glass)}
     .price{font-weight:900;font-size:22px}
     .plan ul{margin:10px 0 0; padding-left:18px}
     .plan li{margin:6px 0}
     footer{margin:48px 0 24px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .features{grid-template-columns:1fr} .pricing{grid-template-columns:1fr} }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} .pricing{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Header -->
     <header>
       <a class="brand" href="/">
         <div class="logo" aria-hidden="true"></div>
         <strong>CAIO</strong>
-        <span class="badge">Chief Artificial Intelligence Officer</span>
       </a>
       <nav>
-        <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
-        <a class="btn ghost" href="mailto:vineetpjoshi.71@gmail.com?subject=CAIO%20Premium%20Inquiry">Contact</a>
-        <!-- UPDATED: direct to Vercel auth -->
+        <!-- Contact buttons → Netlify form -->
+        <a class="btn" href="contact.html">Contact</a>
+        <!-- Login → Vercel -->
         <a class="btn primary" href="https://caio-frontend.vercel.app/login">Login</a>
       </nav>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
       <div>
-        <div class="kicker mono">Chief Artificial Intelligence Officer</div>
-        <h1>Your AI exec — <span style="background:var(--primary-grad);-webkit-background-clip:text;background-clip:text;color:transparent">CAIO</span> — for decisions at speed.</h1>
-        <p class="sub">Drop a doc or paste a brief. CAIO synthesizes, prioritizes, and recommends next actions — the way a great officer would. Start in Demo, upgrade when ready.</p>
+        <div class="kicker">Chief Artificial Intelligence Officer</div>
+        <h1>Decisions at speed</h1>
+        <p class="sub">Upload a document. Get CFO, COO, CHRO, CMO, and CPO‑grade insights. Start Free, upgrade when ready.</p>
         <div class="callouts">
-          <!-- UPDATED: Start free → signup on Vercel -->
+          <!-- Start free → Vercel signup -->
           <a class="btn primary" href="https://caio-frontend.vercel.app/signup">Start free</a>
           <a class="btn" href="#pricing">See pricing</a>
+          <!-- Contact Sales → Netlify form -->
+          <a class="btn" href="contact.html">Contact Sales</a>
         </div>
-        <p class="muted mono" style="margin-top:8px">Secure app on Vercel. Sessions handled there.</p>
+        <p class="muted" style="margin-top:8px">App hosted on Vercel · Backend on Render</p>
       </div>
 
-      <!-- Right hero demo box -->
       <div class="panel">
         <div class="muted">What it feels like</div>
         <div class="card" style="margin-top:10px">
@@ -112,67 +84,49 @@
       </div>
     </section>
 
-    <!-- Features -->
-    <section id="features">
-      <div class="features">
-        <div class="feat"><h3>Officer‑grade synthesis</h3><p class="muted">CAIO reads like an exec: compresses noise, highlights risk, proposes motion.</p></div>
-        <div class="feat"><h3>Choose your engines</h3><p class="muted">Demo engines for Free. OpenAI‑powered depth for Pro. Private by default.</p></div>
-        <div class="feat"><h3>Zero‑friction input</h3><p class="muted">Drop docs. Paste text. No setup. Get answers in seconds, not days.</p></div>
-      </div>
-      <div class="stripe muted mono">⚙️ Roadmap: multi‑file briefs · redlining · CSV/slide exports · team seats (Premium)</div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="stripe">
+    <section id="pricing" style="margin-top:24px">
       <h2 style="margin:0 0 10px">Pricing</h2>
       <div class="pricing">
         <div class="plan">
-          <div class="price">
-            Pro — <span id="proPrice">₹1,999</span> / month
-          </div>
+          <div class="price">Pro — <span id="proPrice">₹1,999</span> / month</div>
           <ul class="muted">
-            <li>Full analysis (All 5 CXO brains)</li>
+            <li>All 5 CXO brains</li>
             <li>Unlimited uploads</li>
             <li>Export (PDF &amp; Excel)</li>
             <li>Priority support</li>
           </ul>
           <div style="margin-top:14px">
-            <!-- UPDATED: Upgrade → Vercel payments -->
+            <!-- Upgrade → Vercel payments -->
             <a class="btn primary" href="https://caio-frontend.vercel.app/payments">Upgrade to Pro</a>
-            <!-- Optional direct dashboard CTA -->
+            <!-- Open app → Vercel -->
             <a class="btn" style="margin-left:8px" href="https://caio-frontend.vercel.app/dashboard">Open App</a>
           </div>
         </div>
         <div class="plan">
           <div class="price">Premium — custom</div>
           <ul class="muted">
-            <li>Deployment & team access</li>
-            <li>API & compliance</li>
+            <li>Team access &amp; SSO</li>
+            <li>API &amp; compliance</li>
             <li>White‑labelling</li>
           </ul>
           <div style="margin-top:14px">
-            <a class="btn" href="mailto:vineetpjoshi.71@gmail.com?subject=CAIO%20Premium%20Inquiry">Contact sales</a>
+            <!-- Contact Sales → Netlify form -->
+            <a class="btn" href="contact.html">Contact Sales</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <div>© <span id="y"></span> CAIO — Chief Artificial Intelligence Officer</div>
-      <div class="callouts">
-        <a class="muted" href="mailto:vineetpjoshi.71@gmail.com">Support</a>
-        <a class="muted" href="pricing.html">Pricing page</a>
-        <a class="muted" href="#">Terms</a>
-        <a class="muted" href="#">Privacy</a>
-      </div>
+      <div>© <span id="y"></span> CAIO</div>
+      <div class="muted">/api/public-config</div>
     </footer>
   </div>
 
-  <!-- Dynamic hydration (INR ₹1,999 in India, $49 elsewhere) -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
+    // Dynamic price: INR ₹1,999 in India, $49 elsewhere (backend decides)
     const BACKEND_BASE = "https://caio-backend.onrender.com";
     (async () => {
       try {
