@@ -1,51 +1,113 @@
-<table style="width:100%;border-collapse:collapse;">
-  <thead>
-    <tr>
-      <th style="border:1px solid #eee;padding:8px;">Plan</th>
-      <th style="border:1px solid #eee;padding:8px;">Price (INR)</th>
-      <th style="border:1px solid #eee;padding:8px;">Features</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="border:1px solid #eee;padding:8px;">Demo</td>
-      <td style="border:1px solid #eee;padding:8px;">FREE</td>
-      <td style="border:1px solid #eee;padding:8px;">
-        Limited insights<br>
-        Watermarked reports<br>
-        No downloads<br>
-        Upgrade to Full anytime
-      </td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #eee;padding:8px;">Full</td>
-      <td style="border:1px solid #eee;padding:8px;">₹7,000/mo<br><span style="font-size:90%;">(Launch: First 10 users)</span><br>₹10,000/mo thereafter</td>
-      <td style="border:1px solid #eee;padding:8px;">
-        Unlimited CXO insights<br>
-        All uploads<br>
-        Priority support<br>
-        Downloadable reports<br>
-        Future updates included
-      </td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #eee;padding:8px;">Annual</td>
-      <td style="border:1px solid #eee;padding:8px;">₹99,999/yr</td>
-      <td style="border:1px solid #eee;padding:8px;">
-        15% off monthly<br>
-        Priority onboarding<br>
-        Custom features (by request)
-      </td>
-    </tr>
-    <tr>
-      <td style="border:1px solid #eee;padding:8px;">Enterprise</td>
-      <td style="border:1px solid #eee;padding:8px;">Custom</td>
-      <td style="border:1px solid #eee;padding:8px;">
-        Private/On-prem deployment<br>
-        API access<br>
-        Custom LLMs<br>
-        Dedicated account manager
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing – CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CAIO SaaS Pricing: Free, Pro, and Premium tiers. Region-aware pricing with INR and USD.">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#fafcff; color:#222; }
+    .container { max-width: 900px; margin: 40px auto; background:#fff; padding: 32px; box-shadow: 0 0 16px rgba(26,50,71,.07); border-radius: 12px; }
+    h1, h2 { color:#134383; text-align:center; margin-bottom: 12px; }
+    table { width:100%; border-collapse: collapse; margin: 24px 0 8px 0; background:#fcfcfc; }
+    th, td { border:1px solid #e0e6ed; padding:13px; text-align:left; }
+    th { background:#f1f5fa; color:#144572; font-weight:600; }
+    tr:nth-child(even){ background:#f8fafb; }
+    .cta { margin: 26px 0; text-align:center; }
+    .cta a { background:#134383; color:#fff; text-decoration:none; padding:12px 24px; border-radius:6px; font-weight:600; transition:background .2s; font-size:1.05em; }
+    .cta a:hover{ background:#306ac8; }
+    footer { margin-top: 28px; padding: 18px 0 10px; background:#f1f5fa; text-align:center; font-size:.98em; border-top:1px solid #e5e5e5; }
+    footer a { color:#134383; margin:0 7px; text-decoration:none; font-weight:500; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CAIO Pricing</h1>
+    <h2>AI‑Powered Executive Insights, Priced for Growth</h2>
+    <p style="text-align:center;margin-bottom:22px;">
+      Region‑aware pricing powered by our backend.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>What you get</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Free</td>
+          <td>₹0 / $0</td>
+          <td>
+            3 uploads/month<br>
+            2 brains (CFO + CMO)<br>
+            Watermarked output
+          </td>
+          <td><a href="https://caio-frontend.vercel.app/signup">Start Free</a></td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td><span id="proPriceCell">₹1,999 / month</span></td>
+          <td>
+            Unlimited uploads<br>
+            All 5 CXO brains<br>
+            Export (PDF &amp; Excel)<br>
+            Priority support
+          </td>
+          <td><a href="https://caio-frontend.vercel.app/payments">Upgrade</a></td>
+        </tr>
+        <tr>
+          <td>Premium</td>
+          <td>Custom</td>
+          <td>
+            Team access &amp; SSO<br>
+            API &amp; compliance<br>
+            White‑labelling
+          </td>
+          <td><a href="mailto:vineetpjoshi.71@gmail.com?subject=CAIO%20Premium%20Inquiry">Contact Sales</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta">
+      <a href="https://caio-frontend.vercel.app/dashboard">Open App</a>
+      <span style="margin-left:16px;"><a href="index.html" style="background:#6b85c7">Back to Home</a></span>
+    </div>
+
+    <footer>
+      <a href="index.html">Home</a> |
+      <a href="pricing.html">Pricing</a> |
+      <a href="mailto:vineetpjoshi.71@gmail.com">Contact</a> |
+      <a href="#">Terms</a> |
+      <a href="#">Privacy</a> |
+      <a href="#">Refunds</a>
+      <br>
+      <span>&copy; 2025 CAIO Technologies Pvt. Ltd. All rights reserved. | Mumbai, India</span>
+    </footer>
+  </div>
+
+  <!-- Region-aware pricing via backend -->
+  <script>
+    const BACKEND_BASE = "https://caio-backend.onrender.com";
+    (async () => {
+      try {
+        const qp = new URLSearchParams(location.search);
+        const u = new URL("/api/public-config", BACKEND_BASE);
+        if (qp.get("force")) u.searchParams.set("force", qp.get("force"));
+        const r = await fetch(u.toString(), { cache: "no-store" });
+        if (!r.ok) return;
+        const cfg = await r.json();
+        const pro = cfg?.plans?.pro;
+        const cur = cfg?.currency || "INR";
+        if (pro && typeof pro.price !== "undefined") {
+          const fmt = new Intl.NumberFormat(cur === "USD" ? "en-US" : "en-IN", { style: "currency", currency: cur });
+          document.getElementById("proPriceCell").textContent = `${fmt.format(pro.price)} / month`;
+        }
+      } catch (e) { /* keep fallback */ }
+    })();
+  </script>
+</body>
+</html>
