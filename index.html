@@ -4,6 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CAIO — Chief AI Officer for your business</title>
+    <meta name="description" content="CAIO turns your documents into CFO, COO, CHRO, CMO, and CPO-grade insights. Start free, upgrade when ready." />
+
+    <!-- JSON-LD: Organization (added for reviewer clarity) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CAIO",
+      "url": "https://caioai.netlify.app/",
+      "email": "vineetpjoshi.71@gmail.com",
+      "telephone": "+91 84510 49570",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Happy Valley Towers, Manpada",
+        "addressLocality": "Thane (West)",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400610",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+
     <style>
       :root {
         --bg: #0b0e16;
@@ -16,153 +38,53 @@
         --btn-hover: #151a28;
         --acc2: #22d3ee;
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
       body {
         margin: 0;
         background: var(--bg);
         color: var(--fg);
         font-family: Inter, system-ui, Arial, sans-serif;
       }
-      .wrap {
-        max-width: 1024px;
-        margin: 0 auto;
-        padding: 16px;
-      }
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--fg);
-        text-decoration: none;
-      }
+      .wrap { max-width: 1024px; margin: 0 auto; padding: 16px; }
+      header { display: flex; align-items: center; justify-content: space-between; }
+      .brand { display: flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; }
       .logo {
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        background: conic-gradient(
-          from 140deg,
-          #8b5cf6 0 33%,
-          #22d3ee 33% 66%,
-          #22c55e 66% 100%
-        );
+        width: 38px; height: 38px; border-radius: 12px;
+        background: conic-gradient(from 140deg,#8b5cf6 0 33%,#22d3ee 33% 66%,#22c55e 66% 100%);
       }
-      nav a {
-        color: var(--muted);
-        text-decoration: none;
-        margin-left: 18px;
-        font-weight: 700;
-      }
-      nav a:hover {
-        color: var(--fg);
-      }
+      nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-weight: 700; }
+      nav a:hover { color: var(--fg); }
       .btn {
-        appearance: none;
-        border: 1px solid var(--border);
-        background: var(--btn);
-        color: #fff;
-        padding: 10px 16px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 800;
+        appearance: none; border: 1px solid var(--border); background: var(--btn); color: #fff;
+        padding: 10px 16px; border-radius: 12px; text-decoration: none; font-weight: 800;
       }
-      .btn:hover {
-        background: var(--btn-hover);
-      }
-      .btn.primary {
-        border: none;
-        background: linear-gradient(90deg, #8b5cf6, #22d3ee, #22c55e);
-      }
-      .hero {
-        padding: 56px 0 16px;
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 28px;
-      }
-      .kicker {
-        color: var(--acc2);
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      h1 {
-        font-size: clamp(34px, 4vw, 58px);
-        line-height: 1.04;
-        margin: 8px 0 12px;
-      }
-      .sub {
-        color: var(--muted);
-        font-size: clamp(15px, 1.6vw, 18px);
-        margin: 12px 0 22px;
-      }
-      .callouts {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
+      .btn:hover { background: var(--btn-hover); }
+      .btn.primary { border: none; background: linear-gradient(90deg, #8b5cf6, #22d3ee, #22c55e); }
+      .hero { padding: 56px 0 16px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; }
+      .kicker { color: var(--acc2); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; font-size: 12px; }
+      h1 { font-size: clamp(34px, 4vw, 58px); line-height: 1.04; margin: 8px 0 12px; }
+      .sub { color: var(--muted); font-size: clamp(15px, 1.6vw, 18px); margin: 12px 0 22px; }
+      .callouts { display: flex; gap: 12px; flex-wrap: wrap; }
       .panel {
-        min-height: 220px;
-        background: linear-gradient(180deg, var(--panel) 0, #0d1018 100%);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 18px;
+        min-height: 220px; background: linear-gradient(180deg, var(--panel) 0, #0d1018 100%);
+        border: 1px solid var(--border); border-radius: 16px; padding: 18px;
       }
-      .card {
-        background: var(--glass);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 16px;
-      }
-      .muted {
-        color: var(--muted);
-        font-size: 14px;
-      }
-      .pricing {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 24px;
-      }
-      .plan {
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 18px;
-        background: var(--glass);
-      }
-      .price {
-        font-weight: 900;
-        font-size: 22px;
-      }
-      .plan ul {
-        margin: 10px 0 0;
-        padding-left: 18px;
-      }
-      .plan li {
-        margin: 6px 0;
-      }
+      .card { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+      .muted { color: var(--muted); font-size: 14px; }
+      .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+      .plan { border: 1px solid var(--border); border-radius: 16px; padding: 18px; background: var(--glass); }
+      .price { font-weight: 900; font-size: 22px; }
+      .plan ul { margin: 10px 0 0; padding-left: 18px; }
+      .plan li { margin: 6px 0; }
       footer {
-        margin: 48px 0 24px;
-        color: var(--muted);
-        font-size: 13px;
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
+        margin: 48px 0 24px; color: var(--muted); font-size: 13px;
+        display: grid; gap: 8px;
       }
+      footer nav a { color: var(--muted); text-decoration: none; margin-right: 10px; }
+      footer nav a:hover { color: var(--fg); }
       @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-        .pricing {
-          grid-template-columns: 1fr;
-        }
+        .hero { grid-template-columns: 1fr; }
+        .pricing { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -246,15 +168,27 @@
         </div>
       </section>
 
+      <!-- FOOTER: replaced to surface legal links + contact info -->
       <footer>
         <div>© <span id="y"></span> CAIO</div>
-        <div class="muted">/api/public-config</div>
+        <nav>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="refund.html">Refund &amp; Cancellation</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="muted">
+          Phone: <a href="tel:+918451049570" style="color:inherit">+91 84510 49570</a> ·
+          Email: <a href="mailto:vineetpjoshi.71@gmail.com" style="color:inherit">vineetpjoshi.71@gmail.com</a><br />
+          Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India
+        </div>
       </footer>
     </div>
 
     <!-- Shared logic: live pricing + contact form + footer year -->
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
     <script src="/assets/caio.js?v=1"></script>
   </body>
 </html>
-<!-- Make sure this is referenced at the bottom of your HTML pages -->
-<script src="/assets/caio.js" defer></script>
