@@ -1,71 +1,82 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- Business attribution required by payment provider -->
-<meta name="author" content="Joshi Enterprises">
-<meta property="og:site_name" content="CAIO by Joshi Enterprises">
-
-<title>Privacy Policy — CAIO</title>
-<style>
-  body{font-family:Inter,system-ui,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.6;color:#111827}
-  a{color:#154272;text-decoration:none}
-</style>
+  <meta charset="UTF-8">
+  <title>Privacy Policy — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for CAIO — Cognitive AI Officer by Joshi Enterprises.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Privacy Policy</h1>
-<p><strong>Last updated:</strong> <span id="d"></span></p>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p><strong>Last updated:</strong> <span id="lastUpdated"></span></p>
 
-<p>CAIO by Joshi Enterprises (“we”, “us”) respects your privacy. This Policy explains how we collect, use, and protect information when you use our Services.</p>
+    <p>CAIO by Joshi Enterprises (“<b>CAIO</b>”, “we”, “our”, “us”) respects your privacy. This Policy explains what we collect, why we collect it, and how we use and protect your information when you use our services.</p>
 
-<h2>Information we collect</h2>
-<ul>
-  <li><strong>Account data</strong> (name, email, password hash).</li>
-  <li><strong>Billing data</strong> (transaction IDs, payment method) handled by payment partners; we do not store full card details.</li>
-  <li><strong>Usage data</strong> (logs, device information, approximate location for pricing/compliance).</li>
-  <li><strong>Content you upload</strong> (documents, prompts, outputs) to provide the service.</li>
-</ul>
+    <h2>Information we collect</h2>
+    <ul>
+      <li><b>Account data</b> — name, email, password hash.</li>
+      <li><b>Billing data</b> — payment status, transaction IDs, and metadata handled by our payment partners. We do <b>not</b> store full card numbers.</li>
+      <li><b>Usage data</b> — app events, device/browser info, and approximate region for pricing and compliance.</li>
+      <li><b>Content you provide</b> — documents, prompts, and outputs used to deliver CAIO’s analysis and recommendations.</li>
+    </ul>
 
-<h2>How we use information</h2>
-<ul>
-  <li>Provide, maintain, and improve the Services.</li>
-  <li>Billing, fraud prevention, and abuse monitoring.</li>
-  <li>Customer support and service communications.</li>
-  <li>Compliance with legal obligations.</li>
-</ul>
+    <h2>How we use information</h2>
+    <ul>
+      <li>To provide and improve CAIO’s features and reliability.</li>
+      <li>To process payments, prevent fraud, and enforce acceptable use.</li>
+      <li>To provide support and communicate service updates.</li>
+      <li>To comply with legal obligations and respond to lawful requests.</li>
+    </ul>
 
-<h2>Sharing</h2>
-<p>We share data with trusted processors (hosting, analytics, payment) under appropriate safeguards; we do not sell personal data.</p>
+    <h2>Sharing</h2>
+    <p>We share data with trusted service providers (e.g., hosting, analytics, payment), bound by contracts and appropriate safeguards. We do <b>not</b> sell personal data.</p>
 
-<h2>International transfers</h2>
-<p>Data may be processed outside your country; we take reasonable steps to protect it.</p>
+    <h2>International transfers</h2>
+    <p>Your information may be processed in other countries. We take reasonable steps to protect it consistent with applicable laws.</p>
 
-<h2>Data retention</h2>
-<p>We retain data as long as needed to provide the Services and for legitimate business/legal purposes. You can request deletion where permitted by law.</p>
+    <h2>Data retention</h2>
+    <p>We retain information as long as needed to provide CAIO and for legitimate business or legal purposes. You can request deletion where permitted by law.</p>
 
-<h2>Security</h2>
-<p>We use technical and organizational measures to protect data; no system is 100% secure.</p>
+    <h2>Security</h2>
+    <p>We use technical and organizational measures to protect information. No system is 100% secure; we continuously improve our controls.</p>
 
-<h2>Your choices</h2>
-<ul>
-  <li>Access, update, or delete your data (where applicable) by contacting us.</li>
-  <li>Opt out of non-essential communications.</li>
-</ul>
+    <h2>Your choices & rights</h2>
+    <ul>
+      <li>Access, correct, or delete your information (subject to law and authentication).</li>
+      <li>Opt out of non-essential communications.</li>
+      <li>Contact us to exercise rights available in your region.</li>
+    </ul>
 
-<h2>Contact</h2>
-<p>Email: <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a> ·
-Phone: <a href="tel:+918451049570">+91 84510 49570</a><br>
-Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India</p>
+    <h2>Children</h2>
+    <p>CAIO is not intended for children under 13. We do not knowingly collect personal data from children.</p>
 
-<p><a href="/">← Back to site</a></p>
-<script>document.getElementById('d').textContent=new Date().toLocaleDateString()</script>
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a> ·
+      Phone: <a href="tel:+918451049570">+91 84510 49570</a><br>
+      Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India
+    </p>
+
+    <p style="text-align:center;margin-top:12px;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="refund.html">Refunds</a>
+      <br>
+      <span>© <span id="year"></span> CAIO by Joshi Enterprises. All rights reserved.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Render dates without changing layout
+    document.getElementById('lastUpdated').textContent =
+      new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-<footer class="footer">
-  <div class="container">
-    <p>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></p>
-    <p class="muted" style="margin-top:.25rem">
-      Operating entity: Joshi Enterprises, India.
-    </p>
-  </div>
-</footer>

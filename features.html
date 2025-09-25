@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Features — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CAIO Features — Cognitive AI Officer by Joshi Enterprises." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>CAIO Features</h1>
+    <p style="text-align:center;">
+      CAIO (Cognitive AI Officer) is your always-on strategic partner across Finance, HR, Ops, Marketing, and Product.
+    </p>
+
+    <h2 style="margin-top:14px;">What you can do</h2>
+    <ul>
+      <li><b>Unified Dashboard</b> — Upload a document (PDF, PPT, XLSX, DOCX) or paste text and get instant analysis.</li>
+      <li><b>CXO Brains</b> — CFO, CHRO, COO, CMO, CPO, EA; each provides domain-specific insights.</li>
+      <li><b>Collective Insights</b> — Get 2–3 cross-functional insights plus <b>1 recommendation per brain</b>.</li>
+      <li><b>Chat (Pro+ & Premium)</b> — Ask follow-ups, run scenarios, refine actions.</li>
+      <li><b>Export</b> — Copy summaries or export to PDF (and Excel where enabled).</li>
+      <li><b>Privacy-first</b> — Role-based access and clear audit trails. On-prem options for Enterprise.</li>
+    </ul>
+
+    <h2 style="margin-top:16px;">Supported inputs</h2>
+    <ul>
+      <li>Documents: PDF, DOCX, PPTX, XLSX</li>
+      <li>Text: pasted notes, briefings, emails</li>
+    </ul>
+
+    <h2 style="margin-top:16px;">By tier</h2>
+    <!-- Mirrors your pricing table styling: inline borders + padding -->
+    <table style="width:100%;border-collapse:collapse;margin-top:6px;">
+      <thead>
+        <tr>
+          <th style="border:1px solid #eee;padding:8px;">Tier</th>
+          <th style="border:1px solid #eee;padding:8px;">Access</th>
+          <th style="border:1px solid #eee;padding:8px;">Highlights</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Demo</td>
+          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Query + doc upload (daily cap), sample datasets, watermarked output
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Pro</td>
+          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Higher daily caps, priority analysis queue
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Pro+</td>
+          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Scenario simulation, PDF export, advanced prompts
+          </td>
+        </tr>
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Premium</td>
+          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Highest limits, advanced CXO brains, dedicated support, SSO/API/compliance
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center;margin-top:12px;">
+      <a href="index.html">← Back to Home</a>
+      &nbsp;|&nbsp;
+      <a id="cta-demo" href="#" style="text-decoration:none;">Try Demo</a>
+      &nbsp;|&nbsp;
+      <a id="cta-proplus" href="#" style="text-decoration:none;">Upgrade to Pro+</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <span>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></span>
+      <p class="muted" style="margin-top:.25rem">Operating entity: Joshi Enterprises, India.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Derive app subdomain like https://app.caio.live from current host (keeps connections without layout changes)
+    (function () {
+      var host = (location.hostname || "").replace(/^www\./, "");
+      var parts = host.split(".");
+      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
+      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
+
+      document.getElementById("cta-demo").href = APP_BASE + "/signup?plan=demo";
+      document.getElementById("cta-proplus").href = APP_BASE + "/payments?plan=proplus";
+      document.getElementById("y").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

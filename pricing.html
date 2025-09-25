@@ -1,150 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Pricing – CAIO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="CAIO SaaS Pricing: Free, Pro, and Premium tiers. Region-aware pricing with INR and USD." />
-    <!-- Business attribution required by payment provider -->
-    <meta name="author" content="Joshi Enterprises">
-    <meta property="og:site_name" content="CAIO by Joshi Enterprises">
-
-    <style>
-      :root{
-        --bg:#0b0e16; --panel:#0d1222cc; --border:#1c2537; --ink:#e7eaf3; --muted:#9aa3b2;
-        --brand1:#8b5cf6; --brand2:#22d3ee; --brand3:#22c55e; --btn:#111520; --btn-hover:#151a28;
-        --ring:#22d3ee80; --shadow:0 8px 30px rgba(0,0,0,.25);
-      }
-      @media (prefers-color-scheme: light){
-        :root{ --bg:#fafcff; --panel:#ffffffee; --border:#e0e6ed; --ink:#222; --muted:#5a677a; --btn:#134383; --btn-hover:#306ac8; --shadow:0 8px 24px rgba(26,50,71,.12);}
-      }
-      *{box-sizing:border-box}
-      body{font-family:"Segoe UI", Arial, sans-serif; margin:0; background:
-        radial-gradient(1200px 600px at 10% -10%, #1a1f2f 0%, transparent 60%),
-        radial-gradient(1200px 600px at 110% 10%, #0c3a40 0%, transparent 55%),
-        var(--bg); color:var(--ink);}
-      .container{max-width:900px;margin:40px auto;padding:32px}
-      .card{
-        background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:28px;
-        box-shadow: var(--shadow); backdrop-filter: blur(6px);
-      }
-      h1,h2{color:var(--ink); text-align:center; margin:0 0 12px}
-      h1{
-        font-weight:900; letter-spacing:.2px;
-        background: linear-gradient(90deg, var(--brand1), var(--brand2), var(--brand3));
-        -webkit-background-clip: text; background-clip:text; color:transparent;
-      }
-      p.lead{color:var(--muted); text-align:center; margin:0 0 22px}
-      table{width:100%; border-collapse:collapse; margin:16px 0 8px; color:var(--ink);}
-      th,td{border:1px solid var(--border); padding:13px; text-align:left; vertical-align:top}
-      th{background:rgba(255,255,255,.04); color:var(--ink); font-weight:600}
-      tr:nth-child(even){background:rgba(255,255,255,.02)}
-      .price-badge{
-        font-weight:800; display:inline-block; padding:6px 10px; border-radius:10px;
-        background:linear-gradient(90deg, #141826, #0f1628); border:1px solid var(--border);
-      }
-      [data-price="pro"]{
-        background:linear-gradient(90deg, var(--brand1), var(--brand2), var(--brand3));
-        -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:900;
-      }
-      .cta{margin:26px 0; text-align:center}
-      .btn{
-        background:var(--btn); color:#fff; text-decoration:none; padding:12px 24px; border-radius:12px;
-        font-weight:800; border:1px solid var(--border); display:inline-block; transition:transform .12s ease, box-shadow .12s ease, background .12s ease; will-change: transform;
-      }
-      .btn:hover{background:var(--btn-hover); transform:translateY(-1px)}
-      .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px}
-      .btn.alt{background:#2f3b57}
-      footer{
-        margin-top:20px; padding:18px 0 10px; text-align:center; font-size:.98em; color:var(--muted)
-      }
-      footer a{color:inherit; text-decoration:none; font-weight:600}
-      footer a:hover{text-decoration:underline}
-      @media (prefers-reduced-motion: reduce){
-        .btn{transition:none}
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="card">
-        <h1>CAIO Pricing</h1>
-        <h2>AI-Powered Executive Insights, Priced for Growth</h2>
-        <p class="lead">Region-aware pricing powered by our backend.</p>
-
-        <table role="table" aria-label="CAIO pricing table">
-          <thead>
-            <tr>
-              <th scope="col">Plan</th>
-              <th scope="col">Price</th>
-              <th scope="col">What you get</th>
-              <th scope="col">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Free</td>
-              <td><span class="price-badge">₹0 / $0</span></td>
-              <td>
-                3 uploads/month<br />
-                2 brains (CFO + CMO)<br />
-                Watermarked output
-              </td>
-              <td><a class="btn alt" href="https://caio-frontend.vercel.app/signup">Start Free</a></td>
-            </tr>
-            <tr>
-              <td>Pro</td>
-              <td><span class="price-badge"><span data-price="pro">₹2,999</span> / month</span></td>
-              <td>
-                Unlimited uploads<br />
-                All 5 CXO brains<br />
-                Export (PDF &amp; Excel)<br />
-                Priority support
-              </td>
-              <td><a class="btn" href="https://caio-frontend.vercel.app/payments">Upgrade</a></td>
-            </tr>
-            <tr>
-              <td>Premium</td>
-              <td><span class="price-badge">Custom</span></td>
-              <td>
-                Team access &amp; SSO<br />
-                API &amp; compliance<br />
-                White-labelling
-              </td>
-              <td><a class="btn alt" href="mailto:vineetpjoshi.71@gmail.com?subject=CAIO%20Premium%20Inquiry">Contact Sales</a></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="cta">
-          <a class="btn" href="https://caio-frontend.vercel.app/dashboard">Open App</a>
-          <span style="margin-left:12px"><a class="btn alt" href="index.html">Back to Home</a></span>
-        </div>
-
-        <footer>
-          <div>
-            <a href="index.html">Home</a> &nbsp;|&nbsp;
-            <a href="pricing.html">Pricing</a> &nbsp;|&nbsp;
-            <a href="mailto:vineetpjoshi.71@gmail.com">Contact</a> &nbsp;|&nbsp;
-            <a href="terms.html">Terms</a> &nbsp;|&nbsp;
-            <a href="privacy.html">Privacy</a> &nbsp;|&nbsp;
-            <a href="refund.html">Refunds</a>
-          </div>
-          <div style="margin-top:8px">© <span id="y"></span> CAIO Technologies Pvt. Ltd. • Mumbai, India</div>
-        </footer>
-      </div>
-    </div>
-
-    <!-- Keep your shared app logic; also set fallback year here -->
-    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-    <script src="/assets/caio.js?v=1"></script>
-  </body>
-</html>
-<footer class="footer">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pricing – CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CAIO Pricing for Demo, Pro, Pro+, and Premium tiers with live prices from the app/backend." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
   <div class="container">
-    <p>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></p>
-    <p class="muted" style="margin-top:.25rem">
-      Operating entity: Joshi Enterprises, India.
+    <h1 style="text-align:center;">CAIO Pricing</h1>
+    <p style="text-align:center;margin-top:6px;">
+      Cognitive AI Officer by Joshi Enterprises
     </p>
+
+    <!-- Your original simple table styling preserved -->
+    <table style="width:100%;border-collapse:collapse;margin-top:12px;">
+      <thead>
+        <tr>
+          <th style="border:1px solid #eee;padding:8px;">Plan</th>
+          <th style="border:1px solid #eee;padding:8px;">Price</th>
+          <th style="border:1px solid #eee;padding:8px;">Features</th>
+          <th style="border:1px solid #eee;padding:8px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- DEMO -->
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Demo</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <span id="price-demo">₹0 / $0</span>
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Dashboard access<br>
+            Query + doc upload (daily cap)<br>
+            Sample datasets<br>
+            Watermarked output
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <a id="cta-demo" href="#" style="text-decoration:none;">Start Free</a>
+          </td>
+        </tr>
+
+        <!-- PRO -->
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Pro</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <span id="price-pro">—</span>
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Dashboard access<br>
+            Query + doc upload (higher daily caps)<br>
+            Priority analysis queue
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <a id="cta-pro" href="#" style="text-decoration:none;">Get Pro</a>
+          </td>
+        </tr>
+
+        <!-- PRO+ -->
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Pro+</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <span id="price-proplus">—</span>
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Everything in Pro<br>
+            <b>Chat</b> with CAIO + Scenario simulation<br>
+            Export to PDF
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <a id="cta-proplus" href="#" style="text-decoration:none;">Upgrade to Pro+</a>
+          </td>
+        </tr>
+
+        <!-- PREMIUM -->
+        <tr>
+          <td style="border:1px solid #eee;padding:8px;">Premium</td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <span id="price-premium">Custom</span>
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            Everything in Pro+<br>
+            Highest limits &amp; advanced CXO brains<br>
+            Dedicated support, SSO, API, compliance
+          </td>
+          <td style="border:1px solid #eee;padding:8px;">
+            <a id="cta-premium" href="contact.html" style="text-decoration:none;">Contact Sales</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="text-align:center;margin-top:10px;font-size:.95em;color:#6b7280;">
+      Demo &amp; Pro: Dashboard analysis with daily caps. Pro+ &amp; Premium: Chat + Doc upload with higher limits.
+    </p>
+
+    <p style="text-align:center;margin-top:14px;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="refund.html">Refunds</a>
+      <br>
+      <span>© <span id="y"></span> CAIO by Joshi Enterprises. All rights reserved.</span>
+    </footer>
   </div>
-</footer>
+
+  <script>
+    // ====== Connectivity without changing layout ======
+    // Derive app/api subdomains automatically from current host:
+    // e.g., caio.live -> app.caio.live / api.caio.live
+    (function () {
+      var host = (location.hostname || "").replace(/^www\./, "");
+      var parts = host.split(".");
+      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
+
+      // If you prefer hardcoding, uncomment and set these:
+      // var APP_BASE = "https://app.caio.live";
+      // var API_BASE = "https://api.caio.live";
+
+      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
+      var API_BASE = (window.CAIO_API_BASE || ("https://api." + root));
+
+      // Wire CTAs
+      document.getElementById("cta-demo").href     = APP_BASE + "/signup?plan=demo";
+      document.getElementById("cta-pro").href      = APP_BASE + "/signup?plan=pro";
+      document.getElementById("cta-proplus").href  = APP_BASE + "/payments?plan=proplus";
+      // Premium stays contact for now (or wire to enterprise lead form)
+
+      // Helper: choose currency label by locale (INR for India, else USD)
+      function preferINR() {
+        try {
+          var lang = (navigator.language || "").toLowerCase();
+          // Quick heuristic: if user's locale or timezone suggests India, prefer INR
+          if (lang.includes("en-in") || lang.includes("-in")) return true;
+          var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+          if (tz && /kolkata|calcutta|india/i.test(tz)) return true;
+        } catch (e) {}
+        return false;
+      }
+      var useINR = preferINR();
+
+      // Flexible price extractor (supports multiple backend shapes)
+      function extractPrice(data, planKey) {
+        // Shape A: { plans: [{id:"proplus", price_display:"₹2,999 / mo"}] }
+        if (data && Array.isArray(data.plans)) {
+          var p = data.plans.find(function (x) { return (x.id || x.plan) === planKey; });
+          if (p && (p.price_display || p.display)) return p.price_display || p.display;
+        }
+        // Shape B: { pricing: { proplus: { display:"₹2,999 / mo", amount_inr:2999, amount_usd:39 } } }
+        if (data && data.pricing && data.pricing[planKey]) {
+          var obj = data.pricing[planKey];
+          if (obj.display) return obj.display;
+          if (useINR && obj.amount_inr != null) return "₹" + obj.amount_inr + " / mo";
+          if (obj.amount_usd != null) return "$" + obj.amount_usd + " / mo";
+        }
+        // Shape C: flat: { proplus_inr:2999, proplus_usd:39 }
+        if (data) {
+          if (useINR && data[planKey + "_inr"] != null) return "₹" + data[planKey + "_inr"] + " / mo";
+          if (data[planKey + "_usd"] != null) return "$" + data[planKey + "_usd"] + " / mo";
+        }
+        return null;
+      }
+
+      // Try endpoints in order until one succeeds
+      var endpoints = [
+        API_BASE + "/public-config",
+        API_BASE + "/pricing",
+        APP_BASE + "/api/public-config"
+      ];
+
+      function setPrice(id, val) {
+        var el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+      }
+
+      (async function hydrate() {
+        for (var i = 0; i < endpoints.length; i++) {
+          try {
+            var res = await fetch(endpoints[i], { credentials: "omit" });
+            if (!res.ok) continue;
+            var data = await res.json();
+
+            // Plans: demo (free), pro, proplus, premium (custom)
+            setPrice("price-demo",    extractPrice(data, "demo")    || "₹0 / $0");
+            setPrice("price-pro",     extractPrice(data, "pro")     || (useINR ? "₹— / mo" : "$— / mo"));
+            setPrice("price-proplus", extractPrice(data, "proplus") || (useINR ? "₹— / mo" : "$— / mo"));
+            setPrice("price-premium", extractPrice(data, "premium") || "Custom");
+            return; // stop on first success
+          } catch (e) {
+            // try next endpoint
+          }
+        }
+        // If all endpoints fail, we keep placeholders (no UI break)
+      })();
+
+      // Footer year
+      document.getElementById("y").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
+  

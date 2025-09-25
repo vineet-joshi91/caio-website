@@ -1,43 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- Business attribution required by payment provider -->
-<meta name="author" content="Joshi Enterprises">
-<meta property="og:site_name" content="CAIO by Joshi Enterprises">
-
-<title>Refund & Cancellation Policy — CAIO</title>
-<style>
-  body{font-family:Inter,system-ui,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.6;color:#111827}
-  a{color:#154272;text-decoration:none}
-</style>
+  <meta charset="UTF-8">
+  <title>Refund &amp; Cancellation Policy — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Business attribution required by payment provider -->
+  <meta name="author" content="Joshi Enterprises">
+  <meta property="og:site_name" content="CAIO by Joshi Enterprises">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Refund &amp; Cancellation Policy</h1>
-<p><strong>Last updated:</strong> <span id="d"></span></p>
+  <div class="container">
+    <h1>Refund &amp; Cancellation Policy</h1>
+    <p><strong>Last updated:</strong> <span id="lastUpdated"></span></p>
 
-<h2>No refunds</h2>
-<p>All subscription payments are <strong>final and non-refundable</strong>. Please evaluate the Free tier before upgrading.</p>
+    <h2>No refunds</h2>
+    <p>All subscription payments are <strong>final and non-refundable</strong>. Please evaluate the Demo/Free tier before upgrading to a paid plan.</p>
 
-<h2>Cancellations</h2>
-<p>You can cancel auto-renewals at any time by emailing us. Your access continues until the end of the current billing period; no partial refunds are provided.</p>
+    <h2>Cancellations</h2>
+    <p>You may cancel auto-renewals anytime by contacting us. Your access continues until the end of the current billing period; no partial refunds are issued.</p>
 
-<h2>Failed payments</h2>
-<p>If a renewal payment fails, we may suspend or downgrade the account until payment is successful.</p>
+    <h2>Failed payments</h2>
+    <p>If a renewal payment fails, we may suspend or downgrade your account until the payment is successful.</p>
 
-<h2>Contact</h2>
-<p>Email: <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a> ·
-Phone: <a href="tel:+918451049570">+91 84510 49570</a></p>
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a> ·
+      Phone: <a href="tel:+918451049570">+91 84510 49570</a>
+    </p>
 
-<p><a href="/">← Back to site</a></p>
-<script>document.getElementById('d').textContent=new Date().toLocaleDateString()</script>
+    <p style="margin-top:12px;text-align:center;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <span>© <span id="year"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></span>
+      <p class="muted" style="margin-top:.25rem">Operating entity: Joshi Enterprises, India.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('lastUpdated').textContent =
+      new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-<footer class="footer">
-  <div class="container">
-    <p>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></p>
-    <p class="muted" style="margin-top:.25rem">
-      Operating entity: Joshi Enterprises, India.
-    </p>
-  </div>
-</footer>

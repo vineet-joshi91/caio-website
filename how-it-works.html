@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How it Works — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="How CAIO works in 3 simple steps." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>How CAIO Works</h1>
+    <p style="text-align:center;margin-top:6px;">
+      Upload. Analyze. Act. — Your <b>Cognitive AI Officer</b> in three steps.
+    </p>
+
+    <ol style="margin-top:12px; padding-left: 18px;">
+      <li style="margin:10px 0;">
+        <b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.
+      </li>
+      <li style="margin:10px 0;">
+        <b>Analyze</b> with CXO brains (CFO, CHRO, COO, CMO, CPO, EA) to get
+        <b>2–3 collective insights</b> and <b>1 recommendation per brain</b>.
+      </li>
+      <li style="margin:10px 0;">
+        <b>Act</b> on prioritized next steps — refine via <b>Chat</b> in Pro+ &amp; Premium.
+      </li>
+    </ol>
+
+    <p style="text-align:center;margin-top:12px;">
+      <a id="cta-demo" href="#" style="text-decoration:none;">Try a 30-second Demo</a>
+      &nbsp;|&nbsp;
+      <a id="cta-proplus" href="#" style="text-decoration:none;">Open Pro+ Chat</a>
+    </p>
+
+    <p class="muted" style="text-align:center;margin-top:8px;font-size:.95em;color:#6b7280;">
+      Demo &amp; Pro: Dashboard with daily caps · Pro+ &amp; Premium: Chat + higher limits
+    </p>
+
+    <p style="text-align:center;margin-top:14px;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <span>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></span>
+      <p class="muted" style="margin-top:.25rem">Operating entity: Joshi Enterprises, India.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var host = (location.hostname || "").replace(/^www\./, "");
+      var parts = host.split(".");
+      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
+      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
+
+      document.getElementById("cta-demo").href    = APP_BASE + "/signup?plan=demo";
+      document.getElementById("cta-proplus").href = APP_BASE + "/payments?plan=proplus";
+      document.getElementById("y").textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

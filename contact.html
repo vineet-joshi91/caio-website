@@ -1,52 +1,117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-    <!-- Business attribution required by payment provider -->
-    <meta name="author" content="Joshi Enterprises">
-    <meta property="og:site_name" content="CAIO by Joshi Enterprises">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Contact CAIO — Cognitive AI Officer by Joshi Enterprises.">
+</head>
+<body>
+  <div class="container">
+    <h1>Contact</h1>
 
-    <title>Contact — CAIO</title>
-    <!-- Right under your main Contact heading -->
-    <p class="muted"><strong>Business name:</strong> Joshi Enterprises</p>
+    <p style="text-align:center;">
+      Email: <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a> ·
+      Phone: <a href="tel:+918451049570">+91 84510 49570</a><br>
+      Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India
+    </p>
 
-    <style>
-      body{background:#0b0e16;color:#e7eaf3;font-family:Inter,system-ui,Arial,sans-serif;margin:0}
-      .wrap{max-width:720px;margin:40px auto;padding:0 16px}
-      .card{background:#0e1220cc;border:1px solid #1c2537;border-radius:16px;padding:16px}
-      label{display:block;margin:10px 0 6px}
-      input,textarea,select{width:100%;padding:10px;border-radius:10px;border:1px solid #1c2537;background:#0b0e16;color:#e7eaf3}
-      .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-      .btn{appearance:none;border:1px solid #1c2537;background:#111520;color:#fff;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:800;cursor:pointer}
-      .btn:hover{background:#151a28}
-      .muted{color:#9aa3b2;font-size:14px}
-      .ok,.err{padding:10px;border-radius:10px;margin-top:12px;display:none}
-      .ok{background:#1f3a27;border:1px solid #355a44}
-      .err{background:#3a1f1f;border:1px solid #5a3535}
-      @media (max-width: 720px){ .row{grid-template-columns:1fr} }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <h1>Contact</h1>
-      <p class="muted">Email: <a href="mailto:vineetpjoshi.71@gmail.com" style="color:#b8c7ff">vineetpjoshi.71@gmail.com</a> ·
-        Phone: <a href="tel:+918451049570" style="color:#b8c7ff">+91 84510 49570</a><br/>
-        Happy Valley Towers, Manpada, Thane (W), Maharashtra 400610, India</p>
-      <div class="card">
-        <form id="contactForm">
-          <div class="row">
-            <div><label for="name">Your name</label><input id="name" name="name" required /></div>
-            <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
-          </div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
-          <button class="btn" type="submit">Send</button>
-          <div id="ok" class="ok">Thanks! We received your inquiry.</div>
-          <div id="err" class="err">Something went wrong. Please email us at the address above.</div>
-        </form>
+    <form id="contactForm" style="margin-top:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <label for="name"><b>Your name</b></label>
+          <input id="name" name="name" required
+                 style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:10px;">
+        </div>
+        <div>
+          <label for="email"><b>Work email</b></label>
+          <input id="email" name="email" type="email" required
+                 style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:10px;">
+        </div>
       </div>
-      <p class="muted" style="margin-top:10px"><a href="index.html" style="color:#9fb2ff">← Back to Home</a></p>
-    </div>
-    <script src="/assets/caio.js" defer></script>
-  </body>
+
+      <div style="margin-top:12px">
+        <label for="message"><b>Message</b></label>
+        <textarea id="message" name="message" rows="5" placeholder="How can we help?"
+                  style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:10px;"></textarea>
+      </div>
+
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <button type="submit"
+                style="appearance:none;border:1px solid #e2e8f0;background:#111827;color:#fff;
+                       padding:10px 16px;border-radius:10px;cursor:pointer;">
+          Send
+        </button>
+        <span id="status" style="font-size:14px;color:#64748b"></span>
+      </div>
+
+      <noscript>
+        <p style="margin-top:10px;color:#64748b">
+          JavaScript is disabled. Please email us directly at
+          <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a>.
+        </p>
+      </noscript>
+    </form>
+
+    <p style="margin-top:12px;text-align:center;">
+      <a href="index.html">← Back to Home</a>
+    </p>
+
+    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
+      <a href="terms.html">Terms</a> |
+      <a href="privacy.html">Privacy</a> |
+      <a href="refund.html">Refunds</a>
+      <br>
+      <span>© <span id="y"></span> CAIO by Joshi Enterprises. All rights reserved.</span>
+    </footer>
+  </div>
+
+  <script>
+    // --- Connectivity: derive API base like https://api.caio.live from current host ---
+    (function () {
+      var host = (location.hostname || "").replace(/^www\./, "");
+      var parts = host.split(".");
+      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
+      var API_BASE = "https://api." + root; // <-- If you prefer fixed, set e.g. "https://api.caio.live"
+
+      document.getElementById('y').textContent = new Date().getFullYear();
+
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('status');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        status.textContent = "Sending…";
+
+        var payload = {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          message: document.getElementById('message').value.trim(),
+          source: "website-contact"
+        };
+
+        try {
+          const res = await fetch(API_BASE + "/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            // If your API requires CORS credentials, add: credentials: "include"
+          });
+
+          if (res.ok) {
+            status.style.color = "#16a34a";
+            status.textContent = "Thanks! We received your inquiry.";
+            form.reset();
+          } else {
+            throw new Error("Bad response " + res.status);
+          }
+        } catch (err) {
+          status.style.color = "#b91c1c";
+          status.textContent = "Something went wrong. Please email us directly.";
+        }
+      });
+    })();
+  </script>
+</body>
 </html>
