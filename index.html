@@ -7,18 +7,26 @@
   <meta name="description" content="Upload a doc. Get CFO/COO/CHRO/CMO/CPO-grade insights in minutes. CAIO is your Cognitive AI Officer.">
   <link rel="stylesheet" href="style.css">
 
-  <!-- OG/Twitter for clean link previews (add assets/og-card.png later; safe if missing) -->
+  <!-- GLOBAL APP OVERRIDE (set BEFORE any CTA wiring) -->
+  <script>
+    // Always send users to the public Vercel app (user-facing)
+    window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";
+    // If you ever need API too, uncomment:
+    // window.CAIO_API_BASE = "https://api.caio.live";
+  </script>
+
+  <!-- Social cards (safe if image is missing now) -->
   <meta property="og:title" content="CAIO — Cognitive AI Officer">
   <meta property="og:description" content="Turn documents into CXO-grade insights and actions.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-card.png">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (optional) -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 </head>
 <body>
   <div class="container">
-    <!-- Logo (optional) -->
-    <!-- <img src="images/logo-caio.png" alt="CAIO Logo" class="logo"> -->
-
     <h1>CAIO — Your AI-Powered <span style="white-space:nowrap;">Cognitive AI Officer</span></h1>
 
     <p style="text-align:center;font-size:1.11em;">
@@ -26,16 +34,12 @@
       <b>1 recommendation per brain</b> — ready to act in minutes.
     </p>
 
-    <!-- Tiny, high-impact CTA row (keeps your layout) -->
     <p class="cta" style="text-align:center;margin:12px 0 6px 0;">
-      <a id="cta-demo" href="#" style="text-decoration:none;">Try Demo</a>
+      <a id="cta-demo" href="#">Try Demo</a>
       &nbsp;
-      <a href="pricing.html" style="text-decoration:none;border:1px solid #e2e8f0;border-radius:10px;padding:8px 12px;">
-        See Pricing
-      </a>
+      <a href="pricing.html">See Pricing</a>
     </p>
 
-    <!-- Discreet “feature chips” for a tech vibe (no new CSS needed) -->
     <p style="text-align:center;color:#6b7280;">
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">CFO / CHRO / COO / CMO / CPO</span>
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">2–3 Collective Insights</span>
@@ -100,21 +104,26 @@
     </footer>
   </div>
 
+  <!-- Wire CTAs AFTER the override above -->
   <script>
-    // Derive app subdomain (e.g., caio.live -> https://app.caio.live) so links work in prod w/o hardcoding
     (function () {
       var host = (location.hostname || "").replace(/^www\./, "");
       var parts = host.split(".");
       var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
-      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
+
+      // Uses Vercel override if present; else app.<root>
+      var APP_BASE =
+        window.CAIO_APP_BASE
+        || (location.hostname.endsWith("netlify.app")
+            ? "https://caio-frontend.vercel.app"
+            : ("https://app." + root));
+
       document.getElementById("cta-demo").href = APP_BASE + "/signup?plan=demo";
       document.getElementById("y").textContent = new Date().getFullYear();
     })();
   </script>
-  <script>
-// Point all CTAs to your Vercel app while the site is on Netlify
-window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";
-</script>
-<script src="assets/caio.js?v=1"></script>
+
+  <!-- (Optional) shared JS for other pages -->
+  <!-- <script src="assets/caio.js?v=1"></script> -->
 </body>
 </html>

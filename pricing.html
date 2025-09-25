@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Pricing – CAIO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="CAIO Pricing for Demo, Pro, Pro+, and Premium tiers with live prices from the app/backend." />
-  <link rel="stylesheet" href="style.css" />
+  <!-- head.html — copy everything below into each page's <head> -->
+<meta charset="UTF-8">
+<title>%%PAGE_TITLE%%</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="%%PAGE_DESCRIPTION%%">
+<link rel="stylesheet" href="style.css">
+
+<!-- Global app/api overrides (must load BEFORE any CTA or fetch wiring) -->
+<script>
+  window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";
+  // window.CAIO_API_BASE = "https://api.caio.live"; // uncomment if needed
+</script>
+
+<!-- Social cards -->
+<meta property="og:title" content="%%OG_TITLE%%">
+<meta property="og:description" content="%%OG_DESCRIPTION%%">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Favicon (optional) -->
+<!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 </head>
 <body>
   <div class="container">
