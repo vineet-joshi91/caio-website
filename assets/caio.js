@@ -9,7 +9,7 @@
 
 (() => {
   // ====== CONFIG ======
-  const BACKEND_BASE = "https://caio-backend.onrender.com";
+  const BACKEND_BASE = "https://caio-orchestrator.onrender.com";
   // To test another backend locally, change ↑ this one line.
 
   // Format money for INR / USD (extend as needed)
