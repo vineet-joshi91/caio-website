@@ -204,3 +204,145 @@ footer a:hover { color: #e8eeff; }
 /* ---------- Utility (safe to keep even if unused yet) */
 .center { text-align: center; }
 .hidden { display: none !important; }
+
+/* === CAIO OOMPH PACK — CSS-only, no HTML rewrite ========================= */
+
+/* Hero container: neon ring + subtle glass + floating glow orbs */
+.container {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(180deg, rgba(14,24,46,.86), rgba(10,18,36,.92));
+  border-radius: 22px;
+  border: 1px solid rgba(140, 170, 255, .18);
+  box-shadow:
+    0 25px 80px rgba(2, 8, 23, .55),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* Neon gradient ring (masked border) */
+.container::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: 24px;
+  background:
+    conic-gradient(from 160deg,
+      #8b5cf6, #22d3ee, #22c55e, #8b5cf6 280deg, transparent 320deg);
+  filter: blur(10px);
+  opacity: .35;
+  z-index: -1;
+}
+
+/* Floating orbs for depth */
+.container::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(320px 220px at 15% 8%, rgba(139,92,246,.22), transparent 60%),
+    radial-gradient(300px 200px at 85% 5%,  rgba(34,211,238,.18), transparent 60%),
+    radial-gradient(280px 240px at 50% -4%, rgba(34,197,94,.16),  transparent 60%);
+  z-index: -1;
+}
+
+/* Headline: more presence, tighter leading */
+h1 {
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: .1px;
+  background: linear-gradient(90deg, #c9c6ff 0, #9fdcff 50%, #a6f3c3 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 6px 30px rgba(99,102,241,.15);
+  margin-bottom: 8px;
+}
+
+/* Subhead readability */
+.container p[style*="font-size:1.11em"] {
+  color: #dbe6ff;
+  opacity: .92;
+}
+
+/* CTA buttons: glow + sheen */
+.cta a {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 900;
+  letter-spacing: .2px;
+  background: #0f1930;
+  border: 1px solid #243355;
+  color: #eaf2ff;
+  box-shadow: 0 12px 30px rgba(0,0,0,.38);
+}
+.cta a:first-child {
+  border: none;
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee, #22c55e);
+  color: #03131b;
+}
+.cta a::before {
+  content:"";
+  position:absolute; inset:-1px;
+  background: linear-gradient(120deg, rgba(255,255,255,.35), transparent 45%);
+  transform: translateX(-120%);
+  transition: transform .5s ease;
+  mix-blend-mode: overlay;
+}
+.cta a:hover::before { transform: translateX(120%); }
+.cta a:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(0,0,0,.45); }
+
+/* Chips: pill glass + subtle inner light */
+p span[style*="border-radius:999px"] {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(185,198,255,.20) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 6px 16px rgba(0,0,0,.25);
+  color: #dfe6ff !important;
+}
+
+/* Section heading divider */
+h2 {
+  position: relative;
+  padding-top: 6px;
+}
+h2::after {
+  content:"";
+  display:block;
+  height: 2px;
+  width: 72px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee, #22c55e);
+  border-radius: 999px;
+  opacity:.9;
+}
+
+/* Table: dense, glossy rows */
+table {
+  background: linear-gradient(180deg, #0b1426, #0a1323);
+  border-radius: 16px;
+  border: 1px solid rgba(150,170,220,.18);
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(5,12,28,.55);
+}
+thead th {
+  background: linear-gradient(180deg, #0f1c38, #0b152b);
+  color: #e6eeff;
+  text-transform: none;
+  letter-spacing: .2px;
+}
+th, td {
+  padding: 12px 12px !important;
+  border-color: #1a2746 !important;
+}
+tbody tr:hover { background: #0f1b35; }
+
+/* Footer: calmer contrast */
+footer { color: #9fb0d0; }
+footer a { color: #c7d7ff; }
+footer a:hover { color: #eaf0ff; }
+
+/* Mobile tune */
+@media (max-width: 760px){
+  .container { margin: 18px 10px; padding: 18px 14px; }
+  h1 { font-size: clamp(32px, 8vw, 46px); }
+}
