@@ -27,65 +27,111 @@
 </head>
 <body>
   <div class="container">
-    <h1>CAIO — Your AI-Powered <span style="white-space:nowrap;">Cognitive AI Officer</span></h1>
+    <!-- Eyebrow (optional) -->
+    <p class="eyebrow" style="text-align:center;letter-spacing:.18em;text-transform:uppercase;color:#9fb0d0;margin:0 0 4px 0;">
+      Cognitive AI Officer
+    </p>
 
+    <!-- HERO -->
+    <h1>CAIO — Your AI-Powered Cognitive AI Officer</h1>
     <p style="text-align:center;font-size:1.11em;">
       Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with <b>2–3 collective highlights</b> and
       <b>1 recommendation per brain</b> — ready to act in minutes.
     </p>
 
+    <!-- CTA row -->
     <p class="cta" style="text-align:center;margin:12px 0 6px 0;">
       <a id="cta-demo" href="#">Try Demo</a>
       &nbsp;
       <a href="pricing.html">See Pricing</a>
     </p>
 
-    <p style="text-align:center;color:#6b7280;">
+    <!-- Chips -->
+    <div class="chips" style="text-align:center; margin-top:8px;">
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">CFO / CHRO / COO / CMO / CPO</span>
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">2–3 Collective Insights</span>
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">1 Rec per Brain</span>
       <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">PDF · DOCX · PPTX · XLSX</span>
-    </p>
+    </div>
 
-    <h2 style="margin-top:18px;">Why teams use CAIO</h2>
-    <ul>
-      <li><b>Speed</b> — minutes to a crisp brief with risks, opportunities, and next steps.</li>
-      <li><b>Depth</b> — cross-functional reasoning from multiple CXO brains.</li>
-      <li><b>Flow</b> — Pro+ & Premium unlock <b>Chat</b> for follow-ups and scenario runs.</li>
-    </ul>
+    <!-- FEATURES (tiles) -->
+    <div class="section" id="features">
+      <div class="section-head">
+        <h2>Why teams use CAIO</h2>
+        <a href="features.html" aria-label="See all features">All features →</a>
+      </div>
+      <div class="grid cols-3" style="margin-top:10px;">
+        <div class="tile">
+          <h3>Speed</h3>
+          <p>Minutes to a crisp brief with risks, opportunities, and next steps.</p>
+        </div>
+        <div class="tile">
+          <h3>Depth</h3>
+          <p>Cross-functional reasoning from multiple CXO brains (CFO, CHRO, COO, CMO, CPO).</p>
+        </div>
+        <div class="tile">
+          <h3>Flow</h3>
+          <p>Pro+ &amp; Premium unlock <b>Chat</b> for follow-ups and scenario runs.</p>
+        </div>
+      </div>
+    </div>
 
-    <h2 style="margin-top:18px;">Tiers at a glance</h2>
-    <table style="width:100%;border-collapse:collapse;">
-      <thead>
-        <tr>
-          <th style="border:1px solid #eee;padding:8px;">Tier</th>
-          <th style="border:1px solid #eee;padding:8px;">Access</th>
-          <th style="border:1px solid #eee;padding:8px;">Highlights</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Demo</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
-          <td style="border:1px solid #eee;padding:8px;">Query + doc upload (daily cap), watermarked output</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Pro</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
-          <td style="border:1px solid #eee;padding:8px;">Higher caps, priority analysis queue</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Pro+</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
-          <td style="border:1px solid #eee;padding:8px;">Scenario simulation, PDF export</td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Premium</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
-          <td style="border:1px solid #eee;padding:8px;">Highest limits, advanced CXO brains, SSO/API/compliance</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- PLANS (tiles) -->
+    <div class="section" id="plans">
+      <div class="section-head">
+        <h2>Plans</h2>
+        <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+      </div>
+      <div class="grid cols-4" style="margin-top:10px;">
+        <div class="plan-card">
+          <h3>Demo</h3>
+          <div class="price" id="price-demo">Free</div>
+          <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
+          <div class="cta-row">
+            <a class="primary" id="p-demo" href="#">Try Demo</a>
+          </div>
+        </div>
+        <div class="plan-card">
+          <h3>Pro</h3>
+          <div class="price" id="price-pro">—</div>
+          <p>Dashboard · Higher caps · Priority analysis queue</p>
+          <div class="cta-row">
+            <a id="p-pro" href="#">Get Pro</a>
+          </div>
+        </div>
+        <div class="plan-card">
+          <h3>Pro+</h3>
+          <div class="price" id="price-proplus">—</div>
+          <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
+          <div class="cta-row">
+            <a class="primary" id="p-proplus" href="#">Upgrade to Pro+</a>
+          </div>
+        </div>
+        <div class="plan-card">
+          <h3>Premium</h3>
+          <div class="price" id="price-premium">Custom</div>
+          <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
+          <div class="cta-row">
+            <a href="contact.html">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS (inline) -->
+    <div class="section" id="how">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <a href="how-it-works.html" aria-label="See details">Details →</a>
+      </div>
+      <div class="grid" style="margin-top:10px;">
+        <div class="how-steps grid">
+          <div class="step"><div><b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.</div></div>
+          <div class="step"><div><b>Analyze</b> with CXO brains to get <b>2–3 insights</b> + <b>1 rec per brain</b>.</div></div>
+          <div class="step"><div><b>Act</b> on prioritized next steps; refine via <b>Chat</b> in Pro+ &amp; Premium.</div></div>
+        </div>
+      </div>
+    </div>
 
     <p style="text-align:center;margin-top:14px;">
       <a href="features.html">See Features</a> ·
@@ -104,26 +150,45 @@
     </footer>
   </div>
 
-  <!-- Wire CTAs AFTER the override above -->
+  <!-- Sticky floating CTA -->
+  <div class="sticky-cta" role="region" aria-label="Quick actions">
+    <a class="primary" id="fab-demo" href="#">Try Demo</a>
+    <a id="fab-pricing" href="pricing.html">Pricing</a>
+  </div>
+
+  <!-- Single wiring script (no duplicates) -->
   <script>
     (function () {
       var host = (location.hostname || "").replace(/^www\./, "");
       var parts = host.split(".");
       var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
 
-      // Uses Vercel override if present; else app.<root>
       var APP_BASE =
         window.CAIO_APP_BASE
         || (location.hostname.endsWith("netlify.app")
             ? "https://caio-frontend.vercel.app"
             : ("https://app." + root));
 
-      document.getElementById("cta-demo").href = APP_BASE + "/signup?plan=demo";
-      document.getElementById("y").textContent = new Date().getFullYear();
+      // hero CTA
+      var demo = document.getElementById("cta-demo");
+      if (demo) demo.href = APP_BASE + "/signup?plan=demo";
+
+      // plan tiles + sticky
+      var map = [
+        ["p-demo",     "/signup?plan=demo"],
+        ["p-pro",      "/signup?plan=pro"],
+        ["p-proplus",  "/payments?plan=proplus"],
+        ["fab-demo",   "/signup?plan=demo"]
+      ];
+      map.forEach(function(pair){
+        var el = document.getElementById(pair[0]);
+        if (el) el.href = APP_BASE + pair[1];
+      });
+
+      // year
+      var y = document.getElementById("y");
+      if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
-
-  <!-- (Optional) shared JS for other pages -->
-  <!-- <script src="assets/caio.js?v=1"></script> -->
 </body>
 </html>
