@@ -33,10 +33,10 @@
     </p>
 
     <!-- HERO -->
-    <h1>CAIO — Your AI-Powered Cognitive AI Officer</h1>
+    <h1>CAIO — Cognitive AI Officer</h1>
     <p style="text-align:center;font-size:1.11em;">
-      Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with <b>2–3 collective highlights</b> and
-      <b>1 recommendation per brain</b> — ready to act in minutes.
+      Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with <b> collective highlights</b> and
+      <b> recommendations per brain</b> — ready to act in minutes.
     </p>
 
     <!-- CTA row -->
@@ -77,46 +77,51 @@
     </div>
 
     <!-- PLANS (tiles) -->
-    <div class="section" id="plans">
-      <div class="section-head">
-        <h2>Plans</h2>
-        <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+  <div class="section" id="plans">
+    <div class="section-head">
+      <h2>Plans</h2>
+      <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+    </div>
+    <div class="grid cols-4" style="margin-top:10px;">
+      <div class="plan-card">
+        <h3>Demo</h3>
+        <div class="price" id="price-demo">Free</div>
+        <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
+        <div class="cta-row">
+          <a class="primary" id="p-demo" href="#">Try Demo</a>
+        </div>
       </div>
-      <div class="grid cols-4" style="margin-top:10px;">
-        <div class="plan-card">
-          <h3>Demo</h3>
-          <div class="price" id="price-demo">Free</div>
-          <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
-          <div class="cta-row">
-            <a class="primary" id="p-demo" href="#">Try Demo</a>
-          </div>
+
+      <div class="plan-card">
+        <h3>Pro</h3>
+        <div class="price" id="price-pro">—</div>
+        <p>Dashboard · Higher caps · Priority analysis queue</p>
+        <div class="cta-row">
+          <a class="primary" id="p-pro" href="#">Get Pro</a>
         </div>
-        <div class="plan-card">
-          <h3>Pro</h3>
-          <div class="price" id="price-pro">—</div>
-          <p>Dashboard · Higher caps · Priority analysis queue</p>
-          <div class="cta-row">
-            <a id="p-pro" href="#">Get Pro</a>
-          </div>
+      </div>
+
+      <div class="plan-card">
+        <h3>Pro+</h3>
+        <div class="price" id="price-proplus">—</div>
+        <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
+        <div class="cta-row">
+          <a class="primary" id="p-proplus" href="#">Upgrade to Pro+</a>
         </div>
-        <div class="plan-card">
-          <h3>Pro+</h3>
-          <div class="price" id="price-proplus">—</div>
-          <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
-          <div class="cta-row">
-            <a class="primary" id="p-proplus" href="#">Upgrade to Pro+</a>
-          </div>
-        </div>
-        <div class="plan-card">
-          <h3>Premium</h3>
-          <div class="price" id="price-premium">Custom</div>
-          <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
-          <div class="cta-row">
-            <a href="contact.html">Contact Sales</a>
-          </div>
+      </div>
+
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <div class="price" id="price-premium">—</div>
+        <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
+        <div class="cta-row">
+          <a class="primary" id="p-premium" href="#">Go Premium</a>
+          <a id="p-contact" href="contact.html">Contact Sales</a>
         </div>
       </div>
     </div>
+  </div>
+
 
     <!-- HOW IT WORKS (inline) -->
     <div class="section" id="how">
@@ -158,37 +163,103 @@
 
   <!-- Single wiring script (no duplicates) -->
   <script>
+    // window.CAIO_APP_BASE should be set in <head> to your Vercel app:
+    // window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";
+    // If you want to hardcode API as well: window.CAIO_API_BASE = "https://YOUR-RENDER-DOMAIN";
+
     (function () {
       var host = (location.hostname || "").replace(/^www\./, "");
       var parts = host.split(".");
       var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
 
+      // ---- Frontend base (Vercel)
       var APP_BASE =
         window.CAIO_APP_BASE
         || (location.hostname.endsWith("netlify.app")
             ? "https://caio-frontend.vercel.app"
             : ("https://app." + root));
 
-      // hero CTA
-      var demo = document.getElementById("cta-demo");
-      if (demo) demo.href = APP_BASE + "/signup?plan=demo";
+      // ---- Backend base (Render)
+      var API_BASE =
+        window.CAIO_API_BASE                // explicit override (recommended)
+        || ("https://api." + root);         // fallback: api.<root>
 
-      // plan tiles + sticky
-      var map = [
-        ["p-demo",     "/signup?plan=demo"],
+      // ---- Wire CTAs
+      var ctas = [
+        ["cta-demo",   "/signup?plan=demo"],    // hero
+        ["p-demo",     "/signup?plan=demo"],    // tiles
         ["p-pro",      "/signup?plan=pro"],
         ["p-proplus",  "/payments?plan=proplus"],
-        ["fab-demo",   "/signup?plan=demo"]
+        ["p-premium",  "/payments?plan=premium"],
+        ["fab-demo",   "/signup?plan=demo"]     // sticky
       ];
-      map.forEach(function(pair){
-        var el = document.getElementById(pair[0]);
-        if (el) el.href = APP_BASE + pair[1];
+      ctas.forEach(function([id,path]){
+        var el = document.getElementById(id);
+        if (el) el.href = APP_BASE + path;
       });
 
-      // year
+      // ---- Live pricing (flexible to your existing API shapes)
+      // Tries: 1) /public-config  2) /pricing  3) Vercel app's /api/public-config (fallback)
+      var endpoints = [
+        API_BASE + "/public-config",
+        API_BASE + "/pricing",
+        APP_BASE + "/api/public-config"
+      ];
+
+      function setPrice(id, val) {
+        var el = document.getElementById(id);
+        if (el && val) el.textContent = val;
+      }
+
+      // Accept multiple JSON shapes:
+      // A) { plans: [{id:"proplus", price_display:"₹2,999 / mo"}] }
+      // B) { pricing: { proplus: { display:"₹2,999 / mo", amount_inr:2999, amount_usd:39 } } }
+      // C) Flat: { proplus_display:"₹2,999 / mo" } or { proplus_inr:2999, proplus_usd:39 }
+      function pickDisplay(obj, planKey) {
+        if (!obj) return null;
+
+        // A
+        if (Array.isArray(obj.plans)) {
+          var p = obj.plans.find(function (x) { return (x.id || x.plan) === planKey; });
+          if (p) return p.price_display || p.display || null;
+        }
+        // B
+        if (obj.pricing && obj.pricing[planKey]) {
+          var d = obj.pricing[planKey];
+          if (d.display) return d.display;
+          if (d.amount_inr != null) return "₹" + d.amount_inr + " / mo";
+          if (d.amount_usd != null) return "$" + d.amount_usd + " / mo";
+        }
+        // C
+        if (obj[planKey + "_display"]) return obj[planKey + "_display"];
+        if (obj[planKey + "_inr"] != null) return "₹" + obj[planKey + "_inr"] + " / mo";
+        if (obj[planKey + "_usd"] != null) return "$" + obj[planKey + "_usd"] + " / mo";
+
+        return null;
+      }
+
+      (async function hydratePrices(){
+        for (var i=0;i<endpoints.length;i++){
+          try {
+            var res = await fetch(endpoints[i], { credentials: "omit" });
+            if (!res.ok) continue;
+            var data = await res.json();
+
+            setPrice("price-demo",    pickDisplay(data, "demo")    || "Free");
+            setPrice("price-pro",     pickDisplay(data, "pro")     || "—");
+            setPrice("price-proplus", pickDisplay(data, "proplus") || "—");
+            setPrice("price-premium", pickDisplay(data, "premium") || "—");
+            return;
+          } catch (e) { /* try next endpoint */ }
+        }
+        // leave placeholders if all endpoints fail
+      })();
+
+      // Footer year
       var y = document.getElementById("y");
       if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
+
 </body>
 </html>
