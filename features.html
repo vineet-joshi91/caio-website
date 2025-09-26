@@ -2,115 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>%%PAGE_TITLE%% — CAIO</title>
+  <title>CAIO Features — CAIO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="%%PAGE_DESCRIPTION%%" />
+  <meta name="description" content="What CAIO can do across CFO, CHRO, COO, CMO, and CPO lenses." />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
-  <link rel="icon" href="assets/CAIO_Favicon_Helmet.ico">
-  <link rel="apple-touch-icon" href="assets/CAIO - Penultimate.png">
-  <meta name="theme-color" content="#22c55e">
-
-  <meta property="og:title" content="%%PAGE_TITLE%% — CAIO">
-  <meta property="og:description" content="%%PAGE_DESCRIPTION%%">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/CAIO - Penultimate.png">
-  <meta name="twitter:card" content="summary_large_image">
-
   <script>window.CAIO_APP_BASE="https://caio-frontend.vercel.app";</script>
 </head>
 <body>
-  <div class="container">
-    <h1>CAIO Features</h1>
-    <p style="text-align:center;">
-      CAIO (Cognitive AI Officer) is your always-on strategic partner across Finance, HR, Ops, Marketing, and Product.
-    </p>
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="CAIO"><span class="brand-name">CAIO</span></a>
+    <nav class="nav">
+      <a href="features.html" aria-current="page">Why CAIO</a>
+      <a href="pricing.html">Plans</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
 
-    <h2 style="margin-top:14px;">What you can do</h2>
-    <ul>
-      <li><b>Unified Dashboard</b> — Upload a document (PDF, PPT, XLSX, DOCX) or paste text and get instant analysis.</li>
-      <li><b>CXO Brains</b> — CFO, CHRO, COO, CMO, CPO, EA; each provides domain-specific insights.</li>
-      <li><b>Collective Insights</b> — Get 2–3 cross-functional insights plus <b>1 recommendation per brain</b>.</li>
-      <li><b>Chat (Pro+ & Premium)</b> — Ask follow-ups, run scenarios, refine actions.</li>
-      <li><b>Export</b> — Copy summaries or export to PDF (and Excel where enabled).</li>
-      <li><b>Privacy-first</b> — Role-based access and clear audit trails. On-prem options for Enterprise.</li>
-    </ul>
+  <main class="section">
+    <div class="container">
+      <div class="section-head"><h2>CAIO Features</h2></div>
 
-    <h2 style="margin-top:16px;">Supported inputs</h2>
-    <ul>
-      <li>Documents: PDF, DOCX, PPTX, XLSX</li>
-      <li>Text: pasted notes, briefings, emails</li>
-    </ul>
+      <div class="grid cols-3">
+        <article class="tile"><h3>Unified Dashboard</h3><p>Upload a document (PDF, PPTX, XLSX, DOCX) or paste text and get instant analysis.</p></article>
+        <article class="tile"><h3>CXO Brains</h3><p>CFO, CHRO, COO, CMO, CPO (and EA) each provide domain-specific insights.</p></article>
+        <article class="tile"><h3>Collective Insights</h3><p>2–3 cross-functional highlights plus <b>1 recommendation per brain</b>.</p></article>
+        <article class="tile"><h3>Chat (Pro+ & Premium)</h3><p>Ask follow-ups, run scenarios, and refine action plans.</p></article>
+        <article class="tile"><h3>Exports</h3><p>Copy summaries or export to PDF (and Excel where enabled).</p></article>
+        <article class="tile"><h3>Privacy-first</h3><p>Role-based access and audit trails. BYOK/SSO options for Enterprise.</p></article>
+      </div>
 
-    <h2 style="margin-top:16px;">By tier</h2>
-    <!-- Mirrors your pricing table styling: inline borders + padding -->
-    <table style="width:100%;border-collapse:collapse;margin-top:6px;">
-      <thead>
-        <tr>
-          <th style="border:1px solid #eee;padding:8px;">Tier</th>
-          <th style="border:1px solid #eee;padding:8px;">Access</th>
-          <th style="border:1px solid #eee;padding:8px;">Highlights</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Demo</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
-          <td style="border:1px solid #eee;padding:8px;">
-            Query + doc upload (daily cap), sample datasets, watermarked output
-          </td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Pro</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard</td>
-          <td style="border:1px solid #eee;padding:8px;">
-            Higher daily caps, priority analysis queue
-          </td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Pro+</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
-          <td style="border:1px solid #eee;padding:8px;">
-            Scenario simulation, PDF export, advanced prompts
-          </td>
-        </tr>
-        <tr>
-          <td style="border:1px solid #eee;padding:8px;">Premium</td>
-          <td style="border:1px solid #eee;padding:8px;">Dashboard + Chat</td>
-          <td style="border:1px solid #eee;padding:8px;">
-            Highest limits, advanced CXO brains, dedicated support, SSO/API/compliance
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <p class="links-center" style="margin-top:18px;">
+        <a id="cta-demo" href="#">Try Demo</a> ·
+        <a id="cta-proplus" href="#">Upgrade to Pro+</a> ·
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </main>
 
-    <p style="text-align:center;margin-top:12px;">
-      <a href="index.html">← Back to Home</a>
-      &nbsp;|&nbsp;
-      <a id="cta-demo" href="#" style="text-decoration:none;">Try Demo</a>
-      &nbsp;|&nbsp;
-      <a id="cta-proplus" href="#" style="text-decoration:none;">Upgrade to Pro+</a>
-    </p>
-
-    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
-      <span>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></span>
-      <p class="muted" style="margin-top:.25rem">Operating entity: Joshi Enterprises, India.</p>
-    </footer>
-  </div>
+  <footer class="footer"><div class="container footer-row">
+    <div class="footer-brand"><img src="assets/logo.png" alt="CAIO"><span>CAIO</span></div>
+    <nav><a href="pricing.html">Pricing</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a></nav>
+    <p>© <span id="y"></span> CAIO by Joshi Enterprises.</p>
+  </div></footer>
 
   <script>
-    // Derive app subdomain like https://app.caio.live from current host (keeps connections without layout changes)
-    (function () {
-      var host = (location.hostname || "").replace(/^www\./, "");
-      var parts = host.split(".");
-      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
-      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
-
-      document.getElementById("cta-demo").href = APP_BASE + "/signup?plan=demo";
-      document.getElementById("cta-proplus").href = APP_BASE + "/payments?plan=proplus";
-      document.getElementById("y").textContent = new Date().getFullYear();
+    const navToggle=document.getElementById('navToggle'),nav=document.querySelector('.nav'); if(navToggle){navToggle.addEventListener('click',()=>nav.classList.toggle('show'))}
+    (function(){
+      var host=(location.hostname||"").replace(/^www\./,""); var parts=host.split("."); var root=parts.length>=2?parts.slice(-2).join("."):host;
+      var APP_BASE=window.CAIO_APP_BASE||("https://app."+root);
+      [["cta-demo-top","/signup?plan=demo"],["cta-demo","/signup?plan=demo"],["cta-proplus","/payments?plan=proplus"]].forEach(function(p){var el=document.getElementById(p[0]); if(el) el.href=APP_BASE+p[1];});
+      document.getElementById('y').textContent=new Date().getFullYear();
     })();
   </script>
-  <script src="assets/caio.js?v=1"></script>
 </body>
 </html>

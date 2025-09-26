@@ -2,75 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>%%PAGE_TITLE%% — CAIO</title>
+  <title>How CAIO Works — CAIO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="%%PAGE_DESCRIPTION%%" />
+  <meta name="description" content="Upload. Analyze. Act. Your Cognitive AI Officer in three steps." />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
-  <link rel="icon" href="assets/CAIO_Favicon_Helmet.ico">
-  <link rel="apple-touch-icon" href="assets/CAIO - Penultimate.png">
-  <meta name="theme-color" content="#22c55e">
-
-  <meta property="og:title" content="%%PAGE_TITLE%% — CAIO">
-  <meta property="og:description" content="%%PAGE_DESCRIPTION%%">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/CAIO - Penultimate.png">
-  <meta name="twitter:card" content="summary_large_image">
-
   <script>window.CAIO_APP_BASE="https://caio-frontend.vercel.app";</script>
 </head>
 <body>
-  <div class="container">
-    <h1>How CAIO Works</h1>
-    <p style="text-align:center;margin-top:6px;">
-      Upload. Analyze. Act. — Your <b>Cognitive AI Officer</b> in three steps.
-    </p>
+  <header class="site-header" id="header">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="CAIO"><span class="brand-name">CAIO</span></a>
+    <nav class="nav">
+      <a href="features.html">Why CAIO</a>
+      <a href="pricing.html">Plans</a>
+      <a href="how-it-works.html" aria-current="page">How it Works</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
 
-    <ol style="margin-top:12px; padding-left: 18px;">
-      <li style="margin:10px 0;">
-        <b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.
-      </li>
-      <li style="margin:10px 0;">
-        <b>Analyze</b> with CXO brains (CFO, CHRO, COO, CMO, CPO, EA) to get
-        <b>2–3 collective insights</b> and <b>1 recommendation per brain</b>.
-      </li>
-      <li style="margin:10px 0;">
-        <b>Act</b> on prioritized next steps — refine via <b>Chat</b> in Pro+ &amp; Premium.
-      </li>
-    </ol>
+  <main class="section">
+    <div class="container">
+      <div class="section-head"><h2>How CAIO Works</h2></div>
 
-    <p style="text-align:center;margin-top:12px;">
-      <a id="cta-demo" href="#" style="text-decoration:none;">Try a 30-second Demo</a>
-      &nbsp;|&nbsp;
-      <a id="cta-proplus" href="#" style="text-decoration:none;">Open Pro+ Chat</a>
-    </p>
+      <div class="grid cols-3 how-steps">
+        <div class="step"><div><b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.</div></div>
+        <div class="step"><div><b>Analyze</b> with CXO brains for <b>2–3 insights</b> + <b>1 rec per brain</b>.</div></div>
+        <div class="step"><div><b>Act</b> on prioritized next steps; refine via <b>Chat</b> in Pro+ & Premium.</div></div>
+      </div>
 
-    <p class="muted" style="text-align:center;margin-top:8px;font-size:.95em;color:#6b7280;">
-      Demo &amp; Pro: Dashboard with daily caps · Pro+ &amp; Premium: Chat + higher limits
-    </p>
+      <p class="links-center" style="margin-top:18px;">
+        <a id="cta-demo" href="#">Try a 30-second Demo</a> ·
+        <a id="cta-proplus" href="#">Open Pro+ Chat</a> ·
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </main>
 
-    <p style="text-align:center;margin-top:14px;">
-      <a href="index.html">← Back to Home</a>
-    </p>
-
-    <footer style="margin-top:18px;text-align:center;font-size:12px;color:#6b7280">
-      <span>© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></span>
-      <p class="muted" style="margin-top:.25rem">Operating entity: Joshi Enterprises, India.</p>
-    </footer>
-  </div>
+  <footer class="footer"><div class="container footer-row">
+    <div class="footer-brand"><img src="assets/logo.png" alt="CAIO"><span>CAIO</span></div>
+    <nav><a href="pricing.html">Pricing</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a></nav>
+    <p>© <span id="y"></span> CAIO by Joshi Enterprises.</p>
+  </div></footer>
 
   <script>
-    (function () {
-      var host = (location.hostname || "").replace(/^www\./, "");
-      var parts = host.split(".");
-      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
-      var APP_BASE = (window.CAIO_APP_BASE || ("https://app." + root));
-
-      document.getElementById("cta-demo").href    = APP_BASE + "/signup?plan=demo";
-      document.getElementById("cta-proplus").href = APP_BASE + "/payments?plan=proplus";
-      document.getElementById("y").textContent = new Date().getFullYear();
+    const navToggle=document.getElementById('navToggle'),nav=document.querySelector('.nav'); if(navToggle){navToggle.addEventListener('click',()=>nav.classList.toggle('show'))}
+    (function(){
+      var host=(location.hostname||"").replace(/^www\./,""); var parts=host.split("."); var root=parts.length>=2?parts.slice(-2).join("."):host;
+      var APP_BASE=window.CAIO_APP_BASE||("https://app."+root);
+      [["cta-demo-top","/signup?plan=demo"],["cta-demo","/signup?plan=demo"],["cta-proplus","/payments?plan=proplus"]].forEach(function(p){var el=document.getElementById(p[0]); if(el) el.href=APP_BASE+p[1];});
+      document.getElementById('y').textContent=new Date().getFullYear();
     })();
   </script>
-  <script src="assets/caio.js?v=1"></script>
 </body>
 </html>

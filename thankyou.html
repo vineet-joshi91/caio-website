@@ -2,37 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>%%PAGE_TITLE%% — CAIO</title>
+  <title>Thanks — CAIO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="%%PAGE_DESCRIPTION%%" />
+  <meta name="description" content="Thanks for contacting CAIO." />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-
-  <link rel="icon" href="assets/CAIO_Favicon_Helmet.ico">
-  <link rel="apple-touch-icon" href="assets/CAIO - Penultimate.png">
-  <meta name="theme-color" content="#22c55e">
-
-  <meta property="og:title" content="%%PAGE_TITLE%% — CAIO">
-  <meta property="og:description" content="%%PAGE_DESCRIPTION%%">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/CAIO - Penultimate.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <script>window.CAIO_APP_BASE="https://caio-frontend.vercel.app";</script>
 </head>
 <body>
-  <main class="card">
-    <h1>Thanks! 🎉</h1>
-    <p>We’ve received your message. We’ll get back to you at the earliest.</p>
-    <a class="btn" href="index.html">Back to Home</a>
-    <div class="sub">
-      Prefer email? <a href="mailto:vineetpjoshi.71@gmail.com" style="color:#154272;text-decoration:none">vineetpjoshi.71@gmail.com</a>
+  <main class="section">
+    <div class="container" style="max-width:720px;text-align:center">
+      <h2>Thanks! 🎉</h2>
+      <p>We’ve received your message. We’ll get back to you at the earliest.</p>
+      <a class="btn btn-primary" href="index.html">Back to Home</a>
+      <p class="muted" style="margin-top:10px">Prefer email? <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a></p>
+      <p style="margin-top:16px">© <span id="y"></span> CAIO by Joshi Enterprises</p>
     </div>
-    <div class="foot">© <span id="y"></span> <strong>CAIO</strong> by <strong>Joshi Enterprises</strong></div>
   </main>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script src="assets/caio.js?v=1"></script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>

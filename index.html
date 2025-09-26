@@ -5,166 +5,203 @@
   <title>CAIO — Cognitive AI Officer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Upload a doc. Get CFO/COO/CHRO/CMO/CPO-grade insights in minutes. CAIO is your Cognitive AI Officer.">
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- Favicon / app icons -->
+  <!-- Icons -->
   <link rel="icon" href="assets/favicon.ico">
-  <link rel="apple-touch-icon" href="assets/CAIO - Penultimate.png">
-  <meta name="theme-color" content="#22c55e">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
 
   <!-- Social cards -->
   <meta property="og:title" content="CAIO — Cognitive AI Officer">
   <meta property="og:description" content="Turn documents into CXO-grade insights and actions.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/CAIO - Penultimate.png">
+  <meta property="og:image" content="assets/logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Route CTAs to your Vercel app -->
-  <script>
-    window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";
-  </script>
+  <!-- App routing (kept from your file) -->
+  <script>window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";</script>
+
+  <!-- Fonts & CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- HERO LOGO -->
-    <p style="text-align:center;margin:0 0 6px;">
-      <img class="logo-hero" src="assets/CAIO - Penultimate.png" alt="CAIO logo" width="112" height="112">
-    </p>
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <a class="brand" href="#">
+      <img class="brand-logo" src="assets/logo.png" alt="CAIO logo" />
+      <span class="brand-name">CAIO</span>
+    </a>
+    <nav class="nav">
+      <a href="#features">Why CAIO</a>
+      <a href="#plans">Plans</a>
+      <a href="#how">How it Works</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-    <!-- Eyebrow -->
-    <p class="eyebrow" style="text-align:center;letter-spacing:.18em;text-transform:uppercase;color:#9fb0d0;margin:0 0 4px 0;">
-      Cognitive AI Officer
-    </p>
-
+  <main>
     <!-- HERO -->
-    <h1>CAIO — Your AI-Powered Cognitive AI Officer</h1>
-    <p style="text-align:center;font-size:1.11em;">
-      Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
-      <b>2–3 collective highlights</b> and <b>1 recommendation per brain</b> — ready to act in minutes.
-    </p>
+    <section class="hero">
+      <div class="container">
+        <p class="logo-wrap">
+          <img class="logo-hero" src="assets/logo.png" alt="CAIO logo">
+        </p>
+        <p class="eyebrow">Cognitive AI Officer</p>
+        <h1>CAIO — Your AI-Powered <span class="accent">Cognitive AI Officer</span></h1>
+        <p class="subhead">
+          Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
+          <b>2–3 collective highlights</b> and <b>1 recommendation per brain</b> — ready to act in minutes.
+        </p>
 
-    <!-- CTA row -->
-    <p class="cta" style="text-align:center;margin:12px 0 6px 0;">
-      <a id="cta-demo" href="#">Try Demo</a>
-      &nbsp;
-      <a href="pricing.html">See Pricing</a>
-    </p>
-
-    <!-- Chips -->
-    <div class="chips" style="text-align:center; margin-top:8px;">
-      <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">CFO / CHRO / COO / CMO / CPO</span>
-      <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">2–3 Collective Insights</span>
-      <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">1 Rec per Brain</span>
-      <span style="display:inline-block;border:1px solid #e2e8f0;border-radius:999px;padding:6px 10px;margin:4px;">PDF · DOCX · PPTX · XLSX</span>
-    </div>
-
-    <!-- FEATURES (tiles) -->
-    <div class="section" id="features">
-      <div class="section-head">
-        <h2>Why teams use CAIO</h2>
-        <a href="features.html" aria-label="See all features">All features →</a>
-      </div>
-      <div class="grid cols-3" style="margin-top:10px;">
-        <div class="tile">
-          <h3>Speed</h3>
-          <p>Minutes to a crisp brief with risks, opportunities, and next steps.</p>
+        <div class="cta-row">
+          <a id="cta-demo" href="#" class="btn btn-primary">Try Demo</a>
+          <a href="pricing.html" class="btn btn-ghost">See Pricing</a>
         </div>
-        <div class="tile">
-          <h3>Depth</h3>
-          <p>Cross-functional reasoning from multiple CXO brains (CFO, CHRO, COO, CMO, CPO).</p>
-        </div>
-        <div class="tile">
-          <h3>Flow</h3>
-          <p>Pro+ &amp; Premium unlock <b>Chat</b> for follow-ups and scenario runs.</p>
-        </div>
-      </div>
-    </div>
 
-    <!-- PLANS (tiles) -->
-    <div class="section" id="plans">
-      <div class="section-head">
-        <h2>Plans</h2>
-        <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+        <ul class="chips">
+          <li>CFO / CHRO / COO / CMO / CPO</li>
+          <li>2–3 Collective Insights</li>
+          <li>1 Rec per Brain</li>
+          <li>PDF · DOCX · PPTX · XLSX</li>
+        </ul>
       </div>
-      <div class="grid cols-4" style="margin-top:10px;">
-        <div class="plan-card">
-          <h3>Demo</h3>
-          <div class="price" id="price-demo">Free</div>
-          <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
-          <div class="cta-row">
-            <a class="primary" id="p-demo" href="#">Try Demo</a>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why teams use CAIO</h2>
+          <a href="features.html" aria-label="See all features">All features →</a>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="tile">
+            <h3>Speed</h3>
+            <p>Minutes to a crisp brief with risks, opportunities, and next steps.</p>
+          </article>
+          <article class="tile">
+            <h3>Depth</h3>
+            <p>Cross-functional reasoning from multiple CXO brains (CFO, CHRO, COO, CMO, CPO).</p>
+          </article>
+          <article class="tile">
+            <h3>Flow</h3>
+            <p>Pro+ &amp; Premium unlock <b>Chat</b> for follow-ups and scenario runs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANS -->
+    <section class="section" id="plans">
+      <div class="container">
+        <div class="section-head">
+          <h2>Plans</h2>
+          <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="plan-card">
+            <h3>Demo</h3>
+            <div class="price" id="price-demo">Free</div>
+            <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-demo" href="#">Try Demo</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Pro</h3>
+            <div class="price" id="price-pro">—</div>
+            <p>Dashboard · Higher caps · Priority analysis queue</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-pro" href="#">Get Pro</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Pro+</h3>
+            <div class="price" id="price-proplus">—</div>
+            <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-proplus" href="#">Upgrade to Pro+</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Premium</h3>
+            <div class="price" id="price-premium">—</div>
+            <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-premium" href="#">Go Premium</a>
+              <a class="btn btn-outline" id="p-contact" href="contact.html">Contact Sales</a>
+            </div>
           </div>
         </div>
-
-        <div class="plan-card">
-          <h3>Pro</h3>
-          <div class="price" id="price-pro">—</div>
-          <p>Dashboard · Higher caps · Priority analysis queue</p>
-          <div class="cta-row">
-            <a class="primary" id="p-pro" href="#">Get Pro</a>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <h3>Pro+</h3>
-          <div class="price" id="price-proplus">—</div>
-          <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
-          <div class="cta-row">
-            <a class="primary" id="p-proplus" href="#">Upgrade to Pro+</a>
-          </div>
-        </div>
-
-        <div class="plan-card">
-          <h3>Premium</h3>
-          <div class="price" id="price-premium">—</div>
-          <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
-          <div class="cta-row">
-            <a class="primary" id="p-premium" href="#">Go Premium</a>
-            <a id="p-contact" href="contact.html">Contact Sales</a>
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- HOW IT WORKS (inline) -->
-    <div class="section" id="how">
-      <div class="section-head">
-        <h2>How it works</h2>
-        <a href="how-it-works.html" aria-label="See details">Details →</a>
-      </div>
-      <div class="grid" style="margin-top:10px;">
-        <div class="how-steps grid">
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <a href="how-it-works.html" aria-label="See details">Details →</a>
+        </div>
+
+        <div class="how-steps grid cols-3">
           <div class="step"><div><b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.</div></div>
           <div class="step"><div><b>Analyze</b> with CXO brains to get <b>2–3 insights</b> + <b>1 rec per brain</b>.</div></div>
           <div class="step"><div><b>Act</b> on prioritized next steps; refine via <b>Chat</b> in Pro+ &amp; Premium.</div></div>
         </div>
+
+        <p class="links-center">
+          <a href="features.html">See Features</a> ·
+          <a href="how-it-works.html">How it Works</a> ·
+          <a href="cxo-vs-caio.html">CXO vs CAIO</a>
+        </p>
       </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="CAIO">
+        <span>CAIO</span>
+      </div>
+      <nav>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refunds</a>
+      </nav>
+      <p>© <span id="y"></span> CAIO by Joshi Enterprises. All rights reserved. | Mumbai, India | <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a></p>
     </div>
-
-    <p style="text-align:center;margin-top:14px;">
-      <a href="features.html">See Features</a> ·
-      <a href="how-it-works.html">How it Works</a> ·
-      <a href="cxo-vs-caio.html">CXO vs CAIO</a>
-    </p>
-
-    <footer>
-      <a href="pricing.html">Pricing</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="terms.html">Terms</a> |
-      <a href="privacy.html">Privacy</a> |
-      <a href="refund.html">Refunds</a>
-      <br>
-      <span>© <span id="y"></span> CAIO by Joshi Enterprises. All rights reserved. | Mumbai, India | <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a></span>
-    </footer>
-  </div>
+  </footer>
 
   <!-- Sticky floating CTA -->
   <div class="sticky-cta" role="region" aria-label="Quick actions">
-    <a class="primary" id="fab-demo" href="#">Try Demo</a>
-    <a id="fab-pricing" href="pricing.html">Pricing</a>
+    <a class="btn btn-primary" id="fab-demo" href="#">Try Demo</a>
+    <a class="btn btn-outline" id="fab-pricing" href="pricing.html">Pricing</a>
   </div>
 
-  <!-- Wiring: CTAs + live pricing -->
+  <!-- Mobile nav toggle -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) navToggle.addEventListener('click', ()=> nav.classList.toggle('show'));
+  </script>
+
+  <!-- Wiring: CTAs + live pricing (kept, lightly cleaned) -->
   <script>
     (function () {
       var host = (location.hostname || "").replace(/^www\./, "");
@@ -177,24 +214,23 @@
             ? "https://caio-frontend.vercel.app"
             : ("https://app." + root));
 
-      var API_BASE =
-        window.CAIO_API_BASE
-        || ("https://api." + root);
+      var API_BASE = window.CAIO_API_BASE || ("https://api." + root);
 
-      // CTAs
+      // CTA links (include the top header demo too)
       [
-        ["cta-demo",   "/signup?plan=demo"],
-        ["p-demo",     "/signup?plan=demo"],
-        ["p-pro",      "/signup?plan=pro"],
-        ["p-proplus",  "/payments?plan=proplus"],
-        ["p-premium",  "/payments?plan=premium"],
-        ["fab-demo",   "/signup?plan=demo"]
+        ["cta-demo-top", "/signup?plan=demo"],
+        ["cta-demo",     "/signup?plan=demo"],
+        ["p-demo",       "/signup?plan=demo"],
+        ["p-pro",        "/signup?plan=pro"],
+        ["p-proplus",    "/payments?plan=proplus"],
+        ["p-premium",    "/payments?plan=premium"],
+        ["fab-demo",     "/signup?plan=demo"]
       ].forEach(function(pair){
         var el = document.getElementById(pair[0]);
         if (el) el.href = APP_BASE + pair[1];
       });
 
-      // Live pricing (supports multiple shapes)
+      // Pricing
       var endpoints = [
         API_BASE + "/public-config",
         API_BASE + "/pricing",
