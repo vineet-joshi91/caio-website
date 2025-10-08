@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Hotjar Tracking Code for https://caioinsights.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6539090,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+  <meta charset="UTF-8" />
+  <title>CAIO Features — CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="What CAIO can do across CFO, CHRO, COO, CMO, and CPO lenses." />
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script>window.CAIO_APP_BASE="https://caio-frontend.vercel.app";</script>
+
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="CAIO"><span class="brand-name">CAIO</span></a>
+    <nav class="nav">
+      <a href="features.html" aria-current="page">Why CAIO</a>
+      <a href="pricing.html">Plans</a>
+      <a href="how-it-works.html">How it Works</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head"><h2>CAIO Features</h2></div>
+
+      <div class="grid cols-3">
+        <article class="tile"><h3>Unified Dashboard</h3><p>Upload a document (PDF, PPTX, XLSX, DOCX) or paste text and get instant analysis.</p></article>
+        <article class="tile"><h3>CXO Brains</h3><p>CFO, CHRO, COO, CMO, CPO (and EA) each provide domain-specific insights.</p></article>
+        <article class="tile"><h3>Collective Insights</h3><p>2–3 cross-functional highlights plus <b>1 recommendation per brain</b>.</p></article>
+        <article class="tile"><h3>Chat (Pro+ & Premium)</h3><p>Ask follow-ups, run scenarios, and refine action plans.</p></article>
+        <article class="tile"><h3>Exports</h3><p>Copy summaries or export to PDF (and Excel where enabled).</p></article>
+        <article class="tile"><h3>Privacy-first</h3><p>Role-based access and audit trails. BYOK/SSO options for Enterprise.</p></article>
+      </div>
+
+      <p class="links-center" style="margin-top:18px;">
+        <a id="cta-demo" href="#">Try Demo</a> ·
+        <a id="cta-proplus" href="#">Upgrade to Pro+</a> ·
+        <a href="index.html">Back to Home</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container footer-row">
+    <div class="footer-brand"><img src="assets/logo.png" alt="CAIO"><span>CAIO</span></div>
+    <nav><a href="pricing.html">Pricing</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a></nav>
+    <p>© <span id="y"></span> CAIO by Joshi Enterprises.</p>
+  </div></footer>
+
+  <script>
+    const navToggle=document.getElementById('navToggle'),nav=document.querySelector('.nav'); if(navToggle){navToggle.addEventListener('click',()=>nav.classList.toggle('show'))}
+    (function(){
+      var host=(location.hostname||"").replace(/^www\./,""); var parts=host.split("."); var root=parts.length>=2?parts.slice(-2).join("."):host;
+      var APP_BASE=window.CAIO_APP_BASE||("https://app."+root);
+      [["cta-demo-top","/signup?plan=demo"],["cta-demo","/signup?plan=demo"],["cta-proplus","/payments?plan=proplus"]].forEach(function(p){var el=document.getElementById(p[0]); if(el) el.href=APP_BASE+p[1];});
+      document.getElementById('y').textContent=new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
