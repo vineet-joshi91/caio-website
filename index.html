@@ -5,30 +5,13 @@
   <title>CAIO • Cognitive AI Officer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
-
-  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico">
 
-  <!-- Fonts + Styles -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css" />
 
-  <!-- Minimal inline helpers (safe even if already in style.css) -->
-  <style>
-    .hero-logo{height:36px;width:auto;margin-bottom:8px;opacity:.95}
-    .marquee{position:relative;overflow:hidden;border:1px solid var(--border);background:linear-gradient(180deg,rgba(124,193,255,.08),rgba(124,193,255,.03));border-radius:16px;padding:8px 0;margin-bottom:12px}
-    .marquee__inner{display:inline-flex;gap:28px;white-space:nowrap;animation:marquee 18s linear infinite;padding-left:12px}
-    .marquee__inner span{color:var(--text);font-weight:600;opacity:.9}
-    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  </style>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="CAIO – Cognitive AI Officer">
-  <meta property="og:description" content="Upload a doc → CAIO analyzes across 5 CXO lenses → Boardroom-ready brief in ~60s.">
-  <meta property="og:type" content="website">
-
-  <!-- Google Tag Manager -->
+  <!-- GTM -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -36,8 +19,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-W9TGQ32G');
   </script>
-  <!-- End Google Tag Manager -->
-
   <!-- Hotjar -->
   <script>
   (function(h,o,t,j,a,r){
@@ -49,6 +30,12 @@
       a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+
+  <!-- Inline helper for the vertical marquee size (safe if also in style.css) -->
+  <style>
+    .marquee{height:36px}
+    .marquee__inner span{height:36px;line-height:36px}
+  </style>
 </head>
 <body>
 
@@ -78,10 +65,10 @@
   </header>
 
   <main class="container">
-    <section class="hero">
+    <!-- Stacked hero: left block, then right block BELOW it -->
+    <section class="hero hero--stack">
       <!-- LEFT -->
-      <div>
-        <!-- logo in hero -->
+      <div class="hero-left">
         <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
         <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
         <h1>Boardroom-grade insights from your messy documents.</h1>
@@ -104,9 +91,9 @@
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <div>
-        <!-- horizontal marquee above the card -->
+      <!-- RIGHT (now shown below the left) -->
+      <div class="hero-right">
+        <!-- Vertical marquee stays in the same visual area, just below the left block -->
         <div class="marquee" aria-hidden="true">
           <div class="marquee__inner">
             <span>⚡ CFO Insights</span>
@@ -114,6 +101,7 @@
             <span>🫶 CHRO Analysis</span>
             <span>📣 CMO Strategies</span>
             <span>🧩 CPO Reviews</span>
+            <!-- duplicate set for seamless loop -->
             <span>⚡ CFO Insights</span>
             <span>⚙️ COO Reports</span>
             <span>🫶 CHRO Analysis</span>
@@ -172,7 +160,6 @@
     </div>
   </footer>
 
-  <!-- Use your filename -->
   <script src="/assets/js/caio.js"></script>
 </body>
 </html>

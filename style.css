@@ -156,3 +156,41 @@ body{
   .nav.show{ display:flex; }
   .nav-toggle{ display:block; }
 }
+/* ==== Stack hero one below the other (desktop too) ==== */
+.hero.hero--stack{
+  display:block;                 /* overrides the 2-col grid */
+  padding:96px 0 48px;
+}
+.hero.hero--stack .hero-right{
+  margin-top:16px;               /* space between left and right blocks */
+}
+
+/* ==== Vertical marquee styles ==== */
+.marquee{
+  position:relative;
+  overflow:hidden;
+  height:36px;                   /* one visible row */
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(124,193,255,.08), rgba(124,193,255,.03));
+  border-radius:var(--br);
+  margin-bottom:12px;
+}
+.marquee__inner{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  animation:marqueeY 16s linear infinite;
+  will-change:transform;
+}
+.marquee__inner span{
+  display:block;
+  height:36px; line-height:36px;
+  padding:0 12px;
+  color:var(--ink);
+  font-weight:700;
+  white-space:nowrap;
+}
+@keyframes marqueeY{
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }  /* duplicate list in HTML enables loop */
+}
