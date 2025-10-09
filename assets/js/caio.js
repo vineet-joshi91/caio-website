@@ -5,6 +5,42 @@
      <span data-price="pro|pro_plus|premium" data-mode="full|amount"></span>
      <p data-copy="positioning"></p>
 */
+// Canonical on-domain paths
+const PLAN_PATHS = {
+  demo:     "/demo",
+  pro:      "/checkout/pro",
+  pro_plus: "/checkout/pro-plus",
+  premium:  "/checkout/premium"
+};
+
+// Legacy short paths we might still find in HTML
+const LEGACY_TO_PLAN = {
+  "/demo": "demo",
+  "/pro": "pro",
+  "/pro-plus": "pro_plus",
+  "/premium": "premium"
+};
+
+(function wirePlanLinks(){
+  // 1) Authoritative: data-plan
+  document.querySelectorAll('[data-plan]').forEach(a=>{
+    let key = (a.getAttribute('data-plan')||"").toLowerCase().replace("+","_plus").replace(" ","_");
+    if (PLAN_PATHS[key]) {
+      a.setAttribute("href", PLAN_PATHS[key]);
+      a.setAttribute("rel","noopener");
+    }
+  });
+
+  // 2) Fallback: legacy hrefs -> canonical paths
+  document.querySelectorAll('a[href^="/"]').forEach(a=>{
+    const href = a.getAttribute("href");
+    const plan = LEGACY_TO_PLAN[href];
+    if (plan && PLAN_PATHS[plan]) {
+      a.setAttribute("href", PLAN_PATHS[plan]);
+      a.setAttribute("rel","noopener");
+    }
+  });
+})();
 
 (function(){
   // ---- .env snapshot (from backend) ----
