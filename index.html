@@ -14,6 +14,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css" />
 
+  <!-- Minimal inline helpers (safe even if already in style.css) -->
+  <style>
+    .hero-logo{height:36px;width:auto;margin-bottom:8px;opacity:.95}
+    .marquee{position:relative;overflow:hidden;border:1px solid var(--border);background:linear-gradient(180deg,rgba(124,193,255,.08),rgba(124,193,255,.03));border-radius:16px;padding:8px 0;margin-bottom:12px}
+    .marquee__inner{display:inline-flex;gap:28px;white-space:nowrap;animation:marquee 18s linear infinite;padding-left:12px}
+    .marquee__inner span{color:var(--text);font-weight:600;opacity:.9}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  </style>
+
   <!-- Open Graph -->
   <meta property="og:title" content="CAIO – Cognitive AI Officer">
   <meta property="og:description" content="Upload a doc → CAIO analyzes across 5 CXO lenses → Boardroom-ready brief in ~60s.">
@@ -29,7 +38,7 @@
   </script>
   <!-- End Google Tag Manager -->
 
-  <!-- Hotjar Tracking Code for https://caioinsights.com/ -->
+  <!-- Hotjar -->
   <script>
   (function(h,o,t,j,a,r){
       h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -43,10 +52,9 @@
 </head>
 <body>
 
-  <!-- Google Tag Manager (noscript) -->
+  <!-- GTM (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <header class="header">
     <div class="container nav">
@@ -71,24 +79,16 @@
 
   <main class="container">
     <section class="hero">
+      <!-- LEFT -->
       <div>
+        <!-- logo in hero -->
+        <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
         <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
         <h1>Boardroom-grade insights from your messy documents.</h1>
         <p class="lead">
           Upload a file. CAIO analyzes it across <strong>5 CXO lenses</strong> and returns
           an executive brief in under <strong>60 seconds</strong>.
         </p>
-
-        <div class="rotator" aria-hidden="true">
-          <span>
-            CFO Insights<br>
-            COO Reports<br>
-            CHRO Analysis<br>
-            CMO Strategies<br>
-            CPO Reviews<br>
-            CFO Insights
-          </span>
-        </div>
 
         <div style="display:flex;gap:12px;margin-top:16px">
           <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try CAIO Now</a>
@@ -104,14 +104,32 @@
         </div>
       </div>
 
-      <!-- No video here; simple feature card for balance -->
-      <div class="card" aria-hidden="true">
-        <h3 style="margin-top:0">What you get</h3>
-        <ul style="margin:0;padding-left:18px">
-          <li>Upload PDFs, PPTs, XLSX, or Docs</li>
-          <li>Parallel CFO–CPO analysis</li>
-          <li>Executive brief in ~60s</li>
-        </ul>
+      <!-- RIGHT -->
+      <div>
+        <!-- horizontal marquee above the card -->
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__inner">
+            <span>⚡ CFO Insights</span>
+            <span>⚙️ COO Reports</span>
+            <span>🫶 CHRO Analysis</span>
+            <span>📣 CMO Strategies</span>
+            <span>🧩 CPO Reviews</span>
+            <span>⚡ CFO Insights</span>
+            <span>⚙️ COO Reports</span>
+            <span>🫶 CHRO Analysis</span>
+            <span>📣 CMO Strategies</span>
+            <span>🧩 CPO Reviews</span>
+          </div>
+        </div>
+
+        <div class="card" aria-hidden="true">
+          <h3 style="margin-top:0">What you get</h3>
+          <ul style="margin:0;padding-left:18px">
+            <li>Upload PDFs, PPTs, XLSX, or Docs</li>
+            <li>Parallel CFO–CPO analysis</li>
+            <li>Executive brief in ~60s</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -154,7 +172,7 @@
     </div>
   </footer>
 
-  <!-- Use your filename (caio.js) -->
+  <!-- Use your filename -->
   <script src="/assets/js/caio.js"></script>
 </body>
 </html>
