@@ -5,7 +5,24 @@
   <title>CAIO • Cognitive AI Officer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
+  <!-- Canonical + Robots -->
+  <link rel="canonical" href="https://caioinsights.com/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#000000" />
+
   <link rel="icon" href="/assets/favicon.ico">
+  <!-- Open Graph / Twitter (update image URL to your share image, 1200×630) -->
+  <meta property="og:title" content="CAIO • Cognitive AI Officer" />
+  <meta property="og:description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://caioinsights.com/" />
+  <meta property="og:image" content="https://caioinsights.com/assets/img/og/caio-og.jpg" />
+  <meta property="og:site_name" content="CAIO" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CAIO • Cognitive AI Officer" />
+  <meta name="twitter:description" content="Upload → Analyze → Decide. Executive brief in ~60 seconds with parallel CFO–CPO reasoning." />
+  <meta name="twitter:image" content="https://caioinsights.com/assets/img/og/caio-og.jpg" />
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -51,6 +68,32 @@
     #hero .hero-ctas{ display:flex; gap:12px; justify-content:center; margin-top:14px; }
   </style>
 </head>
+<!-- JSON-LD: Organization + WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "CAIO",
+      "url": "https://caioinsights.com/",
+      "logo": "https://caioinsights.com/assets/img/logo.png",
+      "sameAs": ["https://www.linkedin.com/company/caioinsights"]
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://caioinsights.com/",
+      "name": "CAIO",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.google.com/search?q=site%3Acaioinsights.com+{query}",
+        "query-input": "required name=query"
+      }
+    }
+  ]
+}
+</script>
+
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -153,5 +196,25 @@
   </footer>
 
   <script src="/assets/js/caio.js"></script>
+  <!-- FAQPage JSON-LD (boosts rich results; doesn’t affect layout) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is CAIO for?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SMBs and teams that want CFO, COO, CHRO, CMO and CPO perspectives on any document within ~60 seconds." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I get from an analysis?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An executive brief with 2–3 collective highlights and 1 actionable recommendation per brain." }
+      }
+    ]
+  }
+  </script>
+
 </body>
 </html>
