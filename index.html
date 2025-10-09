@@ -30,18 +30,10 @@
       a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-
-  <!-- Inline helper for the vertical marquee size (safe if also in style.css) -->
-  <style>
-    .marquee{height:36px}
-    .marquee__inner span{height:36px;line-height:36px}
-  </style>
 </head>
 <body>
-
-  <!-- GTM (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <header class="header">
     <div class="container nav">
@@ -65,82 +57,60 @@
   </header>
 
   <main class="container">
-    <!-- Stacked hero: left block, then right block BELOW it -->
-    <section class="hero hero--stack">
-      <!-- LEFT -->
-      <div class="hero-left">
-        <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
-        <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
-        <h1>Boardroom-grade insights from your messy documents.</h1>
-        <p class="lead">
-          Upload a file. CAIO analyzes it across <strong>5 CXO lenses</strong> and returns
-          an executive brief in under <strong>60 seconds</strong>.
-        </p>
+    <!-- SINGLE-COLUMN, CENTERED HERO (like the old version) -->
+    <section class="hero hero--onecol center">
+      <img src="/assets/img/logo.png" alt="CAIO" class="hero-graphic" onerror="this.style.display='none'">
 
-        <div style="display:flex;gap:12px;margin-top:16px">
-          <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try CAIO Now</a>
-          <a class="btn btn-secondary" data-event="cta_home_watch" href="/watch.html">Watch CAIO Think</a>
-        </div>
+      <div class="eyebrow">COGNITIVE AI OFFICER</div>
 
-        <p class="sub" style="margin-top:10px" data-copy="positioning"></p>
+      <h1 class="hero-title">
+        CAIO — Your AI-Powered<br>
+        Cognitive AI Officer
+      </h1>
 
-        <div class="kpis" style="margin-top:20px">
-          <div class="kpi">⏱️ Insights in ~60s</div>
-          <div class="kpi">🧠 5 CXO Brains</div>
-          <div class="kpi">🔒 Your data, your control</div>
+      <p class="lead">
+        Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
+        <strong>2–3 collective highlights</strong> and
+        <strong>1 recommendation per brain</strong> — ready to act in minutes.
+      </p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try Demo</a>
+        <a class="btn btn-secondary" data-event="cta_home_watch" href="/pricing.html">See Pricing</a>
+      </div>
+
+      <!-- Chip row (horizontal marquee style, like your old screenshot) -->
+      <div class="marquee marquee--chips" aria-hidden="true">
+        <div class="marquee__inner">
+          <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
+          <span class="chip">2–3 Collective Insights</span>
+          <span class="chip">1 Rec per Brain</span>
+          <span class="chip">PDF · DOCX · PPTX · XLSX</span>
+          <!-- duplicate for seamless loop -->
+          <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
+          <span class="chip">2–3 Collective Insights</span>
+          <span class="chip">1 Rec per Brain</span>
+          <span class="chip">PDF · DOCX · PPTX · XLSX</span>
         </div>
       </div>
 
-      <!-- RIGHT (now shown below the left) -->
-      <div class="hero-right">
-        <!-- Vertical marquee stays in the same visual area, just below the left block -->
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee__inner">
-            <span>⚡ CFO Insights</span>
-            <span>⚙️ COO Reports</span>
-            <span>🫶 CHRO Analysis</span>
-            <span>📣 CMO Strategies</span>
-            <span>🧩 CPO Reviews</span>
-            <!-- duplicate set for seamless loop -->
-            <span>⚡ CFO Insights</span>
-            <span>⚙️ COO Reports</span>
-            <span>🫶 CHRO Analysis</span>
-            <span>📣 CMO Strategies</span>
-            <span>🧩 CPO Reviews</span>
-          </div>
-        </div>
-
-        <div class="card" aria-hidden="true">
-          <h3 style="margin-top:0">What you get</h3>
-          <ul style="margin:0;padding-left:18px">
-            <li>Upload PDFs, PPTs, XLSX, or Docs</li>
-            <li>Parallel CFO–CPO analysis</li>
-            <li>Executive brief in ~60s</li>
-          </ul>
-        </div>
+      <div class="card card--whatyouget">
+        <h3>What you get</h3>
+        <ul>
+          <li>Upload PDFs, PPTs, XLSX, or Docs</li>
+          <li>Parallel CFO–CPO analysis</li>
+          <li>Executive brief in ~60s</li>
+        </ul>
       </div>
     </section>
 
     <section class="section">
-      <h2>Why CAIO</h2>
-      <p class="sub">From upload to executive summary in three steps.</p>
+      <h2 class="center">Why CAIO</h2>
+      <p class="sub center">From upload to executive summary in three steps.</p>
       <div class="grid grid-3">
         <div class="card">⚡ <strong>Upload</strong><br><span class="sub">Drop PDFs, PPTs, XLSX, or Docs.</span></div>
         <div class="card">🤖 <strong>Analyze</strong><br><span class="sub">Parallel reasoning across CFO–CPO lenses.</span></div>
         <div class="card">🧠 <strong>Decide</strong><br><span class="sub">Actionable next steps you can use today.</span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Explore the Brains</h2>
-      <p class="sub">Each CXO Brain focuses on a distinct dimension of your business.</p>
-      <div class="grid grid-3">
-        <a class="card" href="/brains/cfo.html"><h3>CFO Brain</h3><p class="sub">Evaluates Profit & Cost Impact</p></a>
-        <a class="card" href="/brains/coo.html"><h3>COO Brain</h3><p class="sub">Optimizes Process Flow</p></a>
-        <a class="card" href="/brains/chro.html"><h3>CHRO Brain</h3><p class="sub">Analyzes Workforce Sentiment</p></a>
-        <a class="card" href="/brains/cmo.html"><h3>CMO Brain</h3><p class="sub">Evaluates Brand Position</p></a>
-        <a class="card" href="/brains/cpo.html"><h3>CPO Brain</h3><p class="sub">Reviews Vendor Efficiency</p></a>
-        <a class="card" href="/brains.html"><h3>All Brains →</h3><p class="sub">See everything in one place</p></a>
       </div>
     </section>
   </main>
