@@ -152,3 +152,33 @@ img{ max-width:100%; height:auto; }
 #hero .hero-sub{ max-width:900px; margin:0 auto 14px; }
 #hero .card{ max-width:760px; margin:14px auto 0; text-align:left; }
 #hero .hero-ctas{ display:flex; gap:12px; justify-content:center; margin-top:14px; }
+
+/* --- Hero polish: bigger logo + more spacing/line-height --- */
+#hero .hero-logo{
+  width: 168px;            /* was 120px */
+  height: 168px;
+  margin: 0 auto 18px;     /* extra space below the logo */
+}
+
+#hero .hero-title{
+  line-height: 1.16;       /* was ~1.08: more airy */
+  margin: 14px 0 12px;     /* more room around the H1 */
+}
+
+#hero .hero-sub{
+  line-height: 1.65;       /* looser body line-height */
+  margin-bottom: 20px;     /* more gap before the chips row */
+}
+
+#hero .marquee{
+  height: 48px;            /* slightly taller chip rail */
+  margin: 20px auto 14px;  /* extra space above/below */
+}
+#hero .marquee__inner{ gap: 20px; }
+#hero .chip{
+  line-height: 32px;       /* taller chips */
+  padding: 10px 14px;
+}
+
+#hero .card{ margin-top: 20px; }      /* space before “What you get” card */
+#hero .hero-ctas{ margin-top: 20px; } /* space before the buttons */
