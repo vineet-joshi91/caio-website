@@ -5,8 +5,8 @@
   <title>CAIO • Cognitive AI Officer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
-  <link rel="icon" href="/favicon.ico">
 
+  <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css" />
@@ -30,12 +30,6 @@
       a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-
-  <!-- Inline helper for the vertical marquee size (safe if also in style.css) -->
-  <style>
-    .marquee{height:36px}
-    .marquee__inner span{height:36px;line-height:36px}
-  </style>
 </head>
 <body>
 
@@ -65,65 +59,61 @@
   </header>
 
   <main class="container">
-    <!-- Stacked hero: left block, then right block BELOW it -->
-    <section class="hero hero--stack">
-      <!-- LEFT -->
-      <div class="hero-left">
-        <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
-        <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
-        <h1>Boardroom-grade insights from your messy documents.</h1>
-        <p class="lead">
-          Upload a file. CAIO analyzes it across <strong>5 CXO lenses</strong> and returns
-          an executive brief in under <strong>60 seconds</strong>.
-        </p>
+    <!-- SINGLE-COLUMN, CENTERED -->
+    <section class="hero hero--onecol">
+      <!-- Optional hero graphic (centered) -->
+      <img src="/assets/img/hero-robot.png" alt="" class="hero-graphic" onerror="this.style.display='none'">
 
-        <div style="display:flex;gap:12px;margin-top:16px">
-          <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try CAIO Now</a>
-          <a class="btn btn-secondary" data-event="cta_home_watch" href="/watch.html">Watch CAIO Think</a>
-        </div>
+      <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
+      <h1 class="hero-h1">Boardroom-grade insights from your messy documents.</h1>
+      <p class="lead">
+        Upload a file. CAIO analyzes it across <strong>5 CXO lenses</strong> and returns
+        an executive brief in under <strong>60 seconds</strong>.
+      </p>
 
-        <p class="sub" style="margin-top:10px" data-copy="positioning"></p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try CAIO Now</a>
+        <a class="btn btn-secondary" data-event="cta_home_watch" href="/watch.html">Watch CAIO Think</a>
+      </div>
 
-        <div class="kpis" style="margin-top:20px">
-          <div class="kpi">⏱️ Insights in ~60s</div>
-          <div class="kpi">🧠 5 CXO Brains</div>
-          <div class="kpi">🔒 Your data, your control</div>
+      <p class="sub" data-copy="positioning"></p>
+
+      <div class="kpis">
+        <div class="kpi">⏱️ Insights in ~60s</div>
+        <div class="kpi">🧠 5 CXO Brains</div>
+        <div class="kpi">🔒 Your data, your control</div>
+      </div>
+
+      <!-- HORIZONTAL MARQUEE (centered, below CTAs/KPIs) -->
+      <div class="marquee marquee--horizontal" aria-hidden="true">
+        <div class="marquee__inner">
+          <span>⚡ CFO Insights</span>
+          <span>⚙️ COO Reports</span>
+          <span>🫶 CHRO Analysis</span>
+          <span>📣 CMO Strategies</span>
+          <span>🧩 CPO Reviews</span>
+          <!-- duplicate set for seamless loop -->
+          <span>⚡ CFO Insights</span>
+          <span>⚙️ COO Reports</span>
+          <span>🫶 CHRO Analysis</span>
+          <span>📣 CMO Strategies</span>
+          <span>🧩 CPO Reviews</span>
         </div>
       </div>
 
-      <!-- RIGHT (now shown below the left) -->
-      <div class="hero-right">
-        <!-- Vertical marquee stays in the same visual area, just below the left block -->
-        <div class="marquee" aria-hidden="true">
-          <div class="marquee__inner">
-            <span>⚡ CFO Insights</span>
-            <span>⚙️ COO Reports</span>
-            <span>🫶 CHRO Analysis</span>
-            <span>📣 CMO Strategies</span>
-            <span>🧩 CPO Reviews</span>
-            <!-- duplicate set for seamless loop -->
-            <span>⚡ CFO Insights</span>
-            <span>⚙️ COO Reports</span>
-            <span>🫶 CHRO Analysis</span>
-            <span>📣 CMO Strategies</span>
-            <span>🧩 CPO Reviews</span>
-          </div>
-        </div>
-
-        <div class="card" aria-hidden="true">
-          <h3 style="margin-top:0">What you get</h3>
-          <ul style="margin:0;padding-left:18px">
-            <li>Upload PDFs, PPTs, XLSX, or Docs</li>
-            <li>Parallel CFO–CPO analysis</li>
-            <li>Executive brief in ~60s</li>
-          </ul>
-        </div>
+      <div class="card card--whatyouget">
+        <h3>What you get</h3>
+        <ul>
+          <li>Upload PDFs, PPTs, XLSX, or Docs</li>
+          <li>Parallel CFO–CPO analysis</li>
+          <li>Executive brief in ~60s</li>
+        </ul>
       </div>
     </section>
 
     <section class="section">
-      <h2>Why CAIO</h2>
-      <p class="sub">From upload to executive summary in three steps.</p>
+      <h2 class="center">Why CAIO</h2>
+      <p class="sub center">From upload to executive summary in three steps.</p>
       <div class="grid grid-3">
         <div class="card">⚡ <strong>Upload</strong><br><span class="sub">Drop PDFs, PPTs, XLSX, or Docs.</span></div>
         <div class="card">🤖 <strong>Analyze</strong><br><span class="sub">Parallel reasoning across CFO–CPO lenses.</span></div>
@@ -132,8 +122,8 @@
     </section>
 
     <section class="section">
-      <h2>Explore the Brains</h2>
-      <p class="sub">Each CXO Brain focuses on a distinct dimension of your business.</p>
+      <h2 class="center">Explore the Brains</h2>
+      <p class="sub center">Each CXO Brain focuses on a distinct dimension of your business.</p>
       <div class="grid grid-3">
         <a class="card" href="/brains/cfo.html"><h3>CFO Brain</h3><p class="sub">Evaluates Profit & Cost Impact</p></a>
         <a class="card" href="/brains/coo.html"><h3>COO Brain</h3><p class="sub">Optimizes Process Flow</p></a>

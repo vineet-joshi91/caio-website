@@ -194,3 +194,72 @@ body{
   0%   { transform: translateY(0); }
   100% { transform: translateY(-50%); }  /* duplicate list in HTML enables loop */
 }
+
+/* === Background: match logo background (solid deep navy) === */
+body{
+  background:#0A0D12;           /* close to your logo bg */
+  color:var(--ink);
+}
+
+/* === Single-column, centered hero === */
+.hero.hero--onecol{
+  padding:72px 0 48px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align:center;
+  display:block;
+}
+.hero--onecol .hero-graphic{
+  max-width: 520px;
+  margin: 0 auto 16px;
+  display:block;
+}
+.hero-h1{
+  margin:10px 0 8px;
+  font-size:clamp(2.2rem, 4.6vw, 3.2rem);
+  line-height:1.1;
+}
+.hero--onecol .hero-ctas{
+  display:flex; gap:12px; justify-content:center; margin-top:16px;
+}
+.hero--onecol .kpis{
+  justify-content:center; margin-top:18px;
+}
+.card--whatyouget{
+  margin: 14px auto 0;
+  max-width: 720px;
+  text-align:left;
+}
+
+/* === Horizontal marquee (centered) === */
+.marquee.marquee--horizontal{
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(124,193,255,.08), rgba(124,193,255,.03));
+  border-radius: var(--br);
+  margin: 16px auto 12px;
+  max-width: 860px;
+}
+.marquee--horizontal .marquee__inner{
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  white-space: nowrap;
+  animation: marqueeX 18s linear infinite;
+  padding: 0 12px;
+}
+.marquee--horizontal .marquee__inner span{
+  display: inline-block;
+  line-height: 40px;
+  font-weight: 700;
+  opacity: .95;
+}
+@keyframes marqueeX{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* duplicate list enables loop */
+}
+
+/* Center helpers */
+.center{text-align:center}
