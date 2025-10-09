@@ -1,38 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>CAIO • Cognitive AI Officer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
-
-  <link rel="icon" href="/favicon.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css" />
-
   <!-- GTM -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W9TGQ32G');
-  </script>
+  })(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
   <!-- Hotjar -->
   <script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6539090,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
+  (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:6539090,hjsv:6};a=o.getElementsByTagName('head')[0];
+  r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-</head>
-<body>
 
+  <meta charset="utf-8" />
+  <title>Contact • CAIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact CAIO by Joshi Enterprises." />
+
+  <!-- Favicon + styles -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
   <!-- GTM (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -48,7 +43,7 @@
         <a href="/brains.html">Brains</a> &nbsp;
         <a href="/usecases.html">Use Cases</a> &nbsp;
         <a href="/pricing.html">Pricing</a> &nbsp;
-        <a href="/contact.html">Contact</a> &nbsp;
+        <a href="/contact.html" aria-current="page">Contact</a> &nbsp;
         <a href="/cxo-vs-caio.html">CXO vs CAIO</a>
       </nav>
       <div>
@@ -59,79 +54,54 @@
   </header>
 
   <main class="container">
-    <!-- SINGLE-COLUMN, CENTERED -->
-    <section class="hero hero--onecol">
-      <!-- Optional hero graphic (centered) -->
-      <img src="/assets/img/hero-robot.png" alt="" class="hero-graphic" onerror="this.style.display='none'">
+    <section class="section" style="padding-top:28px">
+      <h2>Contact</h2>
+      <p class="sub">Reach out for partnerships, pilots, or support.</p>
 
-      <span class="pill">Meet your <strong>Cognitive AI Officer</strong></span>
-      <h1 class="hero-h1">Boardroom-grade insights from your messy documents.</h1>
-      <p class="lead">
-        Upload a file. CAIO analyzes it across <strong>5 CXO lenses</strong> and returns
-        an executive brief in under <strong>60 seconds</strong>.
+      <p style="text-align:center;margin-top:8px">
+        Email: <a href="mailto:vineet@joshienterprises.com">vineet@joshienterprises.com</a> ·
+        Phone: <a href="tel:+918451049570">+91 84510 49570</a><br>
+        Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India
       </p>
 
-      <div class="hero-ctas">
-        <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try CAIO Now</a>
-        <a class="btn btn-secondary" data-event="cta_home_watch" href="/watch.html">Watch CAIO Think</a>
-      </div>
+      <div class="grid grid-2" style="margin-top:16px">
+        <div class="card">
+          <form id="contactForm" autocomplete="on">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div>
+                <label for="name"><b>Your name</b></label>
+                <input id="name" name="name" required
+                  style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
+              </div>
+              <div>
+                <label for="email"><b>Work email</b></label>
+                <input id="email" name="email" type="email" required
+                  style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
+              </div>
+            </div>
 
-      <p class="sub" data-copy="positioning"></p>
+            <div style="margin-top:12px">
+              <label for="message"><b>Message</b></label>
+              <textarea id="message" name="message" rows="5" placeholder="How can we help?"
+                style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)"></textarea>
+            </div>
 
-      <div class="kpis">
-        <div class="kpi">⏱️ Insights in ~60s</div>
-        <div class="kpi">🧠 5 CXO Brains</div>
-        <div class="kpi">🔒 Your data, your control</div>
-      </div>
+            <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+              <button type="submit" class="btn btn-primary" data-event="contact_submit">Send</button>
+              <span id="status" style="font-size:14px;color:#A9B6C9"></span>
+            </div>
+          </form>
+        </div>
 
-      <!-- HORIZONTAL MARQUEE (centered, below CTAs/KPIs) -->
-      <div class="marquee marquee--horizontal" aria-hidden="true">
-        <div class="marquee__inner">
-          <span>⚡ CFO Insights</span>
-          <span>⚙️ COO Reports</span>
-          <span>🫶 CHRO Analysis</span>
-          <span>📣 CMO Strategies</span>
-          <span>🧩 CPO Reviews</span>
-          <!-- duplicate set for seamless loop -->
-          <span>⚡ CFO Insights</span>
-          <span>⚙️ COO Reports</span>
-          <span>🫶 CHRO Analysis</span>
-          <span>📣 CMO Strategies</span>
-          <span>🧩 CPO Reviews</span>
+        <div class="card">
+          <h3>Company</h3>
+          <p class="sub">Joshi Enterprises</p>
+          <p>Email: <a href="mailto:vineet@joshienterprises.com">vineet@joshienterprises.com</a></p>
+          <p>Prefer a quick try? <a class="btn" href="/demo">Open the Demo</a></p>
         </div>
       </div>
 
-      <div class="card card--whatyouget">
-        <h3>What you get</h3>
-        <ul>
-          <li>Upload PDFs, PPTs, XLSX, or Docs</li>
-          <li>Parallel CFO–CPO analysis</li>
-          <li>Executive brief in ~60s</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="center">Why CAIO</h2>
-      <p class="sub center">From upload to executive summary in three steps.</p>
-      <div class="grid grid-3">
-        <div class="card">⚡ <strong>Upload</strong><br><span class="sub">Drop PDFs, PPTs, XLSX, or Docs.</span></div>
-        <div class="card">🤖 <strong>Analyze</strong><br><span class="sub">Parallel reasoning across CFO–CPO lenses.</span></div>
-        <div class="card">🧠 <strong>Decide</strong><br><span class="sub">Actionable next steps you can use today.</span></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="center">Explore the Brains</h2>
-      <p class="sub center">Each CXO Brain focuses on a distinct dimension of your business.</p>
-      <div class="grid grid-3">
-        <a class="card" href="/brains/cfo.html"><h3>CFO Brain</h3><p class="sub">Evaluates Profit & Cost Impact</p></a>
-        <a class="card" href="/brains/coo.html"><h3>COO Brain</h3><p class="sub">Optimizes Process Flow</p></a>
-        <a class="card" href="/brains/chro.html"><h3>CHRO Brain</h3><p class="sub">Analyzes Workforce Sentiment</p></a>
-        <a class="card" href="/brains/cmo.html"><h3>CMO Brain</h3><p class="sub">Evaluates Brand Position</p></a>
-        <a class="card" href="/brains/cpo.html"><h3>CPO Brain</h3><p class="sub">Reviews Vendor Efficiency</p></a>
-        <a class="card" href="/brains.html"><h3>All Brains →</h3><p class="sub">See everything in one place</p></a>
-      </div>
+      <p class="links-center" style="margin-top:14px;"><a href="/index.html">← Back to Home</a></p>
     </section>
   </main>
 
@@ -150,6 +120,67 @@
     </div>
   </footer>
 
+  <!-- Your global JS (pricing/events/etc.) -->
   <script src="/assets/js/caio.js"></script>
+
+  <!-- Contact submit: API first; fallback to email -->
+  <script>
+    (function(){
+      // Year
+      var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+
+      // API base like your old file: https://api.<root-domain>
+      function apiBaseFromHost() {
+        var host = (location.hostname || "").replace(/^www\./, "");
+        var parts = host.split(".");
+        var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
+        return "https://api." + root;
+      }
+
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('status');
+      var SEND_TO = "vineet@joshienterprises.com"; // email destination for fallback
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        status.style.color = "#A9B6C9";
+        status.textContent = "Sending…";
+
+        var payload = {
+          name: (document.getElementById('name').value || "").trim(),
+          email: (document.getElementById('email').value || "").trim(),
+          message: (document.getElementById('message').value || "").trim(),
+          source: "website-contact"
+        };
+
+        // 1) Try your API
+        try {
+          var res = await fetch(apiBaseFromHost() + "/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            status.style.color = "#66ffcc";
+            status.textContent = "Thanks! We received your inquiry.";
+            form.reset();
+            return;
+          }
+          throw new Error("Bad response " + res.status);
+        } catch (err) {
+          // 2) Fallback: open mailto to your inbox with prefilled content
+          var subject = encodeURIComponent("CAIO Website Contact");
+          var body = encodeURIComponent(
+            "Name: " + payload.name + "\\n" +
+            "Email: " + payload.email + "\\n\\n" +
+            payload.message
+          );
+          window.location.href = "mailto:" + SEND_TO + "?subject=" + subject + "&body=" + body;
+          status.style.color = "#A9B6C9";
+          status.textContent = "Opening your email client…";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
