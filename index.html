@@ -1,185 +1,301 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- GTM -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
-  <!-- Hotjar -->
-  <script>
-  (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-  h._hjSettings={hjid:6539090,hjsv:6};a=o.getElementsByTagName('head')[0];
-  r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-
-  <meta charset="utf-8" />
-  <title>Contact • CAIO</title>
+  <meta charset="UTF-8" />
+  <title>CAIO — Cognitive AI Officer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contact CAIO by Joshi Enterprises." />
+  <meta name="description" content="Upload a doc. Get CFO/COO/CHRO/CMO/CPO-grade insights in minutes. CAIO is your Cognitive AI Officer.">
+ 
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
+<!-- End Google Tag Manager -->
 
-  <!-- Favicon + styles -->
-  <link rel="icon" href="/favicon.ico">
+<!-- Hotjar Tracking Code for https://caioinsights.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6539090,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+  <!-- Icons -->
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+
+  <!-- Social cards -->
+  <meta property="og:title" content="CAIO — Cognitive AI Officer">
+  <meta property="og:description" content="Turn documents into CXO-grade insights and actions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- App routing (kept from your file) -->
+  <script>window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";</script>
+
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- GTM (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="/index.html">
-        <img src="/assets/img/logo.png" alt="CAIO logo" onerror="this.style.display='none'">
-        <span>CAIO</span>
-      </a>
-      <nav class="spacer">
-        <a href="/why-caio.html">Why CAIO</a> &nbsp;
-        <a href="/brains.html">Brains</a> &nbsp;
-        <a href="/usecases.html">Use Cases</a> &nbsp;
-        <a href="/pricing.html">Pricing</a> &nbsp;
-        <a href="/contact.html" aria-current="page">Contact</a> &nbsp;
-        <a href="/cxo-vs-caio.html">CXO vs CAIO</a>
-      </nav>
-      <div>
-        <a class="btn" href="/watch.html">Watch Demo</a>
-        <a class="btn btn-primary" href="/demo" data-event="cta_nav_try">Try CAIO</a>
-      </div>
-    </div>
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <a class="brand" href="#">
+      <img class="brand-logo" src="assets/logo.png" alt="CAIO logo" />
+      <span class="brand-name">CAIO</span>
+    </a>
+    <nav class="nav">
+      <a href="#features">Why CAIO</a>
+      <a href="#plans">Plans</a>
+      <a href="#how">How it Works</a>
+      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <main class="container">
-    <section class="section" style="padding-top:28px">
-      <h2>Contact</h2>
-      <p class="sub">Reach out for partnerships, pilots, or support.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <p class="logo-wrap">
+          <img class="logo-hero" src="assets/logo.png" alt="CAIO logo">
+        </p>
+        <p class="eyebrow">Cognitive AI Officer</p>
+        <h1>CAIO — Your AI-Powered <span class="accent">Cognitive AI Officer</span></h1>
+        <p class="subhead">
+          Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
+          <b>2–3 collective highlights</b> and <b>1 recommendation per brain</b> — ready to act in minutes.
+        </p>
 
-      <p style="text-align:center;margin-top:8px">
-        Email: <a href="mailto:vineet@joshienterprises.com">vineet@joshienterprises.com</a> ·
-        Phone: <a href="tel:+918451049570">+91 84510 49570</a><br>
-        Happy Valley Towers, Manpada, Thane (West), Maharashtra 400610, India
-      </p>
-
-      <div class="grid grid-2" style="margin-top:16px">
-        <div class="card">
-          <form id="contactForm" autocomplete="on">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div>
-                <label for="name"><b>Your name</b></label>
-                <input id="name" name="name" required
-                  style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
-              </div>
-              <div>
-                <label for="email"><b>Work email</b></label>
-                <input id="email" name="email" type="email" required
-                  style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)">
-              </div>
-            </div>
-
-            <div style="margin-top:12px">
-              <label for="message"><b>Message</b></label>
-              <textarea id="message" name="message" rows="5" placeholder="How can we help?"
-                style="width:100%;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--card);color:var(--text)"></textarea>
-            </div>
-
-            <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
-              <button type="submit" class="btn btn-primary" data-event="contact_submit">Send</button>
-              <span id="status" style="font-size:14px;color:#A9B6C9"></span>
-            </div>
-          </form>
+        <div class="cta-row">
+          <a id="cta-demo" href="#" class="btn btn-primary">Try Demo</a>
+          <a href="pricing.html" class="btn btn-ghost">See Pricing</a>
         </div>
 
-        <div class="card">
-          <h3>Company</h3>
-          <p class="sub">Joshi Enterprises</p>
-          <p>Email: <a href="mailto:vineet@joshienterprises.com">vineet@joshienterprises.com</a></p>
-          <p>Prefer a quick try? <a class="btn" href="/demo">Open the Demo</a></p>
+        <ul class="chips">
+          <li>CFO / CHRO / COO / CMO / CPO</li>
+          <li>2–3 Collective Insights</li>
+          <li>1 Rec per Brain</li>
+          <li>PDF · DOCX · PPTX · XLSX</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why teams use CAIO</h2>
+          <a href="features.html" aria-label="See all features">All features →</a>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="tile">
+            <h3>Speed</h3>
+            <p>Minutes to a crisp brief with risks, opportunities, and next steps.</p>
+          </article>
+          <article class="tile">
+            <h3>Depth</h3>
+            <p>Cross-functional reasoning from multiple CXO brains (CFO, CHRO, COO, CMO, CPO).</p>
+          </article>
+          <article class="tile">
+            <h3>Flow</h3>
+            <p>Pro+ &amp; Premium unlock <b>Chat</b> for follow-ups and scenario runs.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <p class="links-center" style="margin-top:14px;"><a href="/index.html">← Back to Home</a></p>
+    <!-- PLANS -->
+    <section class="section" id="plans">
+      <div class="container">
+        <div class="section-head">
+          <h2>Plans</h2>
+          <a href="pricing.html" aria-label="See pricing">Full pricing →</a>
+        </div>
+
+        <div class="grid cols-4">
+          <div class="plan-card">
+            <h3>Demo</h3>
+            <div class="price" id="price-demo">Free</div>
+            <p>Dashboard · Query + doc upload (daily cap) · Watermarked</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-demo" href="#">Try Demo</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Pro</h3>
+            <div class="price" id="price-pro">—</div>
+            <p>Dashboard · Higher caps · Priority analysis queue</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-pro" href="#">Get Pro</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Pro+</h3>
+            <div class="price" id="price-proplus">—</div>
+            <p>Dashboard + <b>Chat</b> · Scenario simulation · PDF export</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-proplus" href="#">Upgrade to Pro+</a>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>Premium</h3>
+            <div class="price" id="price-premium">—</div>
+            <p>Highest limits · Advanced CXO brains · SSO/API/compliance</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" id="p-premium" href="#">Go Premium</a>
+              <a class="btn btn-outline" id="p-contact" href="contact.html">Contact Sales</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <a href="how-it-works.html" aria-label="See details">Details →</a>
+        </div>
+
+        <div class="how-steps grid cols-3">
+          <div class="step"><div><b>Upload</b> a file (PDF, DOCX, PPTX, XLSX) or paste text.</div></div>
+          <div class="step"><div><b>Analyze</b> with CXO brains to get <b>2–3 insights</b> + <b>1 rec per brain</b>.</div></div>
+          <div class="step"><div><b>Act</b> on prioritized next steps; refine via <b>Chat</b> in Pro+ &amp; Premium.</div></div>
+        </div>
+
+        <p class="links-center">
+          <a href="features.html">See Features</a> ·
+          <a href="how-it-works.html">How it Works</a> ·
+          <a href="cxo-vs-caio.html">CXO vs CAIO</a>
+        </p>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>CAIO by Joshi Enterprises © <span id="y"></span> – Cognitive AI for Smarter Businesses.</div>
-        <div>
-          <a href="/about.html">About</a> ·
-          <a href="/privacy.html">Privacy</a> ·
-          <a href="/terms.html">Terms</a> ·
-          <a href="/pricing.html">Pricing</a> ·
-          <a href="/contact.html">Contact</a>
-        </div>
+    <div class="container footer-row">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="CAIO">
+        <span>CAIO</span>
       </div>
+      <nav>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refunds</a>
+      </nav>
+      <p>© <span id="y"></span> CAIO by Joshi Enterprises. All rights reserved. | Mumbai, India | <a href="mailto:vineetpjoshi.71@gmail.com">vineetpjoshi.71@gmail.com</a></p>
     </div>
   </footer>
 
-  <!-- Your global JS (pricing/events/etc.) -->
-  <script src="/assets/js/caio.js"></script>
+  <!-- Sticky floating CTA -->
+  <div class="sticky-cta" role="region" aria-label="Quick actions">
+    <a class="btn btn-primary" id="fab-demo" href="#">Try Demo</a>
+    <a class="btn btn-outline" id="fab-pricing" href="pricing.html">Pricing</a>
+  </div>
 
-  <!-- Contact submit: API first; fallback to email -->
+  <!-- Mobile nav toggle -->
   <script>
-    (function(){
-      // Year
-      var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.querySelector('.nav');
+    if (navToggle) navToggle.addEventListener('click', ()=> nav.classList.toggle('show'));
+  </script>
 
-      // API base like your old file: https://api.<root-domain>
-      function apiBaseFromHost() {
-        var host = (location.hostname || "").replace(/^www\./, "");
-        var parts = host.split(".");
-        var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
-        return "https://api." + root;
-      }
+  <!-- Wiring: CTAs + live pricing (kept, lightly cleaned) -->
+  <script>
+    (function () {
+      var host = (location.hostname || "").replace(/^www\./, "");
+      var parts = host.split(".");
+      var root = parts.length >= 2 ? parts.slice(-2).join(".") : host;
 
-      var form = document.getElementById('contactForm');
-      var status = document.getElementById('status');
-      var SEND_TO = "vineet@joshienterprises.com"; // email destination for fallback
+      var APP_BASE =
+        window.CAIO_APP_BASE
+        || (location.hostname.endsWith("netlify.app")
+            ? "https://caio-frontend.vercel.app"
+            : ("https://app." + root));
 
-      form.addEventListener('submit', async function(e){
-        e.preventDefault();
-        status.style.color = "#A9B6C9";
-        status.textContent = "Sending…";
+      var API_BASE = window.CAIO_API_BASE || ("https://api." + root);
 
-        var payload = {
-          name: (document.getElementById('name').value || "").trim(),
-          email: (document.getElementById('email').value || "").trim(),
-          message: (document.getElementById('message').value || "").trim(),
-          source: "website-contact"
-        };
-
-        // 1) Try your API
-        try {
-          var res = await fetch(apiBaseFromHost() + "/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          });
-          if (res.ok) {
-            status.style.color = "#66ffcc";
-            status.textContent = "Thanks! We received your inquiry.";
-            form.reset();
-            return;
-          }
-          throw new Error("Bad response " + res.status);
-        } catch (err) {
-          // 2) Fallback: open mailto to your inbox with prefilled content
-          var subject = encodeURIComponent("CAIO Website Contact");
-          var body = encodeURIComponent(
-            "Name: " + payload.name + "\\n" +
-            "Email: " + payload.email + "\\n\\n" +
-            payload.message
-          );
-          window.location.href = "mailto:" + SEND_TO + "?subject=" + subject + "&body=" + body;
-          status.style.color = "#A9B6C9";
-          status.textContent = "Opening your email client…";
-        }
+      // CTA links (include the top header demo too)
+      [
+        ["cta-demo-top", "/signup?plan=demo"],
+        ["cta-demo",     "/signup?plan=demo"],
+        ["p-demo",       "/signup?plan=demo"],
+        ["p-pro",        "/signup?plan=pro"],
+        ["p-proplus",    "/payments?plan=proplus"],
+        ["p-premium",    "/payments?plan=premium"],
+        ["fab-demo",     "/signup?plan=demo"]
+      ].forEach(function(pair){
+        var el = document.getElementById(pair[0]);
+        if (el) el.href = APP_BASE + pair[1];
       });
+
+      // Pricing
+      var endpoints = [
+        API_BASE + "/public-config",
+        API_BASE + "/pricing",
+        APP_BASE + "/api/public-config"
+      ];
+      function setPrice(id, val){ var el=document.getElementById(id); if(el&&val) el.textContent=val; }
+      function pickDisplay(obj, key){
+        if (!obj) return null;
+        if (Array.isArray(obj.plans)) {
+          var p = obj.plans.find(x => (x.id || x.plan) === key);
+          if (p) return p.price_display || p.display || null;
+        }
+        if (obj.pricing && obj.pricing[key]) {
+          var d = obj.pricing[key];
+          if (d.display) return d.display;
+          if (d.amount_inr != null) return "₹" + d.amount_inr + " / mo";
+          if (d.amount_usd != null) return "$" + d.amount_usd + " / mo";
+        }
+        if (obj[key + "_display"]) return obj[key + "_display"];
+        if (obj[key + "_inr"] != null) return "₹" + obj[key + "_inr"] + " / mo";
+        if (obj[key + "_usd"] != null) return "$" + obj[key + "_usd"] + " / mo";
+        return null;
+      }
+      (async function(){
+        for (var i=0;i<endpoints.length;i++){
+          try{
+            var res = await fetch(endpoints[i], {credentials:"omit"});
+            if(!res.ok) continue;
+            var data = await res.json();
+            setPrice("price-demo",    pickDisplay(data,"demo")    || "Free");
+            setPrice("price-pro",     pickDisplay(data,"pro")     || "—");
+            setPrice("price-proplus", pickDisplay(data,"proplus") || "—");
+            setPrice("price-premium", pickDisplay(data,"premium") || "—");
+            break;
+          }catch(e){}
+        }
+      })();
+
+      var y = document.getElementById("y");
+      if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
 </body>
