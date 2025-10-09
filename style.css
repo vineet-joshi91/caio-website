@@ -263,3 +263,62 @@ body{
 
 /* Center helpers */
 .center{text-align:center}
+/* ===== Lock hero to single-column, center ===== */
+.hero.hero--locked-onecol{
+  display:block !important;              /* overrides any grid */
+  max-width: 980px;
+  margin: 96px auto 48px;
+  text-align: center;
+}
+.hero-logo-large{
+  width: 120px; height: 120px; display:block; margin:0 auto 12px;
+}
+.hero-title{
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  margin: 6px 0 8px;
+}
+.hero-sub{ max-width: 900px; margin: 0 auto 14px; }
+.hero-ctas{ display:flex; gap:12px; justify-content:center; }
+.hero-ctas--bottom{ margin-top: 14px; }
+.card--whatyouget{ margin: 14px auto 0; max-width: 760px; text-align:left; }
+
+/* ===== Chip marquee (horizontal, smooth) ===== */
+.marquee.marquee--chips{
+  position: relative;
+  overflow: hidden;
+  height: 44px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  border-radius: var(--br);
+  margin: 14px auto 10px;
+  max-width: 980px;
+}
+.marquee--chips .marquee__inner{
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+  animation: marqueeX 18s linear infinite;
+  padding: 0 12px;
+}
+.chip{
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  line-height: 28px;
+}
+@keyframes marqueeX{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* duplicate list enables loop */
+}
+
+/* ===== Matte black site background ===== */
+body{ background:#000 !important; }
+.header, .site-header{ background: rgba(0,0,0,.80) !important; }
+.footer{ background:#000 !important; }

@@ -57,29 +57,23 @@
   </header>
 
   <main class="container">
-    <!-- SINGLE-COLUMN, CENTERED HERO (like the old version) -->
-    <section class="hero hero--onecol center">
-      <img src="/assets/img/logo.png" alt="CAIO" class="hero-graphic" onerror="this.style.display='none'">
+    <!-- STRICT single-column, centered -->
+    <section class="hero hero--locked-onecol center" id="hero">
 
-      <div class="eyebrow">COGNITIVE AI OFFICER</div>
+      <!-- 1) Logo -->
+      <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo-large" onerror="this.style.display='none'">
 
-      <h1 class="hero-title">
-        CAIO — Your AI-Powered<br>
-        Cognitive AI Officer
-      </h1>
+      <!-- 2) Title -->
+      <h1 class="hero-title">CAIO — Your AI-Powered<br>Cognitive AI Officer</h1>
 
-      <p class="lead">
+      <!-- 3) Subhead -->
+      <p class="lead hero-sub">
         Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
         <strong>2–3 collective highlights</strong> and
         <strong>1 recommendation per brain</strong> — ready to act in minutes.
       </p>
 
-      <div class="hero-ctas">
-        <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try Demo</a>
-        <a class="btn btn-secondary" data-event="cta_home_watch" href="/pricing.html">See Pricing</a>
-      </div>
-
-      <!-- Chip row (horizontal marquee style, like your old screenshot) -->
+      <!-- 4) Horizontal marquee (chips) -->
       <div class="marquee marquee--chips" aria-hidden="true">
         <div class="marquee__inner">
           <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
@@ -94,16 +88,25 @@
         </div>
       </div>
 
+      <!-- 5) What you get -->
       <div class="card card--whatyouget">
         <h3>What you get</h3>
         <ul>
-          <li>Upload PDFs, PPTs, XLSX, or Docs</li>
+          <li>Upload PDFs, Docs, XLSX, or TXTs</li>
           <li>Parallel CFO–CPO analysis</li>
           <li>Executive brief in ~60s</li>
         </ul>
       </div>
+
+      <!-- 6) CTAs -->
+      <div class="hero-ctas hero-ctas--bottom">
+        <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try Demo</a>
+        <a class="btn btn-secondary" data-event="cta_home_pricing" href="/pricing.html">See Pricing</a>
+      </div>
+
     </section>
 
+    <!-- Keep rest of page unchanged -->
     <section class="section">
       <h2 class="center">Why CAIO</h2>
       <p class="sub center">From upload to executive summary in three steps.</p>
