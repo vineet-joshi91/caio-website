@@ -145,3 +145,10 @@ img{ max-width:100%; height:auto; }
 @media (max-width:820px){
   .grid-3{ grid-template-columns:1fr }
 }
+/* === Hard lock hero (backup to the inline version) === */
+#hero{ display:block !important; max-width:980px; margin:96px auto 48px; text-align:center; }
+#hero .hero-logo{ width:120px; height:120px; margin:0 auto 12px; display:block; }
+#hero .hero-title{ font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.08; margin:6px 0 8px; }
+#hero .hero-sub{ max-width:900px; margin:0 auto 14px; }
+#hero .card{ max-width:760px; margin:14px auto 0; text-align:left; }
+#hero .hero-ctas{ display:flex; gap:12px; justify-content:center; margin-top:14px; }

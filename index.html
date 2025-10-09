@@ -21,15 +21,35 @@
   </script>
   <!-- Hotjar -->
   <script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6539090,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
+  (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:6539090,hjsv:6};a=o.getElementsByTagName('head')[0];
+  r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+
+  <!-- HARD LOCK: single-column hero + matte black -->
+  <style>
+    :root{ --border: rgba(255,255,255,.12); --ink:#E8EEF6; --br:16px; }
+    body{ background:#000 !important; color:var(--ink); }
+    .header{ background:rgba(0,0,0,.80) !important; }
+    .footer{ background:#000 !important; }
+
+    /* One-column, center-aligned hero that defeats any old grid rules */
+    #hero{ display:block !important; max-width:980px; margin:96px auto 48px; text-align:center; }
+    #hero .hero-logo{ width:120px; height:120px; margin:0 auto 12px; display:block; }
+    #hero .hero-title{ font-size:clamp(2.2rem,5vw,3.4rem); line-height:1.08; margin:6px 0 8px; }
+    #hero .hero-sub{ max-width:900px; margin:0 auto 14px; opacity:.9; }
+    #hero .marquee{ position:relative; overflow:hidden; height:44px; border:1px solid var(--border);
+                    background:rgba(255,255,255,.04); border-radius:var(--br); margin:14px auto 10px; max-width:980px; }
+    #hero .marquee__inner{ display:inline-flex; align-items:center; gap:16px; white-space:nowrap;
+                           animation:marqueeX 18s linear infinite; padding:0 12px; }
+    #hero .chip{ display:inline-block; padding:8px 12px; line-height:28px; border:1px solid var(--border);
+                 border-radius:999px; background:rgba(255,255,255,.06); white-space:nowrap; font-weight:700; }
+    @keyframes marqueeX{ 0%{ transform:translateX(0) } 100%{ transform:translateX(-50%) } }
+    #hero .card{ background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+                 border:1px solid var(--border); border-radius:var(--br); padding:18px; max-width:760px; margin:14px auto 0; text-align:left; }
+    #hero .hero-ctas{ display:flex; gap:12px; justify-content:center; margin-top:14px; }
+  </style>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
@@ -57,24 +77,23 @@
   </header>
 
   <main class="container">
-    <!-- STRICT single-column, centered -->
-    <section class="hero hero--locked-onecol center" id="hero">
+    <!-- EXACT ORDER (one after the other) -->
+    <section id="hero">
 
-      <!-- 1) Logo -->
-      <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo-large" onerror="this.style.display='none'">
+      <!-- Logo -->
+      <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
 
-      <!-- 2) Title -->
+      <!-- Title -->
       <h1 class="hero-title">CAIO — Your AI-Powered<br>Cognitive AI Officer</h1>
 
-      <!-- 3) Subhead -->
-      <p class="lead hero-sub">
+      <!-- Subhead -->
+      <p class="hero-sub">
         Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
-        <strong>2–3 collective highlights</strong> and
-        <strong>1 recommendation per brain</strong> — ready to act in minutes.
+        <strong>2–3 collective highlights</strong> and <strong>1 recommendation per brain</strong> — ready to act in minutes.
       </p>
 
-      <!-- 4) Horizontal marquee (chips) -->
-      <div class="marquee marquee--chips" aria-hidden="true">
+      <!-- Horizontal marquee (chips) -->
+      <div class="marquee" aria-hidden="true">
         <div class="marquee__inner">
           <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
           <span class="chip">2–3 Collective Insights</span>
@@ -88,8 +107,8 @@
         </div>
       </div>
 
-      <!-- 5) What you get -->
-      <div class="card card--whatyouget">
+      <!-- What you get -->
+      <div class="card">
         <h3>What you get</h3>
         <ul>
           <li>Upload PDFs, Docs, XLSX, or TXTs</li>
@@ -98,15 +117,15 @@
         </ul>
       </div>
 
-      <!-- 6) CTAs -->
-      <div class="hero-ctas hero-ctas--bottom">
+      <!-- CTAs -->
+      <div class="hero-ctas">
         <a class="btn btn-primary" data-event="cta_home_try" href="/demo">Try Demo</a>
         <a class="btn btn-secondary" data-event="cta_home_pricing" href="/pricing.html">See Pricing</a>
       </div>
 
     </section>
 
-    <!-- Keep rest of page unchanged -->
+    <!-- Rest of page unchanged -->
     <section class="section">
       <h2 class="center">Why CAIO</h2>
       <p class="sub center">From upload to executive summary in three steps.</p>
