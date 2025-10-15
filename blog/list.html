@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CAIO Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <meta name="description" content="Articles from the CAIO team: product updates, strategy, and practical AI." />
+</head>
+<body>
+  <header class="site-header" id="header">
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="../assets/logo.png" alt="CAIO" />
+      <span class="brand-name">CAIO</span>
+    </a>
+    <nav class="nav">
+      <a href="../features.html">Why CAIO</a>
+      <a href="../pricing.html">Plans</a>
+      <a href="../how-it-works.html">How it Works</a>
+      <a id="cta-demo-top" class="btn btn-primary" href="#">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Blog</h2>
+        <a href="../index.html">← Back to Home</a>
+      </div>
+
+      <div id="blog-list" class="grid cols-3"></div>
+      <p id="blog-empty" class="muted" style="display:none">No posts yet.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <nav>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../refund.html">Refunds</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <p>© <span id="y"></span> CAIO</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta">
+    <a class="btn btn-primary" id="fab-demo" href="#">Try Demo</a>
+    <a class="btn btn-outline" href="../pricing.html">Pricing</a>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/blog.js"></script>
+  <script>
+    // Render list on load
+    CAIO_BLOG.renderList({
+      mountId: 'blog-list',
+      emptyId: 'blog-empty',
+      baseUrl: '/blog/'
+    });
+  </script>
+</body>
+</html>

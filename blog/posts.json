@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "founders-journey",
+    "title": "Founder's Journey: Why CAIO",
+    "date": "2025-10-15",
+    "readingMinutes": 4,
+    "excerpt": "How we’re building a Cognitive AI Officer that turns documents into CXO-grade insights.",
+    "tags": ["CAIO", "Founder", "Vision"],
+    "image": "../assets/logo.png"
+  },
+  {
+    "slug": "design-principles",
+    "title": "Design Principles Behind CAIO",
+    "date": "2025-10-15",
+    "readingMinutes": 5,
+    "excerpt": "Speed, depth, explainability—without the fluff.",
+    "tags": ["Product", "Design"],
+    "image": "../assets/logo.png"
+  },
+
+  {
+    "slug": "231-method",
+    "title": "The 2–3–1 Method: How CAIO Produces Boardroom-Ready Briefs",
+    "date": "2025-10-15",
+    "readingMinutes": 4,
+    "excerpt": "Our disciplined output format: 2–3 cross-functional highlights and 1 recommendation per brain.",
+    "tags": ["Method", "Execution", "CXO"],
+    "image": "../assets/logo.png"
+  },
+  
+  {
+    "slug": "doc-to-decisions",
+    "title": "From Document to Decision: A Quick Walkthrough",
+    "date": "2025-10-15",
+    "readingMinutes": 5,
+    "excerpt": "Upload → Analyze → Act: a no-fluff example of CAIO in action.",
+    "tags": ["How-To", "Product"],
+    "image": "../assets/logo.png"
+  }
+]

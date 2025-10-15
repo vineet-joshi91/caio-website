@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title id="doc-title">CAIO Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../style.css" />
+  <meta name="description" id="doc-desc" content="CAIO blog post" />
+  <meta property="og:title" id="og-title" content="CAIO Blog" />
+  <meta property="og:description" id="og-desc" content="Article" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" id="og-image" content="../assets/logo.png" />
+  <style>
+    .post-wrap { max-width: 900px; margin: 0 auto; }
+    .post-header { margin-bottom: 10px; }
+    .post-meta { color: var(--muted); }
+    .post-body { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border-radius: var(--br); padding: 22px; }
+    .post-body img { max-width:100%; height:auto; border-radius:12px; }
+    .post-body pre { overflow:auto; padding:12px; background:#0b121d; border-radius:12px; }
+    .post-share .btn { margin-right:8px; }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="header">
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="../assets/logo.png" alt="CAIO" />
+      <span class="brand-name">CAIO</span>
+    </a>
+    <nav class="nav">
+      <a href="./">Blog</a>
+      <a href="../pricing.html">Plans</a>
+      <a id="cta-demo-top" class="btn btn-primary" href="#">Try Demo</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main class="section">
+    <div class="container post-wrap">
+      <div class="post-header">
+        <p class="post-meta small" id="post-meta"></p>
+        <h1 id="post-title"></h1>
+      </div>
+      <article id="post-body" class="post-body"></article>
+
+      <div class="post-share" style="margin-top:14px">
+        <a class="btn btn-ghost" id="share-linkedin" target="_blank" rel="noopener">Share on LinkedIn</a>
+        <a class="btn btn-ghost" id="share-twitter"  target="_blank" rel="noopener">Share on X</a>
+      </div>
+
+      <p class="links-center" style="margin-top:18px">
+        <a href="./">← Back to Blog</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <nav>
+        <a href="../pricing.html">Pricing</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../refund.html">Refunds</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <p>© <span id="y"></span> CAIO</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta">
+    <a class="btn btn-primary" id="fab-demo" href="#">Try Demo</a>
+    <a class="btn btn-outline" href="../pricing.html">Pricing</a>
+  </div>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/blog.js"></script>
+  <script>
+    CAIO_BLOG.renderPost({
+      baseUrl: '/blog/',
+      // UTM parameters for shares
+      utm: 'utm_source=linkedin&utm_medium=social&utm_campaign=blog'
+    });
+  </script>
+</body>
+</html>
