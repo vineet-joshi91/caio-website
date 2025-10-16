@@ -1,56 +1,209 @@
+/* =========================================================
+   CAIO — Global Styles (Drop-in replacement)
+   Palette tuned to logo: electric blue / aqua on black
+   ========================================================= */
 
+/* ---------- Theme variables ---------- */
 :root{
-  --bg:#0b0f17;
-  --card:#121826;
-  --text:#e6eefc;
-  --muted:#9fb0cc;
-  --accent:#7cc1ff;
-  --accent-2:#57f2c2;
-  --border:rgba(255,255,255,0.08);
+  --bg: #000000;                  /* page background */
+  --card: #0B0F17;                /* panels/tiles */
+  --card-soft: rgba(255,255,255,.04);
+  --text: #E9F6FF;                /* body text */
+  --muted: #A9C7D7;               /* muted text */
+  --muted-2: #86A6B8;
+  --border: rgba(255,255,255,.10);
+  --accent: #7CC1FF;              /* electric blue */
+  --accent-2: #49E8FF;            /* aqua edge */
+  --accent-3: #9AF9FF;            /* light aqua */
+  --gold: #FFD166;                /* optional highlight */
+  --radius: 20px;
+  --shadow: 0 10px 24px rgba(73,232,255,.18);
 }
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif}
-a{color:var(--accent);text-decoration:none}
-a:hover{opacity:.9}
-.container{max-width:1100px;margin:0 auto;padding:24px}
-.header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(12px);background:rgba(11,15,23,0.7);border-bottom:1px solid var(--border);z-index:50}
-.nav{display:flex;align-items:center;gap:20px}
-.nav .spacer{flex:1}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700}
-.brand img{height:28px;width:auto;display:block}
-.btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text)}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f17;border:none}
-.btn-secondary{border-color:var(--accent);}
-.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;padding:64px 0;border-bottom:1px solid var(--border)}
-.hero h1{font-size:42px;line-height:1.1;margin:0 0 10px}
-.hero p.lead{font-size:18px;color:var(--muted);margin:0 0 22px}
-.pill{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:13px;margin-bottom:10px}
-.rotator{display:block;height:28px;overflow:hidden}
-.rotator > span{display:block;animation:slide 8s linear infinite}
-@keyframes slide{
-  0%,15%{transform:translateY(0)}
-  20%,35%{transform:translateY(-28px)}
-  40%,55%{transform:translateY(-56px)}
-  60%,75%{transform:translateY(-84px)}
-  80%,95%{transform:translateY(-112px)}
-  100%{transform:translateY(-140px)}
+
+/* ---------- Reset / base ---------- */
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
 }
-.grid{display:grid;gap:18px}
-.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
-.card h3{margin:6px 0 8px}
-.section{padding:48px 0;border-bottom:1px solid var(--border)}
-.section h2{margin:0 0 8px}
-.section p.sub{color:var(--muted);margin:0 0 16px}
-.footer{padding:24px 0;color:var(--muted)}
-.footer a{color:var(--muted)}
-.kpis{display:flex;gap:18px;flex-wrap:wrap}
-.kpi{flex:1;min-width:180px;background:var(--card);padding:12px 16px;border:1px solid var(--border);border-radius:12px;color:var(--muted)}
-blockquote{margin:0;padding:0 0 0 16px;border-left:3px solid var(--accent);color:var(--muted)}
-.table{width:100%;border-collapse:collapse}
-.table th,.table td{border-bottom:1px solid var(--border);padding:12px;text-align:left}
-.tag{display:inline-block;background:rgba(124,193,255,0.18);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:999px;font-size:12px}
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr}
+
+img{ max-width:100%; height:auto; }
+a{ color: var(--accent); }
+
+/* ---------- Layout helpers ---------- */
+.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+.section{ padding: 44px 0; }
+.section-head{ margin-bottom: 18px; }
+.links-center{ text-align:center; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4, h5{ margin: 0 0 10px; line-height:1.2; }
+h1{ font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing:.2px; }
+h2{ font-size: clamp(26px, 4.2vw, 36px); font-weight: 800; }
+h3{ font-size: clamp(20px, 3vw, 24px); font-weight: 800; }
+p.small{ font-size:.92rem; }
+.muted{ color: var(--muted); }
+.muted.small{ font-size:.9rem; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 14px; border-radius:14px; font-weight:700;
+  text-decoration:none; color:var(--text);
+  border:1px solid var(--border); background: var(--card-soft);
+  transition: transform .12s ease, background .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+.btn:hover{ background: rgba(255,255,255,.08); transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+
+.btn-primary{
+  border:0;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2) 50%, var(--accent-3));
+  color:#001C23;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover{ filter:brightness(1.05); }
+
+.btn-outline{
+  background: transparent; border:1px solid var(--border);
+}
+.btn-ghost{
+  background: var(--card-soft); border:1px solid var(--border);
+}
+
+/* ---------- Header (works with your existing HTML) ---------- */
+/* your markup:
+<header class="header">
+  <div class="container nav">
+    <a class="brand">...</a>
+    <nav class="spacer"> ...links... </nav>
+    <div> ...CTAs... </div>
+  </div>
+</header>
+*/
+.header{
+  position: sticky; top:0; z-index:50;
+  background: rgba(0,0,0,.84);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header .container.nav{
+  display:flex; align-items:center; gap:18px; padding:10px 18px;
+}
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+.brand img{ width:24px; height:24px; }
+.brand span{ font-weight:800; letter-spacing:.2px; color:var(--accent); }
+.brand:hover span{ color:#fff; text-shadow:0 0 10px rgba(124,193,255,.25); }
+
+/* Navigation links — supports either .spacer (yours) or .nav-links (new) */
+.spacer, .nav-links{ display:flex; align-items:center; gap:18px; }
+.spacer a, .nav-links a{
+  color: var(--accent); text-decoration:none; padding:8px 6px; border-radius:10px;
+  transition: background .15s ease, color .15s ease, text-shadow .15s ease;
+}
+.spacer a:hover, .nav-links a:hover{
+  color:#fff; background: rgba(255,255,255,.06); text-shadow:0 0 10px rgba(124,193,255,.25);
+}
+
+/* CTA block (the <div> following nav) */
+.header .container.nav > div:last-of-type{
+  margin-left:auto; display:flex; align-items:center; gap:12px;
+}
+
+/* Mobile nav toggle (optional; hidden by default) */
+.nav-toggle{ display:none; margin-left:8px; background:none; border:0; }
+.nav-toggle span{ display:block; width:22px; height:2px; background:var(--accent); margin:5px 0; border-radius:2px; }
+
+/* ---------- Hero / utilities (safe defaults) ---------- */
+.hero-center{ text-align:center; margin: 24px 0 8px; }
+.lead{ font-size: clamp(16px, 2.2vw, 18px); color: var(--muted); }
+
+/* ---------- Grid / tiles ---------- */
+.grid{ display:grid; gap:16px; }
+.cols-2{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+.cols-3{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+@media (max-width: 960px){
+  .cols-3, .cols-2{ grid-template-columns:1fr; }
+}
+
+.tile{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:18px;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .12s ease;
+}
+.tile:hover{
+  border-color: rgba(73,232,255,.25);
+  box-shadow: 0 10px 26px rgba(73,232,255,.12);
+  transform: translateY(-1px);
+}
+
+/* ---------- Blog list & post ---------- */
+.post-wrap{ max-width:900px; margin:0 auto; }
+.post-meta{ color: var(--muted); }
+.post-body{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid var(--border); border-radius: var(--radius); padding:22px;
+}
+.post-body img{ border-radius:12px; }
+.post-body pre{ overflow:auto; padding:12px; background:#0b121d; border-radius:12px; }
+.post-share .btn{ margin-right:8px; }
+
+.pager{ display:flex; gap:8px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.pager a{ padding:8px 12px; border-radius:999px; border:1px solid var(--border); text-decoration:none; color:var(--text); }
+.pager a.active{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#001C23; border-color:transparent; font-weight:800; }
+
+/* ---------- Footer ---------- */
+.footer{
+  border-top: 1px solid var(--border);
+  padding: 22px 0; margin-top: 36px; color: var(--muted);
+  background: rgba(0,0,0,.6);
+}
+.footer-row{ display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.footer-row nav{ display:flex; gap:14px; }
+.footer-row a{ color: var(--muted-2); text-decoration:none; }
+.footer-row a:hover{ color: var(--text); }
+
+/* ---------- Sticky CTA (if used) ---------- */
+.sticky-cta{
+  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  display:flex; gap:10px; align-items:center;
+}
+@media (max-width: 720px){
+  .sticky-cta{ right: 12px; bottom: 12px; }
+}
+
+/* ---------- Tables (used in blog example) ---------- */
+table{ width:100%; border-collapse: collapse; background: var(--card-soft); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+th, td{ padding:10px 12px; border-bottom:1px solid var(--border); text-align:left; }
+th{ color: var(--muted); font-weight:700; }
+tr:last-child td{ border-bottom:0; }
+
+/* ---------- Misc niceties ---------- */
+hr{ border:0; height:1px; background: var(--border); margin: 18px 0; }
+code{ background: rgba(255,255,255,.06); padding: 2px 6px; border-radius:8px; }
+blockquote{ margin: 0; padding: 10px 14px; border-left: 3px solid var(--accent-2); background: rgba(255,255,255,.05); color: var(--muted); border-radius: 0 10px 10px 0; }
+
+/* ---------- Mobile adjustments ---------- */
+@media (max-width: 960px){
+  .spacer, .nav-links, .header .container.nav > div:last-of-type{ display:none; }
+  .nav-toggle{ display:block; }
+  /* If you attach a .show class via tiny JS toggle */
+  .spacer.show, .nav-links.show{
+    display:flex; flex-direction:column; gap:8px;
+    position:absolute; left:0; right:0; top:56px; padding:12px 18px;
+    background: var(--bg); border-bottom:1px solid var(--border);
+  }
+  .header .container.nav > div:last-of-type.show{
+    display:flex; position:absolute; right:18px; top:56px; gap:10px;
+  }
 }
