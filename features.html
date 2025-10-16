@@ -40,17 +40,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <!-- Header -->
-  <header class="site-header" id="header">
-    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png" alt="CAIO"><span class="brand-name">CAIO</span></a>
-    <nav class="nav">
-      <a href="features.html" aria-current="page">Why CAIO</a>
-      <a href="pricing.html">Plans</a>
-      <a href="how-it-works.html">How it Works</a>
-      <a href="pricing.html" class="btn btn-outline">See Pricing</a>
-      <a id="cta-demo-top" href="#" class="btn btn-primary">Try Demo</a>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="/index.html">
+      <img src="/assets/img/logo.png" alt="CAIO logo" onerror="this.style.display='none'">
+      <span>CAIO</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="/why-caio.html">Why CAIO</a>
+      <a href="/brains.html">Brains</a>
+      <a href="/usecases.html">Use Cases</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog/list.html">Blog</a>
+      <a href="/contact.html">Contact</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open Menu"><span></span><span></span><span></span></button>
-  </header>
+
+    <div class="nav-cta">
+      <!-- CTA: EXACTLY AS YOU WROTE IT -->
+      <a class="btn" href="/watch.html">Watch Demo</a>
+      <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">Try CAIO</a>
+    </div>
+
+    <!-- optional mobile toggle (safe to keep even if unused) -->
+    <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
 
   <main class="section">
     <div class="container">

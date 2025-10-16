@@ -48,25 +48,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="/index.html">
-      <img src="/assets/img/logo.png" alt="CAIO logo" onerror="this.style.display='none'">
-      <span>CAIO</span>
-    </a>
-    <nav class="spacer">
-      <a href="/why-caio.html">Why CAIO</a> &nbsp; 
-      <a href="/brains.html">Brains</a> &nbsp; 
-      <a href="/usecases.html">Use Cases</a> &nbsp; 
-      <a href="/pricing.html">Pricing</a> &nbsp; 
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <div>
-      <a class="btn" href="/watch.html">Watch Demo</a>
-      <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo">Try CAIO</a>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="/index.html">
+        <img src="/assets/img/logo.png" alt="CAIO logo" onerror="this.style.display='none'">
+        <span>CAIO</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/why-caio.html">Why CAIO</a>
+        <a href="/brains.html">Brains</a>
+        <a href="/usecases.html">Use Cases</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/blog/list.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <!-- CTA: EXACTLY AS YOU WROTE IT -->
+        <a class="btn" href="/watch.html">Watch Demo</a>
+        <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">Try CAIO</a>
+      </div>
+
+      <!-- optional mobile toggle (safe to keep even if unused) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </div>
-</header>
+  </header>
 <main class="container">
 
 <section class="section" style="padding-top:28px">
