@@ -217,17 +217,5 @@
       if (lu) lu.textContent = new Date().toLocaleDateString(undefined,{year:"numeric",month:"short",day:"2-digit"});
     })();
   </script>
-
-  <!-- CAIO visitor pixel (fixed) -->
-  <img id="caio-pixel" alt="" width="1" height="1"
-       style="position:absolute;left:-9999px;width:1px;height:1px;border:0" />
-  <script>
-    (function () {
-      var WORKER_URL = 'https://bold-math-585e.vineetjoshi-vj91.workers.dev';
-      var qs = window.location.search || '';
-      var px = document.getElementById('caio-pixel');
-      if (px) px.src = WORKER_URL + qs;
-    })();
-  </script>
 </body>
 </html>
