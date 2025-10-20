@@ -8,36 +8,48 @@
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="../style.css" />
   <meta name="description" content="Articles from the CAIO team: product updates, strategy, and practical AI." />
+
+  <!-- Google Tag Manager (in HEAD) -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  <!-- End GTM -->
 </head>
-    <header class="header">
+<body>
+  <!-- Google Tag Manager (noscript) – immediately after <body> -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="header">
     <div class="container nav">
-        <a class="brand" href="/index.html">
+      <a class="brand" href="/index.html">
         <img src="/assets/img/logo.png" alt="CAIO logo" onerror="this.style.display='none'">
         <span>CAIO</span>
-        </a>
+      </a>
 
-        <nav class="nav-links">
+      <nav class="nav-links">
         <a href="/why-caio.html">Why CAIO</a>
         <a href="/brains.html">Brains</a>
         <a href="/usecases.html">Use Cases</a>
         <a href="/pricing.html">Pricing</a>
         <a href="/blog/list.html">Blog</a>
         <a href="/contact.html">Contact</a>
-        </nav>
+      </nav>
 
-        <div class="nav-cta">
-        <!-- CTA: EXACTLY AS YOU WROTE IT -->
+      <div class="nav-cta">
         <a class="btn" href="/watch.html">Watch Demo</a>
         <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">Try CAIO</a>
-        </div>
+      </div>
 
-        <!-- optional mobile toggle (safe to keep even if unused) -->
-        <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
         <span></span><span></span><span></span>
-        </button>
+      </button>
     </div>
-    </header>
-
+  </header>
 
   <main class="section">
     <div class="container">
@@ -65,11 +77,11 @@
   </footer>
 
   <div class="sticky-cta">
-    <a class="btn btn-primary" id="fab-demo" href="#">Try Demo</a>
+    <a class="btn btn-primary" id="fab-demo" href="/watch.html">Try Demo</a>
     <a class="btn btn-outline" href="../pricing.html">Pricing</a>
   </div>
 
-  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/caio.js"></script>
   <script src="../assets/js/blog.js"></script>
   <script>
     // Render list on load
@@ -77,6 +89,12 @@
       mountId: 'blog-list',
       emptyId: 'blog-empty',
       baseUrl: '/blog/'
+    });
+
+    // Optional: dataLayer event for CTA clicks (helps GA4 funnels)
+    document.getElementById('fab-demo')?.addEventListener('click', function(){
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({event:'caio_cta_click', cta_id:'fab-demo', cta_page:'blog-list'});
     });
   </script>
 </body>
