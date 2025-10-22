@@ -50,6 +50,9 @@ const PRICING = {
   premium:  { INR: 7999, USD: 99 }
 };
 
+window.__CAIO_DEBUG = { MAKE_WEBHOOK, SOURCES, GA4_EVENTS };
+console.log('[CAIO] debug', window.__CAIO_DEBUG);
+
 /* =======================
    Currency detection & money formatting
    ======================= */
