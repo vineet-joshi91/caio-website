@@ -1,10 +1,10 @@
 /* ==========================================================================
-   CAIO — Frontend helpers (drop-in)
-   - Geo-routing for paid CTAs (INR vs USD) → Razorpay Payment Pages
+   CAIO — Drop-in frontend helpers
+   - Geo-routing for CTAs (INR/USD) → Razorpay Payment Pages
    - Demo CTA normalization
    - Price painting (₹/$ per month) with locale-aware formatting
-   - Lightweight analytics events
-   - Global Beacon: Make.com webhook + GA4-safe dataLayer events
+   - Lightweight click analytics hooks
+   - Global Beacon → Make.com webhook + GA4-safe dataLayer events
    ========================================================================== */
 
 /* =======================
@@ -12,13 +12,19 @@
    ======================= */
 const DEMO_URL = "https://caio-frontend.vercel.app/signup?plan=demo";
 
-/** Make.com Webhook (REPLACE with your live URL) **/
-const MAKE_WEBHOOK = "https://hook.eu2.make.com/REPLACE_WITH_YOUR_WEBHOOK_ID";
+/** Make.com Webhook (PUT YOUR LIVE URL HERE) **/
+const MAKE_WEBHOOK = "https://hook.eu2.make.com/mrm11ms6u8mvwhg358b7dp6vpqjdfwhw";
 
-/** Optional: event names used in GTM/GA4 **/
+/** GA4 event names (must match your GTM/GA4 setup) **/
 const GA4_EVENTS = {
   page: "caio_page_beacon",
   lead: "caio_lead_submit"
+};
+
+/** Source names (must match your Make router filters) **/
+const SOURCES = {
+  page: "website",
+  form: "website-form"
 };
 
 /* ---------- Razorpay Payment Pages (INR & USD) ---------- */
@@ -36,7 +42,7 @@ const RZP_LINKS = {
 };
 
 /* ---------- Static pricing ---------- */
-const DEFAULT_CURRENCY = "INR";  // fallback if detection fails
+const DEFAULT_CURRENCY = "INR";             // fallback if detection fails
 const PAY_INTERVAL_TEXT = "/ month";
 const PRICING = {
   pro:      { INR: 1999, USD: 25 },
@@ -136,11 +142,9 @@ function applyPlanHref(plan, url) {
 function wirePricingByGeo() {
   const curFlag = detectCurrency();        // "inr" | "usd"
   const links = RZP_LINKS[curFlag];
-
   applyPlanHref("pro",      links.pro);
   applyPlanHref("pro_plus", links.pro_plus);
   applyPlanHref("premium",  links.premium);
-
   paintPrices(curFlag);
 }
 
@@ -158,7 +162,6 @@ function paintPrices(currencyFlag /* "inr"|"usd" */) {
   map.forEach(([key, amount]) => {
     if (typeof amount === "undefined") return;
     const pretty = fmtMoney(amount, cur3);
-
     document.querySelectorAll(`[data-price="${key}"]`).forEach(el => {
       const mode = (el.getAttribute("data-mode") || "full").toLowerCase();
       el.textContent = (mode === "amount") ? pretty : `${pretty} ${PAY_INTERVAL_TEXT}`;
@@ -173,9 +176,7 @@ function paintPrices(currencyFlag /* "inr"|"usd" */) {
 document.addEventListener("DOMContentLoaded", function () {
   wireDemoLinks();
   wirePricingByGeo();
-
-  // Footer year
-  var y = document.getElementById("y");
+  const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 });
 
@@ -197,7 +198,7 @@ window.CAIO = Object.assign(window.CAIO || {}, {
    GLOBAL BEACON (Make webhook + GA4 dataLayer)
    - Sends page view + visitor_id to Make
    - Pushes GA4-safe events (no PII)
-   - Captures optional form submits (email_domain to Make only)
+   - Captures optional form submits (email_domain only)
    ========================================================================== */
 (function () {
   // Stable visitor id (no PII)
@@ -227,7 +228,7 @@ window.CAIO = Object.assign(window.CAIO || {}, {
     } catch (e) { /* silent */ }
   }
 
-  // De-dupe page beacon per page load
+  // De-dupe page beacon per page+referrer
   const pageOnceKey = "caio_beacon_sent_" + location.pathname + "|" + document.referrer;
   if (!sessionStorage.getItem(pageOnceKey)) {
     const pagePayload = {
@@ -237,15 +238,20 @@ window.CAIO = Object.assign(window.CAIO || {}, {
       referrer: document.referrer || "direct",
       user_agent: navigator.userAgent,
       timestamp: new Date().toISOString(),
-      source: "website"
+      source: SOURCES.page                 // <— Make router branch for Visitors
     };
     postToMake(pagePayload);
-    pushDL(GA4_EVENTS.page, pagePayload); // GA4 journey (no PII)
+    // GA4 journey (no PII)
+    pushDL(GA4_EVENTS.page, {
+      visitor_id: vid,
+      page: pagePayload.page,
+      referrer: pagePayload.referrer
+    });
     sessionStorage.setItem(pageOnceKey, "1");
   }
 
-  // Optional: capture a contact/demo form (adjust selectors if needed)
-  // Expecting <form id="contactForm"> with inputs #email and #name
+  // Optional: capture a contact/demo form
+  // Expect: <form id="contactForm"> with inputs #email and #name
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", function () {
@@ -255,19 +261,19 @@ window.CAIO = Object.assign(window.CAIO || {}, {
       const name  = nameEl ? (nameEl.value || "").trim() : "";
       const emailDomain = email.includes("@") ? email.split("@")[1] : "";
 
-      // To Make (OK to include email domain; avoid sending full email)
+      // → Make (OK to include domain; avoid sending full email)
       postToMake({
         visitor_id: vid,
         domain: location.hostname,
         page: location.pathname,
         referrer: document.referrer || "direct",
         timestamp: new Date().toISOString(),
-        source: "website-form",
+        source: SOURCES.form,              // <— Make router branch for Hunter
         email_domain: emailDomain,
         name: name
       });
 
-      // To GA4 (NO PII)
+      // → GA4 (NO PII)
       pushDL(GA4_EVENTS.lead, {
         visitor_id: vid,
         page: location.pathname,
