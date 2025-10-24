@@ -1,53 +1,70 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Pricing • CAIO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="CAIO plans for SMBs — Demo, Pro, Pro+, and Premium. Start free, upgrade when ready." />
+  <!-- Basic HTML meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/favicon.ico">
+  <!-- Page-specific SEO -->
+  <title>CAIO Pricing • Start Free, Scale When You’re Ready</title>
+  <meta name="description" content="Try CAIO with the free Demo plan. Upgrade to Pro, Pro+, or Premium when you’re ready for full CFO/COO/CHRO/CMO/CPO intelligence. Founder-friendly pricing for startups and SMBs.">
+  <link rel="canonical" href="https://caioinsights.com/pricing.html">
 
-  <!-- Fonts + Styles -->
+  <!-- Icons / theme -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
+
+  <!-- Social / Open Graph -->
+  <meta property="og:title" content="CAIO Pricing — Demo, Pro, Pro+, Premium">
+  <meta property="og:description" content="Founder-friendly pricing. Get executive-grade decision support without hiring 5 executives. Start free with Demo.">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://caioinsights.com/pricing.html">
+  <meta property="og:image" content="https://caioinsights.com/assets/img/social-card-caio.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CAIO Pricing — Free Demo Available">
+  <meta name="twitter:description" content="See plans for startups and SMBs. Get CFO/COO/CHRO/CMO/CPO brains in one AI system.">
+  <meta name="twitter:image" content="https://caioinsights.com/assets/img/social-card-caio.jpg">
+
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- Open Graph (optional but helpful for shares) -->
-  <meta property="og:title" content="CAIO Pricing">
-  <meta property="og:description" content="Turn documents into CXO-grade insights with CAIO. Plans for Demo, Pro, Pro+, and Premium.">
-  <meta property="og:type" content="website">
+  <!-- App routing -->
+  <script>window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";</script>
 
   <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W9TGQ32G');
-  </script>
-  <!-- End Google Tag Manager -->
+  })(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
 
-  <!-- Hotjar Tracking Code for https://caioinsights.com/ -->
+  <!-- Hotjar -->
   <script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:6539090,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6539090,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+
 </head>
+
 <body>
+  <!-- GTM noscript fallback -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
+  <!-- Global header / nav -->
   <header class="header">
     <div class="container nav">
       <a class="brand" href="/index.html">
@@ -59,88 +76,172 @@
         <a href="/why-caio.html">Why CAIO</a>
         <a href="/brains.html">Brains</a>
         <a href="/usecases.html">Use Cases</a>
-        <a href="/pricing.html">Pricing</a>
+        <a href="/pricing.html" class="active">Pricing</a>
         <a href="/blog/list.html">Blog</a>
         <a href="/contact.html">Contact</a>
       </nav>
 
       <div class="nav-cta">
-        <!-- CTA: EXACTLY AS YOU WROTE IT -->
         <a class="btn" href="/watch.html">Watch Demo</a>
         <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">Try CAIO</a>
       </div>
 
-      <!-- optional mobile toggle (safe to keep even if unused) -->
       <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-
   <main class="container">
-    <section class="section" style="padding-top:28px">
-      <h2>Pricing</h2>
-      <p class="sub">Start free. Upgrade when ready.</p>
 
-      <div class="grid grid-3">
-        <!-- Demo -->
-        <div class="card">
-          <h3>Demo</h3>
-          <p class="sub">Free</p>
-          <ul>
-            <li>Dashboard</li>
-            <li>Query + Doc upload (daily cap)</li>
-            <li>Watermarked outputs</li>
+    <!-- PAGE HEADLINE -->
+    <section class="section" style="padding-top:40px;text-align:center">
+      <h1 class="page-headline seo-h1">
+        CAIO Pricing — Start Free, Scale When You’re Ready
+      </h1>
+
+      <p class="sub" style="max-width:780px;margin:12px auto 24px auto;font-size:1.05rem;line-height:1.5">
+        Every plan gives you intelligent, executive-grade decision support.
+        Start with Demo for free. Upgrade only when you’re ready for deeper CFO, COO,
+        CHRO, CMO and CPO insights across finance, ops, people, marketing, and product.
+      </p>
+
+      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin-top:10px">
+        No credit card required for Demo.
+      </p>
+    </section>
+
+    <!-- PLAN GRID -->
+    <section class="section" style="padding-top:24px;padding-bottom:48px">
+      <div class="grid grid-4" style="gap:24px">
+
+        <!-- DEMO PLAN -->
+        <div class="card plan-card">
+          <h2 class="section-headline seo-h2" style="font-size:1rem;margin-bottom:8px">
+            Demo (Free Forever)
+          </h2>
+          <div class="price-tier" style="font-weight:700;font-size:1.5rem">
+            ₹0 / $0
+          </div>
+          <div class="sub" style="opacity:0.8;font-size:0.9rem;margin-bottom:16px">
+            Test CAIO with a single file and see how the brains think.
+          </div>
+          <ul class="feature-list">
+            <li>Upload 1 document</li>
+            <li>Get a basic action summary</li>
+            <li>See partial CFO / COO / CHRO / CMO / CPO insights</li>
+            <li>Great for first-time founders</li>
           </ul>
-          <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener" data-event="cta_pricing_demo">Start Demo</a>
+          <div style="margin-top:16px">
+            <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">
+              Start Free
+            </a>
+          </div>
         </div>
 
-        <!-- Pro -->
-        <div class="card">
-          <h3>Pro</h3>
-          <p class="sub"><span data-price="pro" data-mode="full">—</span></p>
-          <ul>
-            <li>Unlimited analysis</li>
-            <li>Priority queue</li>
-            <li>Export & integration</li>
+        <!-- PRO PLAN -->
+        <div class="card plan-card">
+          <h2 class="section-headline seo-h2" style="font-size:1rem;margin-bottom:8px">
+            Pro
+          </h2>
+          <div class="price-tier" style="font-weight:700;font-size:1.5rem">
+            For solo founders & lean SMBs
+          </div>
+          <div class="sub" style="opacity:0.8;font-size:0.9rem;margin-bottom:16px">
+            Full analysis depth across finance, operations, people, marketing, and product.
+          </div>
+          <ul class="feature-list">
+            <li>Multiple document uploads</li>
+            <li>Deeper CFO-style financial readouts</li>
+            <li>Operational risk & bottleneck callouts (COO brain)</li>
+            <li>People / policy / liability flags (CHRO brain)</li>
+            <li>Positioning & growth angles (CMO brain)</li>
+            <li>Roadmap alignment guidance (CPO brain)</li>
           </ul>
-          <a class="btn btn-primary" href="https://caio-frontend.vercel.app/checkout?plan=pro" rel="noopener" data-event="cta_pricing_pro">Go Pro</a>
+          <div style="margin-top:16px">
+            <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=pro" rel="noopener">
+              Get Pro
+            </a>
+          </div>
         </div>
 
-        <!-- Pro+ -->
-        <div class="card">
-          <h3>Pro+</h3>
-          <p class="sub"><span data-price="pro_plus" data-mode="full">—</span></p>
-          <ul>
-            <li>Higher caps</li>
-            <li>Team features</li>
-            <li>Faster SLAs</li>
+        <!-- PRO+ PLAN -->
+        <div class="card plan-card">
+          <h2 class="section-headline seo-h2" style="font-size:1rem;margin-bottom:8px">
+            Pro+
+          </h2>
+          <div class="price-tier" style="font-weight:700;font-size:1.5rem">
+            For founders under pressure
+          </div>
+          <div class="sub" style="opacity:0.8;font-size:0.9rem;margin-bottom:16px">
+            All Pro features plus stronger depth, more guidance, more clarity.
+          </div>
+          <ul class="feature-list">
+            <li>Priority insight depth per file</li>
+            <li>Hard “Do this now / Do this next” playbook format</li>
+            <li>Compliance / exposure warnings for HR & finance</li>
+            <li>Customer retention and churn risk signals</li>
+            <li>Marketing messaging rewrites & positioning checks</li>
+            <li>Product priority guidance for your next sprint</li>
           </ul>
-          <a class="btn btn-primary" href="https://caio-frontend.vercel.app/checkout?plan=pro_plus" rel="noopener" data-event="cta_pricing_pro_plus">Go Pro+</a>
+          <div style="margin-top:16px">
+            <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=proplus" rel="noopener">
+              Get Pro+
+            </a>
+          </div>
         </div>
 
-        <!-- Premium -->
-        <div class="card">
-          <h3>Premium</h3>
-          <p class="sub"><span data-price="premium" data-mode="full">—</span></p>
-          <ul>
-            <li>Advanced brains</li>
-            <li>Custom prompts</li>
-            <li>Dedicated support</li>
+        <!-- PREMIUM PLAN -->
+        <div class="card plan-card featured">
+          <h2 class="section-headline seo-h2" style="font-size:1rem;margin-bottom:8px">
+            Premium
+          </h2>
+          <div class="price-tier" style="font-weight:700;font-size:1.5rem">
+            For serious teams & investors
+          </div>
+          <div class="sub" style="opacity:0.8;font-size:0.9rem;margin-bottom:16px">
+            The closest thing to having a full CFO / COO / CHRO / CMO / CPO bench.
+          </div>
+          <ul class="feature-list">
+            <li>Highest analysis depth</li>
+            <li>Exec-style red flag reports</li>
+            <li>Board-level narrative you can paste into investor updates</li>
+            <li>Hiring risk / policy exposure / compliance alerts</li>
+            <li>Strategic marketing & GTM clarity</li>
+            <li>Roadmap threat / build-vs-buy / cost-of-delay guidance</li>
           </ul>
-          <a class="btn btn-primary" href="https://caio-frontend.vercel.app/checkout?plan=premium" rel="noopener" data-event="cta_pricing_premium">Go Premium</a>
+          <div style="margin-top:16px">
+            <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=premium" rel="noopener">
+              Get Premium
+            </a>
+          </div>
+
+          <p class="sub" style="font-size:0.75rem;opacity:0.7;margin-top:8px">
+            This is the plan you show your investors to prove you’re not guessing.
+          </p>
         </div>
+
       </div>
 
-      <p class="sub">Have questions? <a href="/contact.html">Contact us</a>.</p>
+      <!-- reassurance / positioning -->
+      <div style="text-align:center;margin-top:40px">
+        <p class="sub" style="font-weight:600;margin-bottom:8px">
+          “Isn’t this just a chatbot?”
+        </p>
+        <p class="sub" style="max-width:780px;margin:0 auto;font-size:0.95rem;line-height:1.5">
+          No. Chatbots answer your questions. CAIO tells you what’s wrong in your
+          business operations, finance, hiring, marketing, and roadmap — and then tells
+          you what to fix first. It behaves like leadership, not an intern.
+        </p>
+      </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container">
       <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>CAIO by Joshi Enterprises © <span id="y"></span> – Cognitive AI for Smarter Businesses.</div>
+        <div>CAIO by Joshi Enterprises © 2025 – Cognitive AI for Smarter Businesses.</div>
         <div>
           <a href="/about.html">About</a> ·
           <a href="/privacy.html">Privacy</a> ·
@@ -152,8 +253,10 @@
     </div>
   </footer>
 
-  <!-- IMPORTANT: use your filename (caio.js), not script.js -->
+  <!-- Site scripts -->
   <script src="/assets/js/caio.js"></script>
-  <script src="assets/js/heading-optimizer.js"></script>
+
+  <!-- Heading optimizer (keeps H1/H2/H3 aligned to startup/SMB messaging) -->
+  <script src="/assets/js/heading-optimizer.js"></script>
 </body>
 </html>

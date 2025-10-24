@@ -1,104 +1,136 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>CAIO • Cognitive AI Officer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
-  <!-- Canonical + Robots -->
-  <link rel="canonical" href="https://caioinsights.com/" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-  <meta name="theme-color" content="#000000" />
+  <!-- Basic HTML meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <link rel="icon" href="/assets/favicon.ico">
-  <!-- Open Graph / Twitter (update image URL to your share image, 1200×630) -->
-  <meta property="og:title" content="CAIO • Cognitive AI Officer" />
-  <meta property="og:description" content="Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO runs 5 CXO lenses in parallel for SMBs." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://caioinsights.com/" />
-  <meta property="og:image" content="https://caioinsights.com/assets/img/og/caio-og.jpg" />
-  <meta property="og:site_name" content="CAIO" />
+  <!-- Page-specific SEO -->
+  <title>CAIO • Your Cognitive AI Officer for Startups & SMBs</title>
+  <meta name="description" content="CAIO is an AI Officer for founders. Upload any business file and get CFO, COO, CHRO, CMO, and CPO-grade decisions in minutes — without hiring five executives. Built for startups and SMBs.">
+  <link rel="canonical" href="https://caioinsights.com/">
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CAIO • Cognitive AI Officer" />
-  <meta name="twitter:description" content="Upload → Analyze → Decide. Executive brief in ~60 seconds with parallel CFO–CPO reasoning." />
-  <meta name="twitter:image" content="https://caioinsights.com/assets/img/og/caio-og.jpg" />
+  <!-- Icons / theme -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0D12">
 
+  <!-- Social / Open Graph -->
+  <meta property="og:title" content="CAIO — Your Cognitive AI Officer for Startups & SMBs">
+  <meta property="og:description" content="Turn messy documents into board-level decisions in minutes. Finance, operations, people, marketing, and product — in one AI brain.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caioinsights.com/">
+  <meta property="og:image" content="https://caioinsights.com/assets/img/social-card-caio.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CAIO — AI Officer for Startups & SMBs">
+  <meta name="twitter:description" content="AI that thinks like your CFO, COO, CHRO, CMO, and CPO. Built for founders who can't afford a full exec bench yet.">
+  <meta name="twitter:image" content="https://caioinsights.com/assets/img/social-card-caio.jpg">
+
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- GTM -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <!-- App routing -->
+  <script>window.CAIO_APP_BASE = "https://caio-frontend.vercel.app";</script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W9TGQ32G');
-  </script>
+  })(window,document,'script','dataLayer','GTM-W9TGQ32G');</script>
+
   <!-- Hotjar -->
   <script>
-  (function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-  h._hjSettings={hjid:6539090,hjsv:6};a=o.getElementsByTagName('head')[0];
-  r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6539090,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
 
-  <!-- HARD LOCK: single-column hero + matte black -->
-  <style>
-    :root{ --border: rgba(255,255,255,.12); --ink:#E8EEF6; --br:16px; }
-    body{ background:#000 !important; color:var(--ink); }
-    .header{ background:rgba(0,0,0,.80) !important; }
-    .footer{ background:#000 !important; }
-
-    /* One-column, center-aligned hero that defeats any old grid rules */
-    #hero{ display:block !important; max-width:980px; margin:96px auto 48px; text-align:center; }
-    #hero .hero-logo{ width:168px; height:168px; margin:0 auto 18px; display:block; }
-    #hero .hero-title{ font-size: clamp(2.1rem, 4.6vw, 3.2rem); line-height: 1.2; }
-    #hero .hero-sub{ max-width:900px; margin:0 auto 14px; opacity:.9; }
-    #hero .marquee{ position:relative; overflow:hidden; height:44px; border:1px solid var(--border);
-                    background:rgba(255,255,255,.04); border-radius:var(--br); margin:14px auto 10px; max-width:980px; }
-    #hero .marquee__inner{ display:inline-flex; align-items:center; gap:16px; white-space:nowrap;
-                           animation:marqueeX 18s linear infinite; padding:0 12px; }
-    #hero .chip{ display:inline-block; padding:8px 12px; line-height:28px; border:1px solid var(--border);
-                 border-radius:999px; background:rgba(255,255,255,.06); white-space:nowrap; font-weight:700; }
-    @keyframes marqueeX{ 0%{ transform:translateX(0) } 100%{ transform:translateX(-50%) } }
-    #hero .card{ background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-                 border:1px solid var(--border); border-radius:var(--br); padding:18px; max-width:760px; margin:14px auto 0; text-align:left; }
-    #hero .hero-ctas{ display:flex; gap:12px; justify-content:center; margin-top:14px; }
-  </style>
-  <meta name="google-site-verification" content="TNsO3tD4W9hdw3l3yuh07SxhMK2cp6PNLZaLqFErrOo" />
-</head>
-<!-- JSON-LD: Organization + WebSite -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
+  <!-- Structured Data / Schema for Google + AI assistants -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CAIO",
+    "alternateName": "Cognitive AI Officer",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://caioinsights.com/",
+    "description": "CAIO is an AI Officer for startups and SMBs. It analyzes your business documents and delivers CFO, COO, CHRO, CMO, and CPO-grade decisions in minutes, without needing to hire five executives.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free Demo tier available. Paid plans unlock deeper CFO/COO/CHRO/CMO/CPO intelligence."
+    },
+    "brand": {
       "@type": "Organization",
       "name": "CAIO",
-      "url": "https://caioinsights.com/",
-      "logo": "https://caioinsights.com/assets/img/logo.png",
-      "sameAs": ["https://www.linkedin.com/company/caioinsights"]
-    },
-    {
-      "@type": "WebSite",
-      "url": "https://caioinsights.com/",
-      "name": "CAIO",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.google.com/search?q=site%3Acaioinsights.com+{query}",
-        "query-input": "required name=query"
-      }
+      "url": "https://caioinsights.com/"
     }
-  ]
-}
-</script>
+  }
+  </script>
+
+  <!-- FAQ Schema to qualify you for rich FAQ answers and AI retrieval -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is CAIO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CAIO is a Cognitive AI Officer for startups and SMBs. It reads your business documents and returns CFO, COO, CHRO, CMO, and CPO-grade recommendations in plain language."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to know how to prompt AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. You just upload your file — forecast, policy, deck, spreadsheet, anything. CAIO analyzes it using 5 executive lenses and tells you exactly what to do next."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is CAIO for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Founders, operators, and SMB leaders who don't have a full CFO/COO/CHRO/CMO/CPO team yet but still need to make board-level decisions fast and with confidence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data used to train other models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your data stays yours. CAIO is designed for privacy-focused small teams who can't risk leaking financials, HR issues, or product strategy."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
 
 <body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- GTM noscript fallback -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9TGQ32G"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
+  <!-- Site Header / Nav -->
   <header class="header">
     <div class="container nav">
       <a class="brand" href="/index.html">
@@ -116,84 +148,165 @@
       </nav>
 
       <div class="nav-cta">
-        <!-- CTA: EXACTLY AS YOU WROTE IT -->
         <a class="btn" href="/watch.html">Watch Demo</a>
         <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">Try CAIO</a>
       </div>
 
-      <!-- optional mobile toggle (safe to keep even if unused) -->
       <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-
   <main class="container">
-    <!-- EXACT ORDER (one after the other) -->
-    <section id="hero">
 
-      <!-- Logo -->
-      <img src="/assets/img/logo.png" alt="CAIO" class="hero-logo" onerror="this.style.display='none'">
+    <!-- HERO / VALUE PROP -->
+    <section class="section hero" style="padding-top:40px;padding-bottom:40px;text-align:center">
+      <h1 class="page-headline seo-h1">
+        CAIO — Your Cognitive AI Officer
+      </h1>
 
-      <!-- Title -->
-      <h1 class="hero-title">CAIO<br>Your Cognitive AI Officer</h1>
-
-      <!-- Subhead -->
-      <p class="hero-sub">
-        Upload a document. Get CFO, COO, CHRO, CMO, and CPO-grade insights with
-        <strong>2–3 collective highlights</strong> and <strong>1 recommendation per brain</strong> — ready to act in minutes.
+      <p class="sub" style="max-width:780px;margin:12px auto 24px auto;font-size:1.05rem;line-height:1.5">
+        Turn messy documents into CXO-grade decisions in ~60 seconds.
+        CAIO reads your files like a CFO, COO, CHRO, CMO, and CPO —
+        then tells you what to do next in plain language.
+        Built for startups and SMBs who can't afford a full leadership team yet.
       </p>
 
-      <!-- Horizontal marquee (chips) -->
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__inner">
-          <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
-          <span class="chip">2–3 Collective Insights</span>
-          <span class="chip">1 Rec per Brain</span>
-          <span class="chip">PDF · DOCX · PPTX · XLSX</span>
-          <!-- duplicate for seamless loop -->
-          <span class="chip">CFO / CHRO / COO / CMO / CPO</span>
-          <span class="chip">2–3 Collective Insights</span>
-          <span class="chip">1 Rec per Brain</span>
-          <span class="chip">PDF · DOCX · PPTX · XLSX</span>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
+        <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">
+          Upload a File (Free Demo)
+        </a>
+        <a class="btn" href="/watch.html">
+          Watch CAIO in Action
+        </a>
+      </div>
+
+      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin-top:10px">
+        No credit card. No prompt engineering.
+      </p>
+    </section>
+
+    <!-- WHY CAIO / PROBLEM-PAIN BLOCK -->
+    <section class="section" style="padding-top:24px;padding-bottom:24px">
+      <h2 class="section-headline seo-h2" style="text-align:center">
+        Why Founders Use CAIO
+      </h2>
+
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card">
+          <h3 class="sub-headline seo-h3">“I can’t afford 5 executives.”</h3>
+          <p class="sub">
+            A proper CFO, COO, CHRO, CMO, and CPO team easily crosses $500K+ per year.
+            CAIO gives you the same style of thinking — without that burn.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">“I don’t have time to dig through decks.”</h3>
+          <p class="sub">
+            CAIO ingests your policies, P&Ls, HR docs, forecasts, product roadmaps, investor updates and flags
+            the top risks and actions. No 40-page manual review.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">“I need clean next steps, not fluff.”</h3>
+          <p class="sub">
+            You don’t get generic chatbot answers.
+            You get “Do this, then this, then this” in finance, ops, people, marketing, and product.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" style="padding-top:24px;padding-bottom:24px">
+      <h2 class="section-headline seo-h2" style="text-align:center">
+        How CAIO Works
+      </h2>
+
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Step 1: Upload</h3>
+          <p class="sub">
+            Drop in your P&amp;L, HR policy, burn report, roadmap deck, investor memo —
+            anything you want clarity on.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Step 2: Think</h3>
+          <p class="sub">
+            CAIO runs 5 parallel “Brains” (CFO / COO / CHRO / CMO / CPO) and analyzes
+            the data like each role would.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Step 3: Act</h3>
+          <p class="sub">
+            You get a prioritized action plan:
+            financial risks, ops gaps, compliance issues, churn threats, growth angles.
+          </p>
         </div>
       </div>
 
-      <!-- What you get -->
-      <div class="card">
-        <h3>What you get</h3>
-        <ul>
-          <li>Upload PDFs, Docs, XLSX, or TXTs</li>
-          <li>Parallel CFO–CPO analysis</li>
-          <li>Executive brief in ~60s</li>
-        </ul>
-      </div>
-
-      <!-- CTAs -->
-      <div class="hero-ctas">
-        <a class="btn btn-primary" data-event="cta_home_try" href="https://caio-frontend.vercel.app/signup?plan=demo">Try Demo</a>
-        <a class="btn btn-secondary" data-event="cta_home_pricing" href="/pricing.html">See Pricing</a>
-      </div>
-
-    </section>
-
-    <!-- Rest of page unchanged -->
-    <section class="section">
-      <h2 class="center">Why CAIO</h2>
-      <p class="sub center">From upload to executive summary in three steps.</p>
-      <div class="grid grid-3">
-        <div class="card">⚡ <strong>Upload</strong><br><span class="sub">Drop PDFs, PPTs, XLSX, or Docs.</span></div>
-        <div class="card">🤖 <strong>Analyze</strong><br><span class="sub">Parallel reasoning across CFO–CPO lenses.</span></div>
-        <div class="card">🧠 <strong>Decide</strong><br><span class="sub">Actionable next steps you can use today.</span></div>
+      <div style="text-align:center;margin-top:32px">
+        <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">
+          Try the Demo Plan Free
+        </a>
+        <p class="sub" style="font-size:0.8rem;opacity:0.7;margin-top:8px">
+          See your first executive report in minutes.
+        </p>
       </div>
     </section>
+
+    <!-- FAQ PREVIEW (this matches the FAQ schema in <head>) -->
+    <section class="section" style="padding-top:24px;padding-bottom:48px">
+      <h2 class="section-headline seo-h2" style="text-align:center">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="faq-list" style="max-width:800px;margin:24px auto 0 auto;display:grid;gap:16px">
+        <div class="card">
+          <h3 class="sub-headline seo-h3">What is CAIO?</h3>
+          <p class="sub">
+            CAIO is your Cognitive AI Officer. It reads your business documents and
+            gives you CFO / COO / CHRO / CMO / CPO-grade advice in plain English.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Do I need to learn prompts?</h3>
+          <p class="sub">
+            No. You upload. CAIO analyzes. You get action steps.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Who is this for?</h3>
+          <p class="sub">
+            Startup founders and SMB operators who don't have a full exec bench yet,
+            but still need serious decision support.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="sub-headline seo-h3">Is my data safe?</h3>
+          <p class="sub">
+            Your data stays yours. We designed CAIO for privacy and governance from day one.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
     <div class="container">
       <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div>CAIO by Joshi Enterprises © <span id="y"></span> – Cognitive AI for Smarter Businesses.</div>
+        <div>CAIO by Joshi Enterprises © 2025 – Cognitive AI for Smarter Businesses.</div>
         <div>
           <a href="/about.html">About</a> ·
           <a href="/privacy.html">Privacy</a> ·
@@ -205,29 +318,10 @@
     </div>
   </footer>
 
+  <!-- Your site scripts -->
   <script src="/assets/js/caio.js"></script>
-  <script src="assets/js/heading-optimizer.js"></script>
-  <!-- FAQPage JSON-LD (boosts rich results; doesn’t affect layout) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Who is CAIO for?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SMBs and teams that want CFO, COO, CHRO, CMO and CPO perspectives on any document within ~60 seconds." }
-      },
-      {
-        "@type": "Question",
-        "name": "What do I get from an analysis?",
-        "acceptedAnswer": { "@type": "Answer", "text": "An executive brief with 2–3 collective highlights and 1 actionable recommendation per brain." }
-      }
-    ]
-  }
-  </script>
-<!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244002683.js"></script>
-<!-- End of HubSpot Embed Code -->
+
+  <!-- Heading optimizer (auto-fixes H1/H2/H3 so every page stays SEO-aligned and startup-focused) -->
+  <script src="/assets/js/heading-optimizer.js"></script>
 </body>
 </html>
