@@ -80,7 +80,7 @@
   }
   </script>
 
-  <!-- FAQ Schema to qualify you for rich FAQ answers and AI retrieval -->
+  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -160,38 +160,58 @@
 
   <main class="container">
 
-    <!-- HERO / VALUE PROP -->
-    <section class="section hero" style="padding-top:40px;padding-bottom:40px;text-align:center">
-      <h1 class="page-headline seo-h1">
-        CAIO — Your Cognitive AI Officer
+    <!-- HERO -->
+    <section class="section hero" style="padding-top:60px;padding-bottom:56px;text-align:center">
+
+      <!-- Brand badge -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px;">
+        <img src="/assets/img/logo.png"
+             alt="CAIO logo"
+             style="width:48px;height:48px;border-radius:8px;background:#0A0D12;box-shadow:0 12px 32px rgba(0,0,0,0.6);object-fit:contain;"
+             onerror="this.style.display='none'">
+
+        <div style="font-size:0.8rem;line-height:1;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:-0.02em;">
+          Cognitive AI Officer
+        </div>
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="page-headline seo-h1" style="max-width:900px;margin:0 auto 24px auto;line-height:1.15;">
+        CAIO — Your Cognitive AI Officer for Startups &amp; SMBs
       </h1>
 
-      <p class="sub" style="max-width:780px;margin:12px auto 24px auto;font-size:1.05rem;line-height:1.5">
-        Turn messy documents into CXO-grade decisions in ~60 seconds.
-        CAIO reads your files like a CFO, COO, CHRO, CMO, and CPO —
-        then tells you what to do next in plain language.
+      <!-- Subheadline -->
+      <p class="sub" style="max-width:780px;margin:0 auto 32px auto;font-size:1.05rem;line-height:1.5;color:rgba(255,255,255,0.85);">
+        Turn messy documents into CXO-grade decisions in ~60 seconds. CAIO reads your files like a CFO,
+        COO, CHRO, CMO, and CPO — then tells you what to do next in plain language.
         Built for startups and SMBs who can't afford a full leadership team yet.
       </p>
 
-      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
-        <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">
+      <!-- CTAs -->
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+        <a class="btn btn-primary"
+           style="min-width:220px;justify-content:center;text-align:center;"
+           href="https://caio-frontend.vercel.app/signup?plan=demo"
+           rel="noopener">
           Upload a File (Free Demo)
         </a>
-        <a class="btn" href="/watch.html">
+
+        <a class="btn btn-dark"
+           style="min-width:220px;justify-content:center;text-align:center;"
+           href="/watch.html">
           Watch CAIO in Action
         </a>
       </div>
 
-      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin-top:10px">
+      <!-- Reassurance line -->
+      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin:0 auto;color:rgba(255,255,255,0.6);">
         No credit card. No prompt engineering.
       </p>
     </section>
 
-    <!-- WHY CAIO / PROBLEM-PAIN BLOCK -->
+    <!-- WHY CAIO -->
     <section class="section" style="padding-top:24px;padding-bottom:24px">
-      <h2 class="section-headline seo-h2" style="text-align:center">
-        Why Founders Use CAIO
-      </h2>
+      <h2 class="section-headline seo-h2" style="text-align:center">Why Founders Use CAIO</h2>
 
       <div class="grid grid-3" style="margin-top:24px">
         <div class="card">
@@ -205,7 +225,7 @@
         <div class="card">
           <h3 class="sub-headline seo-h3">“I don’t have time to dig through decks.”</h3>
           <p class="sub">
-            CAIO ingests your policies, P&Ls, HR docs, forecasts, product roadmaps, investor updates and flags
+            CAIO ingests your policies, P&amp;Ls, HR docs, forecasts, product roadmaps, investor updates and flags
             the top risks and actions. No 40-page manual review.
           </p>
         </div>
@@ -222,9 +242,7 @@
 
     <!-- HOW IT WORKS -->
     <section class="section" style="padding-top:24px;padding-bottom:24px">
-      <h2 class="section-headline seo-h2" style="text-align:center">
-        How CAIO Works
-      </h2>
+      <h2 class="section-headline seo-h2" style="text-align:center">How CAIO Works</h2>
 
       <div class="grid grid-3" style="margin-top:24px">
         <div class="card">
@@ -262,11 +280,9 @@
       </div>
     </section>
 
-    <!-- FAQ PREVIEW (this matches the FAQ schema in <head>) -->
+    <!-- FAQ PREVIEW -->
     <section class="section" style="padding-top:24px;padding-bottom:48px">
-      <h2 class="section-headline seo-h2" style="text-align:center">
-        Frequently Asked Questions
-      </h2>
+      <h2 class="section-headline seo-h2" style="text-align:center">Frequently Asked Questions</h2>
 
       <div class="faq-list" style="max-width:800px;margin:24px auto 0 auto;display:grid;gap:16px">
         <div class="card">
@@ -320,8 +336,6 @@
 
   <!-- Your site scripts -->
   <script src="/assets/js/caio.js"></script>
-
-  <!-- Heading optimizer (auto-fixes H1/H2/H3 so every page stays SEO-aligned and startup-focused) -->
   <script src="/assets/js/heading-optimizer.js"></script>
 </body>
 </html>

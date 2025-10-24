@@ -54,7 +54,6 @@
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-
 </head>
 
 <body>
@@ -95,43 +94,53 @@
   <main class="container">
 
     <!-- HERO -->
-    <section class="section" style="padding-top:40px;padding-bottom:32px;max-width:900px">
-      <h1 class="page-headline seo-h1">
+    <section class="section hero" style="padding-top:60px;padding-bottom:40px;text-align:center;max-width:900px;margin:0 auto;">
+
+      <!-- Brand badge -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:16px;">
+        <img src="/assets/img/logo.png"
+             alt="CAIO logo"
+             style="width:48px;height:48px;border-radius:8px;background:#0A0D12;box-shadow:0 12px 32px rgba(0,0,0,0.6);object-fit:contain;"
+             onerror="this.style.display='none'">
+
+        <div style="font-size:0.8rem;line-height:1;color:rgba(255,255,255,0.6);font-weight:600;letter-spacing:-0.02em;">
+          Cognitive AI Officer
+        </div>
+      </div>
+
+      <h1 class="page-headline seo-h1" style="max-width:900px;margin:0 auto 16px auto;line-height:1.15;">
         Watch CAIO Think
       </h1>
 
-      <p class="sub" style="margin-top:12px;font-size:1.05rem;line-height:1.5;max-width:720px">
+      <p class="sub" style="margin:0 auto 24px auto;font-size:1.05rem;line-height:1.5;max-width:720px;color:rgba(255,255,255,0.85);">
         The full walkthrough video is being finalized.
-        But since you’re already here — here’s exactly what CAIO does for founders and SMB operators,
-        step by step, with zero fluff.
+        Here’s exactly what CAIO actually does for a founder in under 2 minutes.
       </p>
 
-      <ul class="sub" style="margin-top:24px;line-height:1.6;list-style:disc;padding-left:20px;max-width:720px">
-        <li><strong>It reads your file like 5 executives:</strong> CFO, COO, CHRO, CMO, CPO.</li>
-        <li><strong>It finds what’s broken or risky:</strong> cash burn, ops gaps, policy exposure, churn threats, positioning leaks.</li>
-        <li><strong>It tells you what to do next:</strong> in plain English, as if an experienced operator sat you down and said “Fix this first.”</li>
-      </ul>
-
-      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
-        <a class="btn btn-dark" href="/why-caio.html">Why CAIO</a>
-        <a class="btn btn-dark" href="/pricing.html">See Pricing</a>
-        <a class="btn btn-primary" href="https://caio-frontend.vercel.app/signup?plan=demo" rel="noopener">
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:12px;">
+        <a class="btn btn-primary"
+           href="https://caio-frontend.vercel.app/signup?plan=demo"
+           rel="noopener"
+           style="min-width:220px;justify-content:center;text-align:center;">
           Try the Demo
+        </a>
+        <a class="btn btn-dark"
+           href="/pricing.html"
+           style="min-width:220px;justify-content:center;text-align:center;">
+          See Pricing
         </a>
       </div>
 
-      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin-top:10px">
+      <p class="sub" style="font-size:0.8rem;opacity:0.7;margin:0 auto;color:rgba(255,255,255,0.6);">
         No credit card. Upload one file. Get your first executive summary.
       </p>
     </section>
 
     <hr style="border:0;border-top:1px solid rgba(255,255,255,0.08);margin:32px 0">
 
-    <!-- STEP-BY-STEP "THIS IS WHAT YOU'LL SEE IN THE VIDEO" -->
-    <section class="section" style="padding-bottom:32px;max-width:900px">
-      <h2 class="section-headline seo-h2">
-        What You'll See in the Demo
-      </h2>
+    <!-- STEP-BY-STEP -->
+    <section class="section" style="padding-bottom:32px;max-width:900px;margin:0 auto;">
+      <h2 class="section-headline seo-h2">What You'll See in the Demo</h2>
 
       <div class="grid grid-3" style="margin-top:24px">
         <div class="card">
@@ -173,11 +182,9 @@
 
     <hr style="border:0;border-top:1px solid rgba(255,255,255,0.08);margin:32px 0">
 
-    <!-- SOCIAL PROOF / POSITIONING -->
-    <section class="section" style="padding-bottom:48px;max-width:900px">
-      <h2 class="section-headline seo-h2">
-        Who Uses CAIO Right Now
-      </h2>
+    <!-- SOCIAL PROOF -->
+    <section class="section" style="padding-bottom:48px;max-width:900px;margin:0 auto;">
+      <h2 class="section-headline seo-h2">Who Uses CAIO Right Now</h2>
 
       <div class="grid grid-2" style="margin-top:24px;gap:24px">
         <div class="card">
@@ -232,8 +239,6 @@
 
   <!-- Site scripts -->
   <script src="/assets/js/caio.js"></script>
-
-  <!-- Heading optimizer (keeps consistency across pages even if content changes later) -->
   <script src="/assets/js/heading-optimizer.js"></script>
 </body>
 </html>
