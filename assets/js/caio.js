@@ -13,7 +13,7 @@
 const DEMO_URL = "https://caio-frontend.vercel.app/signup?plan=demo";
 
 /** Make.com Webhook (PUT YOUR LIVE URL HERE) **/
-const MAKE_WEBHOOK = "https://hook.eu2.make.com/mrm11ms6u8mvwhg358b7dp6vpqjdfwhw";
+const MAKE_WEBHOOK = "https://hook.eu2.make.com/r6wwqfuhd7owzp5glusn4o1en0phdmg5";
 
 /** GA4 event names (must match your GTM/GA4 setup) **/
 const GA4_EVENTS = {
