@@ -1,287 +1,322 @@
 /* ==========================================================================
-   CAIO — Drop-in frontend helpers
-   - Geo-routing for CTAs (INR/USD) → Razorpay Payment Pages
-   - Demo CTA normalization
-   - Price painting (₹/$ per month) with locale-aware formatting
-   - Lightweight click analytics hooks
-   - Global Beacon → Make.com webhook + GA4-safe dataLayer events
+   CAIO — site-wide logic (drop-in)
+   - Price wiring (INR/USD) + CTA links
+   - Visit beacons (Make webhook → optional GAS fallback)
+   - GA4 custom events (non-PII)
+   - Optional contact form capture (email DOMAIN only)
    ========================================================================== */
 
-/* =======================
-   CONFIG (EDIT THESE)
-   ======================= */
-const DEMO_URL = "https://caio-frontend.vercel.app/signup?plan=demo";
+/* ---------------------
+   CONFIG — EDIT THESE
+   --------------------- */
+var DEMO_URL = "https://caio-frontend.vercel.app/signup?plan=demo";
 
-/** Make.com Webhook (PUT YOUR LIVE URL HERE) **/
-const MAKE_WEBHOOK = "https://hook.eu2.make.com/r6wwqfuhd7owzp5glusn4o1en0phdmg5";
+/* Primary webhook (Make): */
+var MAKE_WEBHOOK = "https://hook.eu2.make.com/r6wwqfuhd7owzp5glusn4o1en0phdmg5";
 
-/** GA4 event names (must match your GTM/GA4 setup) **/
-const GA4_EVENTS = {
-  page: "caio_page_beacon",
-  lead: "caio_lead_submit"
+/* Optional fallback (Google Apps Script Web App doPost): */
+var GAS_FALLBACK = "https://script.google.com/macros/s/AKfycbxeFzLF-Zv7GmMMXql8PJM6uiPE5WpU9O3g69v8_DdzEsK4EToZH-VX643_w9wOoane/exec"; 
+
+/* GA4 custom event names: */
+var GA4_EVENTS = { page: "caio_page_beacon", dwell: "caio_dwell_ping", lead: "caio_lead_submit" };
+
+/* Logical source tags sent to Make/GAS: */
+var SOURCES = { page: "website", form: "website-form" };
+
+/* Razorpay payment pages: */
+var RZP_LINKS = {
+  inr: { pro: "https://rzp.io/rzp/0cPc21s", pro_plus: "https://rzp.io/rzp/ACy9fQf", premium: "https://rzp.io/rzp/dyD6BmX1" },
+  usd: { pro: "https://rzp.io/rzp/limEk7z", pro_plus: "https://rzp.io/rzp/P8K8wv50", premium: "https://rzp.io/rzp/LrzjAdwV" }
 };
 
-/** Source names (must match your Make router filters) **/
-const SOURCES = {
-  page: "website",
-  form: "website-form"
-};
-
-/* ---------- Razorpay Payment Pages (INR & USD) ---------- */
-const RZP_LINKS = {
-  inr: {
-    pro:      "https://rzp.io/rzp/0cPc21s",
-    pro_plus: "https://rzp.io/rzp/ACy9fQf",
-    premium:  "https://rzp.io/rzp/dyD6BmX1"
-  },
-  usd: {
-    pro:      "https://rzp.io/rzp/limEk7z",
-    pro_plus: "https://rzp.io/rzp/P8K8wv50",
-    premium:  "https://rzp.io/rzp/LrzjAdwV"
-  }
-};
-
-/* ---------- Static pricing ---------- */
-const DEFAULT_CURRENCY = "INR";             // fallback if detection fails
-const PAY_INTERVAL_TEXT = "/ month";
-const PRICING = {
+/* Static price table (numbers only): */
+var PRICING = {
   pro:      { INR: 1999, USD: 25 },
   pro_plus: { INR: 3999, USD: 49 },
   premium:  { INR: 7999, USD: 99 }
 };
+var DEFAULT_CURRENCY = "INR";
+var PAY_INTERVAL_TEXT = "/ month";
 
-window.__CAIO_DEBUG = { MAKE_WEBHOOK, SOURCES, GA4_EVENTS };
-console.log('[CAIO] debug', window.__CAIO_DEBUG);
+/* Debug surface (DevTools): */
+try { window.__CAIO_DEBUG = { MAKE_WEBHOOK: MAKE_WEBHOOK, GAS_FALLBACK: GAS_FALLBACK, SOURCES: SOURCES, GA4_EVENTS: GA4_EVENTS }; } catch (_e) {}
 
-/* =======================
-   Currency detection & money formatting
-   ======================= */
+/* ---------------------
+   UTILS (no PII)
+   --------------------- */
+function safeGetLanguage() {
+  try {
+    var ls = (navigator.languages && navigator.languages.length) ? navigator.languages[0] : (navigator.language || "en");
+    return ls || "en";
+  } catch (_e) { return "en"; }
+}
 function detectCurrency() {
   try {
-    const url = new URL(window.location.href);
-    const q = (url.searchParams.get("currency") || "").toLowerCase();
-    if (q === "inr" || q === "usd") {
-      localStorage.setItem("caio_currency", q);
-      return q;
-    }
-  } catch (e) {}
-
-  const saved = (localStorage.getItem("caio_currency") || "").toLowerCase();
-  if (saved === "inr" || saved === "usd") return saved;
+    var url = new URL(window.location.href);
+    var q = (url.searchParams.get("currency") || "").toLowerCase();
+    if (q === "inr" || q === "usd") { try { localStorage.setItem("caio_currency", q); } catch (_e) {} return q; }
+  } catch (_e) {}
 
   try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    const lang = (navigator.language || "").toUpperCase();
-    if (tz.startsWith("Asia/Kolkata") || lang.endsWith("-IN")) return "inr";
-  } catch (e) {}
+    var saved = (localStorage.getItem("caio_currency") || "").toLowerCase();
+    if (saved === "inr" || saved === "usd") return saved;
+  } catch (_e) {}
 
-  return DEFAULT_CURRENCY.toLowerCase() === "inr" ? "inr" : "usd";
+  try {
+    var tz = (Intl.DateTimeFormat().resolvedOptions() || {}).timeZone || "";
+    var lang = safeGetLanguage().toUpperCase();
+    if ((tz && tz.indexOf("Asia/Kolkata") === 0) || /-IN$/.test(lang)) return "inr";
+  } catch (_e) {}
+
+  return (DEFAULT_CURRENCY || "INR").toLowerCase() === "inr" ? "inr" : "usd";
 }
-
 function localeForCurrency(cur) {
-  if ((cur || '').toUpperCase() === 'INR') return 'en-IN';
-  const langs = (navigator.languages && navigator.languages.length)
-    ? navigator.languages
-    : [navigator.language || 'en'];
-  return langs[0] || 'en';
+  return (cur || "").toUpperCase() === "INR" ? "en-IN" : safeGetLanguage();
 }
-
 function fmtMoney(amount, cur) {
   try {
-    const loc = localeForCurrency(cur);
-    return new Intl.NumberFormat(loc, {
-      style: 'currency',
-      currency: (cur || 'USD').toUpperCase(),
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+    return new Intl.NumberFormat(localeForCurrency(cur), {
+      style: "currency", currency: (cur || "USD").toUpperCase(),
+      minimumFractionDigits: 0, maximumFractionDigits: 0
     }).format(amount);
-  } catch (e) {
-    return `${cur} ${amount}`;
+  } catch (_e) {
+    return (cur || "CUR") + " " + amount;
   }
 }
+function trackGA4(ev, params) {
+  try { if (window.gtag) { window.gtag("event", ev, params || {}); } } catch (_e) {}
+  try { if (window.dataLayer) { window.dataLayer.push({ event: ev, params: params || {} }); } } catch (_e) {}
+}
+function postJSON(url, payload) {
+  if (!url) return Promise.resolve(false);
+  var body = JSON.stringify(payload || {});
+  try {
+    if (navigator.sendBeacon) {
+      var ok = navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
+      if (ok) return Promise.resolve(true);
+    }
+  } catch (_e) {}
+  return fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: body,
+    keepalive: true,
+    mode: "cors",
+    cache: "no-store",
+    credentials: "omit"
+  }).then(function (r) { return !!r && r.ok; }).catch(function () { return false; });
+}
+function qsAll(sel) { try { return Array.prototype.slice.call(document.querySelectorAll(sel)); } catch (_e) { return []; } }
 
-/* =======================
-   Lightweight analytics helpers
-   ======================= */
-function track(evName, el) {
-  try { if (window.gtag) gtag("event", evName, { label: (el && el.textContent || "").trim() }); } catch(e){}
-  try { if (window._hsq) window._hsq.push(["trackEvent", { id: evName, value: 1 }]); } catch(e){}
-  try { if (window.hj)   hj("event", evName); } catch(e){}
+/* ---------------------
+   ATTRIBUTION + VISITOR
+   --------------------- */
+var VID_KEY = "caio_visitor_id";
+var VISITOR_ID = (function () {
+  try {
+    var v = localStorage.getItem(VID_KEY);
+    if (v) return v;
+    v = "CAIO-" + Math.random().toString(36).slice(2, 12);
+    localStorage.setItem(VID_KEY, v);
+    return v;
+  } catch (_e) { return "CAIO-" + Math.random().toString(36).slice(2, 12); }
+})();
+function persistAttribution() {
+  var bag = {};
+  try {
+    var url = new URL(window.location.href);
+    var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid"];
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem("caio_attr") || "{}"); } catch (_e) { saved = {}; }
+    var dirty = false;
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i]; var v = url.searchParams.get(k);
+      if (v) { saved[k] = v; dirty = true; }
+    }
+    if (dirty) { try { localStorage.setItem("caio_attr", JSON.stringify(saved)); } catch (_e2) {} }
+    bag = saved;
+  } catch (_e3) {}
+  return bag;
 }
 
-/* =======================
-   Demo CTA normalization
-   ======================= */
-function wireDemoLinks() {
-  document.querySelectorAll('a[data-plan="demo"], a[href="/demo"]').forEach(a => {
-    a.setAttribute("href", DEMO_URL);
-    a.setAttribute("rel", "noopener");
-  });
-}
-
-/* =======================
-   Paid CTAs wiring
-   ======================= */
+/* ---------------------
+   PRICING + CTAs
+   --------------------- */
 function applyPlanHref(plan, url) {
-  const selectors = [
-    `[data-event="cta_pricing_${plan}"]`,                       // preferred (pricing.html)
-    `[data-plan="${plan.replace("pro_plus","pro+")}"]`,         // data-plan
-    `#cta-${plan.replace("pro_plus","proplus")}`,               // optional IDs
-    `a[href="/${plan.replace("pro_plus","pro-plus")}"]`,        // legacy local
-    `a[href="/checkout/${plan.replace("pro_plus","pro-plus")}"]`
+  var mapId = plan === "pro_plus" ? "proplus" : plan;
+  var sels = [
+    '[data-event="cta_pricing_' + plan + '"]',
+    '[data-plan="' + (plan === "pro_plus" ? "pro+" : plan) + '"]',
+    '#cta-' + mapId,
+    'a[href="/' + (plan === "pro_plus" ? "pro-plus" : plan) + '"]',
+    'a[href="/checkout/' + (plan === "pro_plus" ? "pro-plus" : plan) + '"]'
   ];
-  const seen = new Set();
-  selectors.forEach(sel => {
-    document.querySelectorAll(sel).forEach(a => {
-      if (seen.has(a)) return;
-      seen.add(a);
-      a.setAttribute("href", url);
-      a.setAttribute("rel", "noopener");
-      a.dataset.currency = detectCurrency();
-    });
-  });
+  var seen = [];
+  for (var s = 0; s < sels.length; s++) {
+    var arr = qsAll(sels[s]);
+    for (var i = 0; i < arr.length; i++) {
+      var a = arr[i];
+      if (seen.indexOf(a) !== -1) continue;
+      seen.push(a);
+      try { a.href = url; a.rel = "noopener"; a.setAttribute("data-currency", detectCurrency()); } catch (_e) {}
+    }
+  }
 }
-
-function wirePricingByGeo() {
-  const curFlag = detectCurrency();        // "inr" | "usd"
-  const links = RZP_LINKS[curFlag];
-  applyPlanHref("pro",      links.pro);
-  applyPlanHref("pro_plus", links.pro_plus);
-  applyPlanHref("premium",  links.premium);
-  paintPrices(curFlag);
-}
-
-/* =======================
-   Price text painting
-   ======================= */
-function paintPrices(currencyFlag /* "inr"|"usd" */) {
-  const cur3 = (currencyFlag || detectCurrency()).toUpperCase(); // "INR"|"USD"
-  const map = [
+function paintPrices(currencyFlag) {
+  var cur3 = (currencyFlag || detectCurrency()).toUpperCase();
+  var rows = [
     ["pro", PRICING.pro[cur3]],
     ["pro_plus", PRICING.pro_plus[cur3]],
     ["premium", PRICING.premium[cur3]]
   ];
-
-  map.forEach(([key, amount]) => {
-    if (typeof amount === "undefined") return;
-    const pretty = fmtMoney(amount, cur3);
-    document.querySelectorAll(`[data-price="${key}"]`).forEach(el => {
-      const mode = (el.getAttribute("data-mode") || "full").toLowerCase();
-      el.textContent = (mode === "amount") ? pretty : `${pretty} ${PAY_INTERVAL_TEXT}`;
-      el.dataset.currency = currencyFlag;
-    });
-  });
+  for (var r = 0; r < rows.length; r++) {
+    var key = rows[r][0], amount = rows[r][1];
+    if (typeof amount === "undefined") continue;
+    var pretty = fmtMoney(amount, cur3);
+    var nodes = qsAll('[data-price="' + key + '"]');
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var mode = (el.getAttribute("data-mode") || "full").toLowerCase();
+      try {
+        el.textContent = mode === "amount" ? pretty : (pretty + " " + PAY_INTERVAL_TEXT);
+        el.setAttribute("data-currency", currencyFlag);
+      } catch (_e) {}
+    }
+  }
+}
+function wirePricingByGeo() {
+  var flag = detectCurrency();                   // "inr" | "usd"
+  var links = RZP_LINKS[flag] || RZP_LINKS.usd;  // default to USD links if missing
+  applyPlanHref("pro", links.pro);
+  applyPlanHref("pro_plus", links.pro_plus);
+  applyPlanHref("premium", links.premium);
+  paintPrices(flag);
+}
+function wireDemoLinks() {
+  var nodes = qsAll('a[data-plan="demo"], a[href="/demo"]');
+  for (var i = 0; i < nodes.length; i++) { try { nodes[i].href = DEMO_URL; nodes[i].rel = "noopener"; } catch (_e) {} }
 }
 
-/* =======================
-   Global init + analytics click delegation
-   ======================= */
-document.addEventListener("DOMContentLoaded", function () {
-  wireDemoLinks();
-  wirePricingByGeo();
-  const y = document.getElementById("y");
-  if (y) y.textContent = new Date().getFullYear();
-});
+/* ---------------------
+   VISIT BEACON + DWELL
+   --------------------- */
+function beaconOncePerPage() {
+  var key = "caio_beacon_" + window.location.pathname + "|" + (document.referrer || "");
+  try { if (sessionStorage.getItem(key)) return; } catch (_e) {}
 
-document.addEventListener("click", function (e) {
-  const el = e.target.closest("[data-event]");
-  if (!el) return;
-  const ev = el.getAttribute("data-event");
-  if (ev) track(ev, el);
-}, true);
+  var attr = persistAttribution();
+  var payload = {
+    source: SOURCES.page,
+    visitor_id: VISITOR_ID,
+    domain: location.hostname,
+    page: location.pathname,
+    referrer: document.referrer || "direct",
+    user_agent: navigator.userAgent || "",
+    timestamp: new Date().toISOString(),
+    currency: detectCurrency()
+  };
+  for (var k in attr) { if (attr.hasOwnProperty(k)) payload[k] = attr[k]; }
 
-/* Expose tiny API for console debug */
-window.CAIO = Object.assign(window.CAIO || {}, {
-  getCurrency: detectCurrency,
-  wirePricingByGeo,
-  paintPrices
-});
-
-/* ==========================================================================
-   GLOBAL BEACON (Make webhook + GA4 dataLayer)
-   - Sends page view + visitor_id to Make
-   - Pushes GA4-safe events (no PII)
-   - Captures optional form submits (email_domain only)
-   ========================================================================== */
-(function () {
-  // Stable visitor id (no PII)
-  const KEY = "caio_visitor_id";
-  let vid = localStorage.getItem(KEY);
-  if (!vid) {
-    vid = "CAIO-" + Math.random().toString(36).slice(2, 12);
-    localStorage.setItem(KEY, vid);
-  }
-
-  // Safe dataLayer push
-  window.dataLayer = window.dataLayer || [];
-  function pushDL(event, params) {
-    window.dataLayer.push(Object.assign({ event }, params || {}));
-  }
-
-  // POST to Make webhook (survives page unload)
-  async function postToMake(payload) {
-    if (!MAKE_WEBHOOK || /REPLACE_WITH_YOUR_WEBHOOK_ID/.test(MAKE_WEBHOOK)) return;
-    try {
-      await fetch(MAKE_WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        keepalive: true
+  (function () {
+    var triedMake = false;
+    if (MAKE_WEBHOOK && MAKE_WEBHOOK.indexOf("REPLACE_WITH_YOUR_WEBHOOK_ID") === -1) {
+      triedMake = true;
+      postJSON(MAKE_WEBHOOK, payload).then(function (ok) {
+        if (!ok && GAS_FALLBACK) postJSON(GAS_FALLBACK, payload);
       });
-    } catch (e) { /* silent */ }
-  }
+    } else if (GAS_FALLBACK) {
+      postJSON(GAS_FALLBACK, payload);
+    }
+  })();
 
-  // De-dupe page beacon per page+referrer
-  const pageOnceKey = "caio_beacon_sent_" + location.pathname + "|" + document.referrer;
-  if (!sessionStorage.getItem(pageOnceKey)) {
-    const pagePayload = {
-      visitor_id: vid,
-      domain: location.hostname,
+  trackGA4(GA4_EVENTS.page, { visitor_id: VISITOR_ID, page: payload.page, referrer: payload.referrer });
+  try { sessionStorage.setItem(key, "1"); } catch (_e2) {}
+}
+function startDwellPings() {
+  var secs = 0;
+  setInterval(function () {
+    secs += 15;
+    var attr = persistAttribution();
+    var payload = {
+      event: "dwell",
+      source: SOURCES.page,
+      visitor_id: VISITOR_ID,
       page: location.pathname,
-      referrer: document.referrer || "direct",
-      user_agent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      source: SOURCES.page                 // <— Make router branch for Visitors
+      dwell_seconds: secs,
+      timestamp: new Date().toISOString()
     };
-    postToMake(pagePayload);
-    // GA4 journey (no PII)
-    pushDL(GA4_EVENTS.page, {
-      visitor_id: vid,
-      page: pagePayload.page,
-      referrer: pagePayload.referrer
-    });
-    sessionStorage.setItem(pageOnceKey, "1");
-  }
+    for (var k in attr) { if (attr.hasOwnProperty(k)) payload[k] = attr[k]; }
+    if (MAKE_WEBHOOK) postJSON(MAKE_WEBHOOK, payload);
+    trackGA4(GA4_EVENTS.dwell, { visitor_id: VISITOR_ID, page: location.pathname, dwell_seconds: secs });
+  }, 15000);
+}
 
-  // Optional: capture a contact/demo form
-  // Expect: <form id="contactForm"> with inputs #email and #name
-  const form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", function () {
-      const emailEl = document.getElementById("email");
-      const nameEl  = document.getElementById("name");
-      const email = emailEl ? (emailEl.value || "").trim() : "";
-      const name  = nameEl ? (nameEl.value || "").trim() : "";
-      const emailDomain = email.includes("@") ? email.split("@")[1] : "";
+/* ---------------------
+   FORM CAPTURE (optional)
+   - expects <form id="contactForm"> with #email and optional #name
+   - sends only email DOMAIN (no PII)
+   --------------------- */
+function bindContactForm() {
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+  form.addEventListener("submit", function () {
+    try {
+      var email = ""; var name = "";
+      var emailEl = document.getElementById("email"); if (emailEl) email = (emailEl.value || "").trim();
+      var nameEl = document.getElementById("name");   if (nameEl)  name  = (nameEl.value || "").trim();
+      var emailDomain = "";
+      if (email && email.indexOf("@") > -1) emailDomain = email.split("@")[1];
 
-      // → Make (OK to include domain; avoid sending full email)
-      postToMake({
-        visitor_id: vid,
+      var attr = persistAttribution();
+      var payload = {
+        source: SOURCES.form,
+        visitor_id: VISITOR_ID,
         domain: location.hostname,
         page: location.pathname,
         referrer: document.referrer || "direct",
         timestamp: new Date().toISOString(),
-        source: SOURCES.form,              // <— Make router branch for Hunter
         email_domain: emailDomain,
-        name: name
-      });
+        name: name || ""
+      };
+      for (var k in attr) { if (attr.hasOwnProperty(k)) payload[k] = attr[k]; }
 
-      // → GA4 (NO PII)
-      pushDL(GA4_EVENTS.lead, {
-        visitor_id: vid,
-        page: location.pathname,
-        referrer: document.referrer || "direct"
-      });
-    });
-  }
-})();
+      if (MAKE_WEBHOOK) {
+        postJSON(MAKE_WEBHOOK, payload).then(function (ok) {
+          if (!ok && GAS_FALLBACK) postJSON(GAS_FALLBACK, payload);
+        });
+      } else if (GAS_FALLBACK) {
+        postJSON(GAS_FALLBACK, payload);
+      }
+
+      trackGA4(GA4_EVENTS.lead, { visitor_id: VISITOR_ID, page: location.pathname, referrer: document.referrer || "direct" });
+    } catch (_e) {}
+  });
+}
+
+/* ---------------------
+   GLOBAL INIT
+   --------------------- */
+function initCAIO() {
+  try { wireDemoLinks(); } catch (_e) {}
+  try { wirePricingByGeo(); } catch (_e2) {}
+  try { var y = document.getElementById("y"); if (y) y.textContent = (new Date()).getFullYear(); } catch (_e3) {}
+
+  try { beaconOncePerPage(); } catch (_e4) {}
+  try { startDwellPings(); } catch (_e5) {}
+  try { bindContactForm(); } catch (_e6) {}
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initCAIO);
+} else {
+  try { initCAIO(); } catch (_e7) {}
+}
+
+/* Minimal click tracking via [data-event] */
+document.addEventListener("click", function (e) {
+  try {
+    var el = e.target && e.target.closest ? e.target.closest("[data-event]") : null;
+    if (!el) return;
+    var ev = el.getAttribute("data-event") || "";
+    if (ev) trackGA4(ev, { text: (el.textContent || "").trim() });
+  } catch (_e) {}
+}, true);
