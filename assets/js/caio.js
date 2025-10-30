@@ -320,3 +320,134 @@ document.addEventListener("click", function (e) {
     if (ev) trackGA4(ev, { text: (el.textContent || "").trim() });
   } catch (_e) {}
 }, true);
+
+/* ========================== CAIO Beacon & Dwell (ADD-ON) ========================== */
+(function () {
+  if (window.__CAIO_BEACON_INSTALLED__) return; // prevent duplicates
+  window.__CAIO_BEACON_INSTALLED__ = true;
+
+  // --- gentle reads of existing globals (don’t overwrite anything) ---
+  var MAKE_WEBHOOK = (typeof window.MAKE_WEBHOOK === "string" && window.MAKE_WEBHOOK) || "";
+  var GAS_FALLBACK = (typeof window.GAS_FALLBACK === "string" && window.GAS_FALLBACK) || "";
+  var GA4_EVENTS = window.GA4_EVENTS || { page: "caio_page_beacon", dwell: "caio_dwell_ping" };
+  var SOURCES = window.SOURCES || { page: "website" };
+
+  // visitor id: reuse if present, otherwise create once (but don’t export)
+  var VISITOR_ID = (function () {
+    if (window.VISITOR_ID) return window.VISITOR_ID;
+    try {
+      var k = "caio_visitor_id";
+      var v = localStorage.getItem(k);
+      if (!v) { v = "CAIO-" + Math.random().toString(36).slice(2, 12); localStorage.setItem(k, v); }
+      return v;
+    } catch (_) { return "CAIO-" + Math.random().toString(36).slice(2, 12); }
+  })();
+
+  // small utils kept local to avoid conflicts
+  function trackGA4(ev, params) {
+    try { if (window.gtag) window.gtag("event", ev, params || {}); } catch (_) {}
+    try { if (window.dataLayer) window.dataLayer.push({ event: ev, params: params || {} }); } catch (_) {}
+  }
+  function postJSON(url, payload) {
+    if (!url) return Promise.resolve(false);
+    var body = JSON.stringify(payload || {});
+    try {
+      if (navigator.sendBeacon) {
+        var ok = navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
+        if (ok) return Promise.resolve(true);
+      }
+    } catch (_){}
+    return fetch(url, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: body, keepalive: true, mode: "cors", cache: "no-store", credentials: "omit"
+    }).then(function (r) { return !!r && r.ok; }).catch(function () { return false; });
+  }
+  function persistAttribution() {
+    var bag = {};
+    try {
+      var url = new URL(window.location.href);
+      var keys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","gclid","fbclid"];
+      var saved = {}; try { saved = JSON.parse(localStorage.getItem("caio_attr") || "{}"); } catch(_) { saved = {}; }
+      var dirty = false;
+      keys.forEach(function (k) {
+        var v = url.searchParams.get(k);
+        if (v) { saved[k] = v; dirty = true; }
+      });
+      if (dirty) { try { localStorage.setItem("caio_attr", JSON.stringify(saved)); } catch(_){} }
+      bag = saved;
+    } catch(_){}
+    return bag;
+  }
+
+  // --- one-time page beacon per page/referrer combo (session) ---
+  function beaconOncePerPage() {
+    var key = "caio_beacon|" + location.pathname + "|" + (document.referrer || "direct");
+    try { if (sessionStorage.getItem(key)) return; } catch(_) {}
+
+    var attr = persistAttribution();
+    var payload = {
+      source: SOURCES.page,
+      visitor_id: VISITOR_ID,
+      domain: location.hostname,
+      page: location.pathname,
+      referrer: document.referrer || "direct",
+      timestamp: new Date().toISOString()
+    };
+    for (var k in attr) if (Object.prototype.hasOwnProperty.call(attr, k)) payload[k] = attr[k];
+
+    // send to Make (fallback to GAS if provided)
+    (function () {
+      if (MAKE_WEBHOOK) {
+        postJSON(MAKE_WEBHOOK, payload).then(function (ok) {
+          if (!ok && GAS_FALLBACK) postJSON(GAS_FALLBACK, payload);
+        });
+      } else if (GAS_FALLBACK) {
+        postJSON(GAS_FALLBACK, payload);
+      }
+    })();
+
+    // GA4 event
+    trackGA4(GA4_EVENTS.page, {
+      visitor_id: VISITOR_ID,
+      page: payload.page,
+      referrer: payload.referrer
+    });
+
+    try { sessionStorage.setItem(key, "1"); } catch(_) {}
+  }
+
+  // --- 15-second dwell pings (repeat) ---
+  function startDwellPings() {
+    var secs = 0;
+    setInterval(function () {
+      secs += 15;
+      var attr = persistAttribution();
+      var payload = {
+        event: "dwell",
+        source: SOURCES.page,
+        visitor_id: VISITOR_ID,
+        page: location.pathname,
+        dwell_seconds: secs,
+        timestamp: new Date().toISOString()
+      };
+      for (var k in attr) if (Object.prototype.hasOwnProperty.call(attr, k)) payload[k] = attr[k];
+
+      if (MAKE_WEBHOOK) postJSON(MAKE_WEBHOOK, payload);
+      else if (GAS_FALLBACK) postJSON(GAS_FALLBACK, payload);
+
+      trackGA4(GA4_EVENTS.dwell, {
+        visitor_id: VISITOR_ID,
+        page: location.pathname,
+        dwell_seconds: secs
+      });
+    }, 15000);
+  }
+
+  // init safely alongside your existing boot logic
+  function initAddon() { try { beaconOncePerPage(); } catch(_) {} try { startDwellPings(); } catch(_) {} }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAddon);
+  } else {
+    initAddon();
+  }
+})();
