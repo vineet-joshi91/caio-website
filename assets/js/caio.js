@@ -67,14 +67,14 @@ function once(fn) {
  *    This handles pages where old URLs are still present.
  */
 function rewriteLegacyAppLinks() {
-  var legacyHost = "caio-frontend.vercel.app";
+  var legacyHost = "caioinsights.com";
   var anchors = qsAll('a[href*="' + legacyHost + '"]');
 
   anchors.forEach(function (a) {
     try {
       var href = a.getAttribute("href") || "";
       // Replace only the host part (keep path/query)
-      // Example: https://caio-frontend.vercel.app/signup?plan=demo
+      // Example: https://caioinsights.com/signup?plan=demo
       // becomes: https://caioinsights.com/signup?plan=demo
       href = href.replace("https://" + legacyHost, APP_BASE);
       href = href.replace("http://" + legacyHost, APP_BASE);

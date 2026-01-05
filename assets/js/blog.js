@@ -5,7 +5,7 @@
 
 // Ensure hard links are available even if site.js loads after this
 window.__CAIO__ = Object.assign(window.__CAIO__ || {}, {
-  TRY_DEMO_URL: window.__CAIO__?.TRY_DEMO_URL || 'https://caio-frontend.vercel.app/signup?plan=demo',
+  TRY_DEMO_URL: window.__CAIO__?.TRY_DEMO_URL || 'https://caioinsights.com/signup?plan=demo',
   CONTACT_URL:  window.__CAIO__?.CONTACT_URL  || '/contact.html'
 });
 
